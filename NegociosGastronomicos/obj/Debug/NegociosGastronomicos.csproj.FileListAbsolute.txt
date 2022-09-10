@@ -1,0 +1,10 @@
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\NegociosGastronomicos.exe.config
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\NegociosGastronomicos.exe
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\NegociosGastronomicos.pdb
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.AssemblyReference.cache
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.Menu.resources
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.Properties.Resources.resources
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.GenerateResource.cache
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.CoreCompileInputs.cache
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.exe
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.pdb
