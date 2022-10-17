@@ -31,29 +31,30 @@ namespace NegociosGastronomicos
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.producciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasYAlmacenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prepararPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDePlatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeMaterialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarCobroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.producciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prepararPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDePlatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeMaterialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasYAlmacenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requisiciónManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.órdenesDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recepcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resguardarrecuperarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDePermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resguardarrecuperarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDePermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,71 +84,12 @@ namespace NegociosGastronomicos
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
             // 
-            // producciónToolStripMenuItem
-            // 
-            this.producciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.prepararPedidoToolStripMenuItem,
-            this.gestiónDePlatosToolStripMenuItem,
-            this.gestiónDeMaterialesToolStripMenuItem});
-            this.producciónToolStripMenuItem.Name = "producciónToolStripMenuItem";
-            this.producciónToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.producciónToolStripMenuItem.Text = "Producción";
-            // 
-            // comprasYAlmacenesToolStripMenuItem
-            // 
-            this.comprasYAlmacenesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.requisiciónManualToolStripMenuItem,
-            this.órdenesDeCompraToolStripMenuItem,
-            this.recepcionesToolStripMenuItem,
-            this.pagosToolStripMenuItem});
-            this.comprasYAlmacenesToolStripMenuItem.Name = "comprasYAlmacenesToolStripMenuItem";
-            this.comprasYAlmacenesToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
-            this.comprasYAlmacenesToolStripMenuItem.Text = "Compras y Almacenes";
-            // 
-            // sistemaToolStripMenuItem
-            // 
-            this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resguardarrecuperarToolStripMenuItem,
-            this.gestiónDeUsuariosToolStripMenuItem,
-            this.gestiónDePermisosToolStripMenuItem});
-            this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
-            this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.sistemaToolStripMenuItem.Text = "Sistema";
-            // 
-            // usuarioToolStripMenuItem
-            // 
-            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cambiarContraseñaToolStripMenuItem,
-            this.cambiarIdiomaToolStripMenuItem,
-            this.ayudaToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem});
-            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.usuarioToolStripMenuItem.Text = "Usuario";
-            // 
-            // prepararPedidoToolStripMenuItem
-            // 
-            this.prepararPedidoToolStripMenuItem.Name = "prepararPedidoToolStripMenuItem";
-            this.prepararPedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.prepararPedidoToolStripMenuItem.Text = "Preparar pedido";
-            // 
-            // gestiónDePlatosToolStripMenuItem
-            // 
-            this.gestiónDePlatosToolStripMenuItem.Name = "gestiónDePlatosToolStripMenuItem";
-            this.gestiónDePlatosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.gestiónDePlatosToolStripMenuItem.Text = "Gestión de platos";
-            // 
-            // gestiónDeMaterialesToolStripMenuItem
-            // 
-            this.gestiónDeMaterialesToolStripMenuItem.Name = "gestiónDeMaterialesToolStripMenuItem";
-            this.gestiónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.gestiónDeMaterialesToolStripMenuItem.Text = "Gestión de materiales";
-            // 
             // abrirMesaToolStripMenuItem
             // 
             this.abrirMesaToolStripMenuItem.Name = "abrirMesaToolStripMenuItem";
             this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirMesaToolStripMenuItem.Text = "Abrir mesa";
+            this.abrirMesaToolStripMenuItem.Click += new System.EventHandler(this.abrirMesaToolStripMenuItem_Click);
             // 
             // cambiarMesaToolStripMenuItem
             // 
@@ -173,6 +115,46 @@ namespace NegociosGastronomicos
             this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.realizarCobroToolStripMenuItem.Text = "Realizar cobro";
             // 
+            // producciónToolStripMenuItem
+            // 
+            this.producciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.prepararPedidoToolStripMenuItem,
+            this.gestiónDePlatosToolStripMenuItem,
+            this.gestiónDeMaterialesToolStripMenuItem});
+            this.producciónToolStripMenuItem.Name = "producciónToolStripMenuItem";
+            this.producciónToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.producciónToolStripMenuItem.Text = "Producción";
+            // 
+            // prepararPedidoToolStripMenuItem
+            // 
+            this.prepararPedidoToolStripMenuItem.Name = "prepararPedidoToolStripMenuItem";
+            this.prepararPedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.prepararPedidoToolStripMenuItem.Text = "Preparar pedido";
+            // 
+            // gestiónDePlatosToolStripMenuItem
+            // 
+            this.gestiónDePlatosToolStripMenuItem.Name = "gestiónDePlatosToolStripMenuItem";
+            this.gestiónDePlatosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.gestiónDePlatosToolStripMenuItem.Text = "Gestión de platos";
+            // 
+            // gestiónDeMaterialesToolStripMenuItem
+            // 
+            this.gestiónDeMaterialesToolStripMenuItem.Name = "gestiónDeMaterialesToolStripMenuItem";
+            this.gestiónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.gestiónDeMaterialesToolStripMenuItem.Text = "Gestión de materiales";
+            this.gestiónDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeMaterialesToolStripMenuItem_Click);
+            // 
+            // comprasYAlmacenesToolStripMenuItem
+            // 
+            this.comprasYAlmacenesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requisiciónManualToolStripMenuItem,
+            this.órdenesDeCompraToolStripMenuItem,
+            this.recepcionesToolStripMenuItem,
+            this.pagosToolStripMenuItem});
+            this.comprasYAlmacenesToolStripMenuItem.Name = "comprasYAlmacenesToolStripMenuItem";
+            this.comprasYAlmacenesToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
+            this.comprasYAlmacenesToolStripMenuItem.Text = "Compras y Almacenes";
+            // 
             // requisiciónManualToolStripMenuItem
             // 
             this.requisiciónManualToolStripMenuItem.Name = "requisiciónManualToolStripMenuItem";
@@ -196,6 +178,45 @@ namespace NegociosGastronomicos
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
             this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
+            // 
+            // sistemaToolStripMenuItem
+            // 
+            this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resguardarrecuperarToolStripMenuItem,
+            this.gestiónDeUsuariosToolStripMenuItem,
+            this.gestiónDePermisosToolStripMenuItem});
+            this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
+            this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.sistemaToolStripMenuItem.Text = "Sistema";
+            // 
+            // resguardarrecuperarToolStripMenuItem
+            // 
+            this.resguardarrecuperarToolStripMenuItem.Name = "resguardarrecuperarToolStripMenuItem";
+            this.resguardarrecuperarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.resguardarrecuperarToolStripMenuItem.Text = "Resguardar/recuperar";
+            // 
+            // gestiónDeUsuariosToolStripMenuItem
+            // 
+            this.gestiónDeUsuariosToolStripMenuItem.Name = "gestiónDeUsuariosToolStripMenuItem";
+            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de usuarios";
+            // 
+            // gestiónDePermisosToolStripMenuItem
+            // 
+            this.gestiónDePermisosToolStripMenuItem.Name = "gestiónDePermisosToolStripMenuItem";
+            this.gestiónDePermisosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.gestiónDePermisosToolStripMenuItem.Text = "Gestión de permisos";
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cambiarContraseñaToolStripMenuItem,
+            this.cambiarIdiomaToolStripMenuItem,
+            this.ayudaToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // cambiarContraseñaToolStripMenuItem
             // 
@@ -221,29 +242,20 @@ namespace NegociosGastronomicos
             this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             // 
-            // resguardarrecuperarToolStripMenuItem
+            // panelContenedorPrincipal
             // 
-            this.resguardarrecuperarToolStripMenuItem.Name = "resguardarrecuperarToolStripMenuItem";
-            this.resguardarrecuperarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.resguardarrecuperarToolStripMenuItem.Text = "Resguardar/recuperar";
-            // 
-            // gestiónDeUsuariosToolStripMenuItem
-            // 
-            this.gestiónDeUsuariosToolStripMenuItem.Name = "gestiónDeUsuariosToolStripMenuItem";
-            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de usuarios";
-            // 
-            // gestiónDePermisosToolStripMenuItem
-            // 
-            this.gestiónDePermisosToolStripMenuItem.Name = "gestiónDePermisosToolStripMenuItem";
-            this.gestiónDePermisosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.gestiónDePermisosToolStripMenuItem.Text = "Gestión de permisos";
+            this.panelContenedorPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedorPrincipal.Location = new System.Drawing.Point(0, 24);
+            this.panelContenedorPrincipal.Name = "panelContenedorPrincipal";
+            this.panelContenedorPrincipal.Size = new System.Drawing.Size(1264, 657);
+            this.panelContenedorPrincipal.TabIndex = 1;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.panelContenedorPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
@@ -282,5 +294,6 @@ namespace NegociosGastronomicos
         private System.Windows.Forms.ToolStripMenuItem cambiarIdiomaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.Panel panelContenedorPrincipal;
     }
 }

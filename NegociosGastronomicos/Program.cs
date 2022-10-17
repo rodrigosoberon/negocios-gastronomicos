@@ -18,7 +18,7 @@ namespace NegociosGastronomicos
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Cambiar aca el form de inicio
-            Application.Run(new Form1());
+            Application.Run(new Menu());
         }
     }
 }
