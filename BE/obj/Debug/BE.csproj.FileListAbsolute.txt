@@ -1,0 +1,6 @@
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\bin\Debug\BE.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\bin\Debug\BE.pdb
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\obj\Debug\BE.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\obj\Debug\BE.pdb
