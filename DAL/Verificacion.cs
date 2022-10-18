@@ -35,5 +35,25 @@ namespace DAL
             DAO mDAO = new DAO();
             return mDAO.ExecuteScalar(mCommandText);
         }
+
+        public static int CalcularDVV(string nombreTabla)
+        {
+            string mCommandText = "select DVH from " + nombreTabla;
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            int sumaDVH = 0;
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                sumaDVH += int.Parse(mDataRow["DVH"].ToString());
+            }
+            return sumaDVH;
+        }
+
+        public static int AgregarDVV(string nombreTabla, int dvv)
+        {
+            string mCommandText = "update DigitoVerificador set DVV = " + dvv + " where NombreTabla = '" + nombreTabla + "'";
+            DAO mDAO = new DAO();
+            return mDAO.ExecuteScalar(mCommandText);
+        }
     }
 }

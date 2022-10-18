@@ -30,9 +30,9 @@ namespace NegociosGastronomicos
         private void gestiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            Form1 form1 = new Form1() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(form1);
-            form1.Show();
+            GestionMateriales gestionMateriales = new GestionMateriales() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionMateriales);
+            gestionMateriales.Show();
         }
     }
 }

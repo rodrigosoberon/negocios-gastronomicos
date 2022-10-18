@@ -1,7 +1,7 @@
 ﻿
 namespace NegociosGastronomicos
 {
-    partial class Form1
+    partial class GestionMateriales
     {
         /// <summary>
         /// Required designer variable.
@@ -112,6 +112,7 @@ namespace NegociosGastronomicos
             this.btnBajaMaterial.TabIndex = 8;
             this.btnBajaMaterial.Text = "Baja";
             this.btnBajaMaterial.UseVisualStyleBackColor = true;
+            this.btnBajaMaterial.Click += new System.EventHandler(this.btnBajaMaterial_Click);
             // 
             // btnCancelar
             // 
@@ -142,7 +143,7 @@ namespace NegociosGastronomicos
             this.label4.TabIndex = 11;
             this.label4.Text = "Gestión de materiales";
             // 
-            // Form1
+            // GestionMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,7 +160,7 @@ namespace NegociosGastronomicos
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregarMaterial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "GestionMateriales";
             this.Text = "Gestión de Materiales";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdMateriales)).EndInit();

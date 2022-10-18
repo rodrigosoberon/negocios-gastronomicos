@@ -12,9 +12,9 @@ using BE;
 
 namespace NegociosGastronomicos
 {
-    public partial class Form1 : Form
+    public partial class GestionMateriales : Form
     {
-        public Form1()
+        public GestionMateriales()
         {
             InitializeComponent();
         }
@@ -99,6 +99,14 @@ namespace NegociosGastronomicos
             materialBL.Modificar(materialSeleccionado);
             ActualizarMateriales();
 
+        }
+
+        private void btnBajaMaterial_Click(object sender, EventArgs e)
+        {
+            Material materialBorrar = new Material { IdMaterial = materialSeleccionado.IdMaterial };
+            MaterialBL materialBL = new MaterialBL();
+            materialBL.Borrar(materialBorrar);
+            ActualizarMateriales();
         }
     }
 }

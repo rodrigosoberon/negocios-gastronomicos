@@ -87,32 +87,32 @@ namespace NegociosGastronomicos
             // abrirMesaToolStripMenuItem
             // 
             this.abrirMesaToolStripMenuItem.Name = "abrirMesaToolStripMenuItem";
-            this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.abrirMesaToolStripMenuItem.Text = "Abrir mesa";
             this.abrirMesaToolStripMenuItem.Click += new System.EventHandler(this.abrirMesaToolStripMenuItem_Click);
             // 
             // cambiarMesaToolStripMenuItem
             // 
             this.cambiarMesaToolStripMenuItem.Name = "cambiarMesaToolStripMenuItem";
-            this.cambiarMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.cambiarMesaToolStripMenuItem.Text = "Cambiar mesa";
             // 
             // cerrarMesaToolStripMenuItem
             // 
             this.cerrarMesaToolStripMenuItem.Name = "cerrarMesaToolStripMenuItem";
-            this.cerrarMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.cerrarMesaToolStripMenuItem.Text = "Cerrar mesa";
             // 
             // generarPedidoToolStripMenuItem
             // 
             this.generarPedidoToolStripMenuItem.Name = "generarPedidoToolStripMenuItem";
-            this.generarPedidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generarPedidoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.generarPedidoToolStripMenuItem.Text = "Generar pedido";
             // 
             // realizarCobroToolStripMenuItem
             // 
             this.realizarCobroToolStripMenuItem.Name = "realizarCobroToolStripMenuItem";
-            this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.realizarCobroToolStripMenuItem.Text = "Realizar cobro";
             // 
             // producciónToolStripMenuItem
@@ -158,25 +158,25 @@ namespace NegociosGastronomicos
             // requisiciónManualToolStripMenuItem
             // 
             this.requisiciónManualToolStripMenuItem.Name = "requisiciónManualToolStripMenuItem";
-            this.requisiciónManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requisiciónManualToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.requisiciónManualToolStripMenuItem.Text = "Requisición manual";
             // 
             // órdenesDeCompraToolStripMenuItem
             // 
             this.órdenesDeCompraToolStripMenuItem.Name = "órdenesDeCompraToolStripMenuItem";
-            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.órdenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
             // 
             // recepcionesToolStripMenuItem
             // 
             this.recepcionesToolStripMenuItem.Name = "recepcionesToolStripMenuItem";
-            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.recepcionesToolStripMenuItem.Text = "Recepciones";
             // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // sistemaToolStripMenuItem
@@ -259,7 +259,7 @@ namespace NegociosGastronomicos
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
-            this.Text = "Menu";
+            this.Text = "Negocios Gastronómicos";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

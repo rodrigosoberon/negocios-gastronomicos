@@ -32,10 +32,14 @@ namespace DAL
             string mCommandText = "INSERT INTO Material (Descripcion, Cantidad, EnRequisicion, DVH) VALUES ('" + pMaterial.Descripcion + "', '" + pMaterial.Cantidad + "', '" + pMaterial.EnRequisicion + "', '" + pMaterial.DVH + "'); SELECT CAST(scope_identity() AS int)";
             // Con scope_indetity() objtengo el ID creado
             DAO mDAO = new DAO();
-            
             pMaterial.IdMaterial = mDAO.ExecuteScalar(mCommandText);
+            
+            //Verificadores
             pMaterial.DVH = Verificacion.CalcularDVH(ConsultarRegistroMaterial(pMaterial.IdMaterial).Tables[0]);
             Verificacion.AgregarDVH("Material", pMaterial.IdMaterial, pMaterial.DVH);
+            int dvv = Verificacion.CalcularDVV("Material");
+            Verificacion.AgregarDVV("Material", dvv);
+
             return pMaterial.IdMaterial;
         }
         
@@ -53,8 +57,24 @@ namespace DAL
             string mCommandText = "UPDATE Material SET Descripcion = '" + pMaterial.Descripcion + "', Cantidad = '" + pMaterial.Cantidad + "', EnRequisicion = '" + pMaterial.EnRequisicion + "' WHERE IdMaterial = " + pMaterial.IdMaterial;
             DAO mDAO = new DAO();
             mDAO.ExecuteScalar(mCommandText);
+            
+            //Verificadores
             pMaterial.DVH = Verificacion.CalcularDVH(ConsultarRegistroMaterial(pMaterial.IdMaterial).Tables[0]);
             Verificacion.AgregarDVH("Material", pMaterial.IdMaterial, pMaterial.DVH);
+            int dvv = Verificacion.CalcularDVV("Material");
+            Verificacion.AgregarDVV("Material", dvv);
+
+            return 1;
+        }
+
+        public static int Borrar(Material pMaterial)
+        {
+            
+            string mCommandText = "DELETE FROM Material WHERE IdMaterial = " + pMaterial.IdMaterial;
+            DAO mDAO = new DAO();
+            mDAO.ExecuteScalar(mCommandText);
+            int dvv = Verificacion.CalcularDVV("Material");
+            Verificacion.AgregarDVV("Material", dvv);
             return 1;
         }
     }
