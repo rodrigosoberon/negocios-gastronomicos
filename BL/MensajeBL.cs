@@ -13,7 +13,7 @@ namespace BL
     {
 
         //Harcodeado idioma del usuario
-        public string idiomaUsuario = "es";
+        public string idiomaUsuario = "en";
         
 
         public List<Mensaje> Listar()

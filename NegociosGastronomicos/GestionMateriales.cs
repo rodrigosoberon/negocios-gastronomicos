@@ -53,7 +53,7 @@ namespace NegociosGastronomicos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            grdMateriales.Columns.Add("IdMaterial", "IdMaterial");
+            grdMateriales.Columns.Add("IdMaterial", "Id");
             grdMateriales.Columns.Add("Descripcion", "Descripcion");
             grdMateriales.Columns.Add("Cantidad", "Cantidad");
             grdMateriales.Columns.Add("EnRequisicion", "EnRequisicion");
@@ -62,7 +62,15 @@ namespace NegociosGastronomicos
             grdMateriales.AllowUserToDeleteRows = false;
             grdMateriales.MultiSelect = false;
             grdMateriales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //grdMateriales.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+            try
+            {
+                MostrarTextos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falta alguna traducción para el lenguaje elegido");
+            }
 
             ActualizarMateriales();
         }
@@ -86,8 +94,6 @@ namespace NegociosGastronomicos
 
             txtDescripcion.Text = materialSeleccionado.Descripcion;
             txtCantidad.Text = materialSeleccionado.Cantidad.ToString();
-
-            //ActualizarMateriales();
         }
 
         private void btnModificarMaterial_Click(object sender, EventArgs e)
@@ -108,5 +114,46 @@ namespace NegociosGastronomicos
             materialBL.Borrar(materialBorrar);
             ActualizarMateriales();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            txtCantidad.Text = "";
+            txtDescripcion.Text = "";
+        }
+
+        public void MostrarTextos()
+        {
+            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones();
+
+            //Creo un DataView de la tabla de traducciones para poder filtrar por el nombre del control
+            DataView mMensajesView = new DataView(mMensajes);
+            mMensajesView.Sort = "Nombre";
+
+            //Obtengo el texto traducido para cada control con texto de la interfaz
+            
+            //Etiquetas
+            lblGestionMateriales.Text = mMensajesView[mMensajesView.Find(lblGestionMateriales.Name)]["Texto"].ToString();
+            lblDesccripcion.Text = mMensajesView[mMensajesView.Find(lblDesccripcion.Name)]["Texto"].ToString();
+            lblCantidad.Text = mMensajesView[mMensajesView.Find(lblCantidad.Name)]["Texto"].ToString();
+
+            //Botones
+            btnAgregar.Text = mMensajesView[mMensajesView.Find(btnAgregar.Name)]["Texto"].ToString();
+            btnModificar.Text = mMensajesView[mMensajesView.Find(btnModificar.Name)]["Texto"].ToString();
+            btnBaja.Text = mMensajesView[mMensajesView.Find(btnBaja.Name)]["Texto"].ToString();
+            btnCancelar.Text = mMensajesView[mMensajesView.Find(btnCancelar.Name)]["Texto"].ToString();
+            btnLimpiarCampos.Text = mMensajesView[mMensajesView.Find(btnLimpiarCampos.Name)]["Texto"].ToString();
+
+            //Datagrid
+            for (int i = 1; i < grdMateriales.Columns.Count; i++)
+            {
+                grdMateriales.Columns[i].HeaderText = mMensajesView[mMensajesView.Find(grdMateriales.Columns[i].Name)]["Texto"].ToString();
+            }
+        }
+
     }
 }
