@@ -36,24 +36,24 @@ namespace NegociosGastronomicos
             this.cerrarMesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarCobroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.producciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prepararPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDePlatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeMaterialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDePlatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDeMaterialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasYAlmacenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.requisiciónManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.órdenesDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requisicionManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordenesDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recepcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resguardarrecuperarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDePermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDePermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContrasenaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@ namespace NegociosGastronomicos
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasToolStripMenuItem,
-            this.producciónToolStripMenuItem,
+            this.produccionToolStripMenuItem,
             this.comprasYAlmacenesToolStripMenuItem,
             this.sistemaToolStripMenuItem,
             this.usuarioToolStripMenuItem});
@@ -82,6 +82,7 @@ namespace NegociosGastronomicos
             this.realizarCobroToolStripMenuItem});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ventasToolStripMenuItem.Tag = "";
             this.ventasToolStripMenuItem.Text = "Ventas";
             // 
             // abrirMesaToolStripMenuItem
@@ -115,15 +116,15 @@ namespace NegociosGastronomicos
             this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.realizarCobroToolStripMenuItem.Text = "Realizar cobro";
             // 
-            // producciónToolStripMenuItem
+            // produccionToolStripMenuItem
             // 
-            this.producciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.produccionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.prepararPedidoToolStripMenuItem,
-            this.gestiónDePlatosToolStripMenuItem,
-            this.gestiónDeMaterialesToolStripMenuItem});
-            this.producciónToolStripMenuItem.Name = "producciónToolStripMenuItem";
-            this.producciónToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.producciónToolStripMenuItem.Text = "Producción";
+            this.gestionDePlatosToolStripMenuItem,
+            this.gestionDeMaterialesToolStripMenuItem});
+            this.produccionToolStripMenuItem.Name = "produccionToolStripMenuItem";
+            this.produccionToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.produccionToolStripMenuItem.Text = "Producción";
             // 
             // prepararPedidoToolStripMenuItem
             // 
@@ -131,60 +132,60 @@ namespace NegociosGastronomicos
             this.prepararPedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.prepararPedidoToolStripMenuItem.Text = "Preparar pedido";
             // 
-            // gestiónDePlatosToolStripMenuItem
+            // gestionDePlatosToolStripMenuItem
             // 
-            this.gestiónDePlatosToolStripMenuItem.Name = "gestiónDePlatosToolStripMenuItem";
-            this.gestiónDePlatosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.gestiónDePlatosToolStripMenuItem.Text = "Gestión de platos";
+            this.gestionDePlatosToolStripMenuItem.Name = "gestionDePlatosToolStripMenuItem";
+            this.gestionDePlatosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.gestionDePlatosToolStripMenuItem.Text = "Gestión de platos";
             // 
-            // gestiónDeMaterialesToolStripMenuItem
+            // gestionDeMaterialesToolStripMenuItem
             // 
-            this.gestiónDeMaterialesToolStripMenuItem.Name = "gestiónDeMaterialesToolStripMenuItem";
-            this.gestiónDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.gestiónDeMaterialesToolStripMenuItem.Text = "Gestión de materiales";
-            this.gestiónDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeMaterialesToolStripMenuItem_Click);
+            this.gestionDeMaterialesToolStripMenuItem.Name = "gestionDeMaterialesToolStripMenuItem";
+            this.gestionDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.gestionDeMaterialesToolStripMenuItem.Text = "Gestión de materiales";
+            this.gestionDeMaterialesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeMaterialesToolStripMenuItem_Click);
             // 
             // comprasYAlmacenesToolStripMenuItem
             // 
             this.comprasYAlmacenesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.requisiciónManualToolStripMenuItem,
-            this.órdenesDeCompraToolStripMenuItem,
+            this.requisicionManualToolStripMenuItem,
+            this.ordenesDeCompraToolStripMenuItem,
             this.recepcionesToolStripMenuItem,
             this.pagosToolStripMenuItem});
             this.comprasYAlmacenesToolStripMenuItem.Name = "comprasYAlmacenesToolStripMenuItem";
             this.comprasYAlmacenesToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
             this.comprasYAlmacenesToolStripMenuItem.Text = "Compras y Almacenes";
             // 
-            // requisiciónManualToolStripMenuItem
+            // requisicionManualToolStripMenuItem
             // 
-            this.requisiciónManualToolStripMenuItem.Name = "requisiciónManualToolStripMenuItem";
-            this.requisiciónManualToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.requisiciónManualToolStripMenuItem.Text = "Requisición manual";
+            this.requisicionManualToolStripMenuItem.Name = "requisicionManualToolStripMenuItem";
+            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requisicionManualToolStripMenuItem.Text = "Requisición manual";
             // 
-            // órdenesDeCompraToolStripMenuItem
+            // ordenesDeCompraToolStripMenuItem
             // 
-            this.órdenesDeCompraToolStripMenuItem.Name = "órdenesDeCompraToolStripMenuItem";
-            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.órdenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
+            this.ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
+            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
             // 
             // recepcionesToolStripMenuItem
             // 
             this.recepcionesToolStripMenuItem.Name = "recepcionesToolStripMenuItem";
-            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recepcionesToolStripMenuItem.Text = "Recepciones";
             // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // sistemaToolStripMenuItem
             // 
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resguardarrecuperarToolStripMenuItem,
-            this.gestiónDeUsuariosToolStripMenuItem,
-            this.gestiónDePermisosToolStripMenuItem});
+            this.gestionDeUsuariosToolStripMenuItem,
+            this.gestionDePermisosToolStripMenuItem});
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "Sistema";
@@ -195,34 +196,34 @@ namespace NegociosGastronomicos
             this.resguardarrecuperarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.resguardarrecuperarToolStripMenuItem.Text = "Resguardar/recuperar";
             // 
-            // gestiónDeUsuariosToolStripMenuItem
+            // gestionDeUsuariosToolStripMenuItem
             // 
-            this.gestiónDeUsuariosToolStripMenuItem.Name = "gestiónDeUsuariosToolStripMenuItem";
-            this.gestiónDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.gestiónDeUsuariosToolStripMenuItem.Text = "Gestión de usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
+            this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.gestionDeUsuariosToolStripMenuItem.Text = "Gestión de usuarios";
             // 
-            // gestiónDePermisosToolStripMenuItem
+            // gestionDePermisosToolStripMenuItem
             // 
-            this.gestiónDePermisosToolStripMenuItem.Name = "gestiónDePermisosToolStripMenuItem";
-            this.gestiónDePermisosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.gestiónDePermisosToolStripMenuItem.Text = "Gestión de permisos";
+            this.gestionDePermisosToolStripMenuItem.Name = "gestionDePermisosToolStripMenuItem";
+            this.gestionDePermisosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.gestionDePermisosToolStripMenuItem.Text = "Gestión de permisos";
             // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cambiarContraseñaToolStripMenuItem,
+            this.cambiarContrasenaToolStripMenuItem,
             this.cambiarIdiomaToolStripMenuItem,
             this.ayudaToolStripMenuItem,
-            this.cerrarSesiónToolStripMenuItem});
+            this.cerrarSesionToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
-            // cambiarContraseñaToolStripMenuItem
+            // cambiarContrasenaToolStripMenuItem
             // 
-            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
-            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
+            this.cambiarContrasenaToolStripMenuItem.Name = "cambiarContrasenaToolStripMenuItem";
+            this.cambiarContrasenaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarContrasenaToolStripMenuItem.Text = "Cambiar contraseña";
             // 
             // cambiarIdiomaToolStripMenuItem
             // 
@@ -236,11 +237,11 @@ namespace NegociosGastronomicos
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
-            // cerrarSesiónToolStripMenuItem
+            // cerrarSesionToolStripMenuItem
             // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
             // 
             // panelContenedorPrincipal
             // 
@@ -260,6 +261,7 @@ namespace NegociosGastronomicos
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
             this.Text = "Negocios Gastronómicos";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -271,7 +273,7 @@ namespace NegociosGastronomicos
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem producciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem produccionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprasYAlmacenesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
@@ -281,19 +283,19 @@ namespace NegociosGastronomicos
         private System.Windows.Forms.ToolStripMenuItem generarPedidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem realizarCobroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prepararPedidoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDePlatosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDeMaterialesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem requisiciónManualToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem órdenesDeCompraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDePlatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDeMaterialesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requisicionManualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ordenesDeCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recepcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resguardarrecuperarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDeUsuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestiónDePermisosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDeUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDePermisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarContrasenaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarIdiomaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.Panel panelContenedorPrincipal;
     }
 }
