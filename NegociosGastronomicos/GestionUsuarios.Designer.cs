@@ -43,7 +43,7 @@
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnBaja = new System.Windows.Forms.Button();
+            this.btnEstado = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tabControlFP = new System.Windows.Forms.TabControl();
             this.tabPageFamilias = new System.Windows.Forms.TabPage();
@@ -74,7 +74,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(584, 62);
+            this.lblUsuario.Location = new System.Drawing.Point(584, 129);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 14;
@@ -83,7 +83,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(584, 153);
+            this.lblNombre.Location = new System.Drawing.Point(584, 196);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 15;
@@ -92,7 +92,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(584, 244);
+            this.lblApellido.Location = new System.Drawing.Point(584, 264);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 16;
@@ -101,7 +101,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(584, 335);
+            this.lblEmail.Location = new System.Drawing.Point(584, 330);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 17;
@@ -110,7 +110,7 @@
             // lblContrasenaTemporal
             // 
             this.lblContrasenaTemporal.AutoSize = true;
-            this.lblContrasenaTemporal.Location = new System.Drawing.Point(584, 426);
+            this.lblContrasenaTemporal.Location = new System.Drawing.Point(584, 457);
             this.lblContrasenaTemporal.Name = "lblContrasenaTemporal";
             this.lblContrasenaTemporal.Size = new System.Drawing.Size(104, 13);
             this.lblContrasenaTemporal.TabIndex = 18;
@@ -118,35 +118,35 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(584, 78);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(584, 145);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(188, 20);
             this.txtNombreUsuario.TabIndex = 19;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(584, 169);
+            this.txtNombre.Location = new System.Drawing.Point(584, 212);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(188, 20);
             this.txtNombre.TabIndex = 20;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(584, 260);
+            this.txtApellido.Location = new System.Drawing.Point(584, 280);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(188, 20);
             this.txtApellido.TabIndex = 21;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(584, 351);
+            this.txtEmail.Location = new System.Drawing.Point(584, 346);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(188, 20);
             this.txtEmail.TabIndex = 22;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(584, 442);
+            this.txtPassword.Location = new System.Drawing.Point(584, 473);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(188, 20);
             this.txtPassword.TabIndex = 23;
@@ -163,16 +163,17 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(552, 611);
+            this.btnModificar.Location = new System.Drawing.Point(536, 611);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(794, 611);
+            this.btnCancelar.Location = new System.Drawing.Point(790, 611);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 27;
@@ -180,14 +181,15 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnBaja
+            // btnEstado
             // 
-            this.btnBaja.Location = new System.Drawing.Point(673, 611);
-            this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(75, 23);
-            this.btnBaja.TabIndex = 26;
-            this.btnBaja.Text = "Baja";
-            this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnEstado.Location = new System.Drawing.Point(641, 611);
+            this.btnEstado.Name = "btnEstado";
+            this.btnEstado.Size = new System.Drawing.Size(119, 23);
+            this.btnEstado.TabIndex = 26;
+            this.btnEstado.Text = "Habilitar/Deshabilitar";
+            this.btnEstado.UseVisualStyleBackColor = true;
+            this.btnEstado.Click += new System.EventHandler(this.btnEstado_Click);
             // 
             // btnAgregar
             // 
@@ -224,7 +226,7 @@
             this.tabPagePatentes.Location = new System.Drawing.Point(4, 22);
             this.tabPagePatentes.Name = "tabPagePatentes";
             this.tabPagePatentes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePatentes.Size = new System.Drawing.Size(523, 454);
+            this.tabPagePatentes.Size = new System.Drawing.Size(457, 505);
             this.tabPagePatentes.TabIndex = 1;
             this.tabPagePatentes.Text = "Patentes";
             this.tabPagePatentes.UseVisualStyleBackColor = true;
@@ -237,7 +239,7 @@
             this.Controls.Add(this.tabControlFP);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnBaja);
+            this.Controls.Add(this.btnEstado);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.txtPassword);
@@ -280,7 +282,7 @@
         private System.Windows.Forms.Button btnLimpiarCampos;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnBaja;
+        private System.Windows.Forms.Button btnEstado;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TabControl tabControlFP;
         private System.Windows.Forms.TabPage tabPageFamilias;

@@ -12,17 +12,17 @@ namespace BL
         }
         public int GuardarNuevo(Usuario pUsuario)
         {
-            return UsuarioDAL.GuardarNuevo(pUsuario);
+            return UsuarioDAL.Modificar(pUsuario);
         }
 
-        //public int Modificar(Usuario pUsuario)
-        //{
-        //    return UsuarioDAL.Modificar(pUsuario);
-        //}
+        public int Modificar(Usuario pUsuario)
+        {
+            return UsuarioDAL.Modificar(pUsuario);
+        }
 
-        //public int Borrar(Usuario pUsuario)
-        //{
-        //    return UsuarioDAL.Borrar(pUsuario);
-        //}
+        public int CambiarEstado(Usuario pUsuario)
+        {
+            return UsuarioDAL.CambiarEstado(pUsuario);
+        }
     }
 }

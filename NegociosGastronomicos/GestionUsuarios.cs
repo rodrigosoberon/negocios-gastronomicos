@@ -75,7 +75,7 @@ namespace NegociosGastronomicos
             //Botones
             btnAgregar.Text = mMensajesView[mMensajesView.Find(btnAgregar.Name)]["Texto"].ToString();
             btnModificar.Text = mMensajesView[mMensajesView.Find(btnModificar.Name)]["Texto"].ToString();
-            btnBaja.Text = mMensajesView[mMensajesView.Find(btnBaja.Name)]["Texto"].ToString();
+            btnEstado.Text = mMensajesView[mMensajesView.Find(btnEstado.Name)]["Texto"].ToString();
             btnCancelar.Text = mMensajesView[mMensajesView.Find(btnCancelar.Name)]["Texto"].ToString();
             btnLimpiarCampos.Text = mMensajesView[mMensajesView.Find(btnLimpiarCampos.Name)]["Texto"].ToString();
 
@@ -84,6 +84,7 @@ namespace NegociosGastronomicos
             {
                 grdUsuarios.Columns[i].HeaderText = mMensajesView[mMensajesView.Find(grdUsuarios.Columns[i].Name)]["Texto"].ToString();
             }
+
         }
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
@@ -112,7 +113,8 @@ namespace NegociosGastronomicos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Usuario nuevoUsuario = new Usuario {
+            Usuario nuevoUsuario = new Usuario
+            {
                 NombreUsuario = txtNombreUsuario.Text,
                 Nombre = txtNombre.Text,
                 Apellido = txtApellido.Text,
@@ -130,12 +132,34 @@ namespace NegociosGastronomicos
             txtPassword.Text = "";
 
             ActualizarUsuarios();
-            
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            usuarioSeleccionado.NombreUsuario = txtNombreUsuario.Text;
+            usuarioSeleccionado.Nombre = txtNombre.Text;
+            usuarioSeleccionado.Apellido = txtApellido.Text;
+            usuarioSeleccionado.Email = txtEmail.Text;
+
+            UsuarioBL mUsuarioBL = new UsuarioBL();
+            mUsuarioBL.Modificar(usuarioSeleccionado);
+            ActualizarUsuarios();
+        }
+
+        private void btnEstado_Click(object sender, EventArgs e)
+        {
+            usuarioSeleccionado.Estado = !usuarioSeleccionado.Estado;
+            UsuarioBL mUsuarioBL = new UsuarioBL();
+            mUsuarioBL.CambiarEstado(usuarioSeleccionado);
+            ActualizarUsuarios();
         }
     }
 }
