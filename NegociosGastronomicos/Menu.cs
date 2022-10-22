@@ -20,22 +20,6 @@ namespace NegociosGastronomicos
         }
 
         
-        private void abrirMesaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            AbrirMesa abrirMesa = new AbrirMesa() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(abrirMesa);
-            abrirMesa.Show();
-            
-        }
-
-        private void gestiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            GestionMateriales gestionMateriales = new GestionMateriales() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(gestionMateriales);
-            gestionMateriales.Show();
-        }
 
 
 
@@ -96,6 +80,35 @@ namespace NegociosGastronomicos
             {
                 MessageBox.Show("Falta alguna traducción para el lenguaje elegido");
             }
+        }
+
+
+        
+        // Manejo de panel contenedor
+        
+        private void abrirMesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            AbrirMesa abrirMesa = new AbrirMesa() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(abrirMesa);
+            abrirMesa.Show();
+
+        }
+
+        private void gestiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionMateriales gestionMateriales = new GestionMateriales() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionMateriales);
+            gestionMateriales.Show();
+        }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionUsuarios gestionUsuarios = new GestionUsuarios() {TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionUsuarios);
+            gestionUsuarios.Show();
         }
     }
 }

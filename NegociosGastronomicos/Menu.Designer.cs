@@ -159,25 +159,25 @@ namespace NegociosGastronomicos
             // requisicionManualToolStripMenuItem
             // 
             this.requisicionManualToolStripMenuItem.Name = "requisicionManualToolStripMenuItem";
-            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.requisicionManualToolStripMenuItem.Text = "Requisición manual";
             // 
             // ordenesDeCompraToolStripMenuItem
             // 
             this.ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
-            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.ordenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
             // 
             // recepcionesToolStripMenuItem
             // 
             this.recepcionesToolStripMenuItem.Name = "recepcionesToolStripMenuItem";
-            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.recepcionesToolStripMenuItem.Text = "Recepciones";
             // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // sistemaToolStripMenuItem
@@ -201,6 +201,7 @@ namespace NegociosGastronomicos
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestión de usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // gestionDePermisosToolStripMenuItem
             // 

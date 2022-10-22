@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DAO.cs" />
     <Compile Include="MensajeDAL.cs" />
+    <Compile Include="UsuarioDAL.cs" />
     <Compile Include="Verificacion.cs" />
     <Compile Include="MaterialDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
