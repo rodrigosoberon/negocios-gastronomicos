@@ -12,7 +12,7 @@ namespace BL
         }
         public int GuardarNuevo(Usuario pUsuario)
         {
-            return UsuarioDAL.Modificar(pUsuario);
+            return UsuarioDAL.GuardarNuevo(pUsuario);
         }
 
         public int Modificar(Usuario pUsuario)

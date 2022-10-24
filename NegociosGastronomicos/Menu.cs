@@ -110,5 +110,13 @@ namespace NegociosGastronomicos
             panelContenedorPrincipal.Controls.Add(gestionUsuarios);
             gestionUsuarios.Show();
         }
+
+        private void gestionDePermisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionPermisos gestionPermisos = new GestionPermisos() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionPermisos);
+            gestionPermisos.Show();
+        }
     }
 }

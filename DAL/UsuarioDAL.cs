@@ -81,7 +81,7 @@ namespace DAL
             pUsuario.DVH = Verificacion.CalcularDVH(ConsultarRegistro(pUsuario.IdUsuario).Tables[0]);
             Verificacion.AgregarDVH("Usuario", pUsuario.IdUsuario, pUsuario.DVH);
             int dvv = Verificacion.CalcularDVV("Usuario");
-            Verificacion.AgregarDVV("Material", dvv);
+            Verificacion.AgregarDVV("Usuario", dvv);
 
             return 1;
         }
@@ -98,7 +98,7 @@ namespace DAL
             pUsuario.DVH = Verificacion.CalcularDVH(ConsultarRegistro(pUsuario.IdUsuario).Tables[0]);
             Verificacion.AgregarDVH("Usuario", pUsuario.IdUsuario, pUsuario.DVH);
             int dvv = Verificacion.CalcularDVV("Usuario");
-            Verificacion.AgregarDVV("Material", dvv);
+            Verificacion.AgregarDVV("Usuario", dvv);
 
             return 1;
         }

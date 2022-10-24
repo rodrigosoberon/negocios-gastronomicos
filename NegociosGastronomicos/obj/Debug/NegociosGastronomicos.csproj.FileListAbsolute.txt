@@ -19,3 +19,4 @@ C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomi
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.AbrirMesa.resources
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.GestionMateriales.resources
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.GestionUsuarios.resources
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.GestionPermisos.resources

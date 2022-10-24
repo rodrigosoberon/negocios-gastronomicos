@@ -208,6 +208,7 @@ namespace NegociosGastronomicos
             this.gestionDePermisosToolStripMenuItem.Name = "gestionDePermisosToolStripMenuItem";
             this.gestionDePermisosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.gestionDePermisosToolStripMenuItem.Text = "Gestión de permisos";
+            this.gestionDePermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionDePermisosToolStripMenuItem_Click);
             // 
             // usuarioToolStripMenuItem
             // 

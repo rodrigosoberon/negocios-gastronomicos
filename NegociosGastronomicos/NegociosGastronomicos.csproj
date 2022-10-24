@@ -58,6 +58,12 @@
     <Compile Include="GestionMateriales.Designer.cs">
       <DependentUpon>GestionMateriales.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPermisos.Designer.cs">
+      <DependentUpon>GestionPermisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionMateriales.resx">
       <DependentUpon>GestionMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPermisos.resx">
+      <DependentUpon>GestionPermisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionUsuarios.resx">
       <DependentUpon>GestionUsuarios.cs</DependentUpon>
