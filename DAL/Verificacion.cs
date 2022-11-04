@@ -36,6 +36,15 @@ namespace DAL
             return mDAO.ExecuteScalar(mCommandText);
         }
 
+        public static int AgregarDVH(string nombreTabla, string key1, string key2, int id1, int id2, int dvh)
+        {
+            {
+                string mCommandText = "update " + nombreTabla + " set DVH = " + dvh + " where " + key1 + " = " + id1 + " and " + key2 + " = " + id2;
+                DAO mDAO = new DAO();
+                return mDAO.ExecuteScalar(mCommandText);
+            }
+        }
+
         public static int CalcularDVV(string nombreTabla)
         {
             string mCommandText = "select DVH from " + nombreTabla;

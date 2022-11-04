@@ -67,6 +67,7 @@
             this.grdUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdUsuarios.Location = new System.Drawing.Point(21, 62);
             this.grdUsuarios.Name = "grdUsuarios";
+            this.grdUsuarios.ReadOnly = true;
             this.grdUsuarios.Size = new System.Drawing.Size(545, 531);
             this.grdUsuarios.TabIndex = 13;
             this.grdUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsuarios_CellClick);

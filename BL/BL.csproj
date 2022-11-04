@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FamiliaBL.cs" />
     <Compile Include="MaterialBL.cs" />
     <Compile Include="MensajeBL.cs" />
     <Compile Include="PatenteBL.cs" />

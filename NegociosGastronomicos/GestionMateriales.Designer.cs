@@ -90,6 +90,7 @@ namespace NegociosGastronomicos
             this.grdMateriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdMateriales.Location = new System.Drawing.Point(12, 73);
             this.grdMateriales.Name = "grdMateriales";
+            this.grdMateriales.ReadOnly = true;
             this.grdMateriales.Size = new System.Drawing.Size(710, 526);
             this.grdMateriales.TabIndex = 5;
             this.grdMateriales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMateriales_CellClick);
