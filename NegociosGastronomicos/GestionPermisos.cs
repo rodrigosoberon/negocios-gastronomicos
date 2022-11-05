@@ -146,9 +146,12 @@ namespace NegociosGastronomicos
 
         private void grdPatentes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            patenteSeleccionada.IdPatente = Int32.Parse(grdPatentes.Rows[e.RowIndex].Cells[0].Value.ToString());
-            patenteSeleccionada.Descripcion = grdPatentes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtDescripcion.Text = patenteSeleccionada.Descripcion;
+            if (e.RowIndex >= 0)
+            {
+                patenteSeleccionada.IdPatente = Int32.Parse(grdPatentes.Rows[e.RowIndex].Cells[0].Value.ToString());
+                patenteSeleccionada.Descripcion = grdPatentes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescripcion.Text = patenteSeleccionada.Descripcion;
+            }
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
@@ -224,21 +227,30 @@ namespace NegociosGastronomicos
 
         private void grdFamilias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            familiaSeleccionada.IdFamilia = Int32.Parse(grdFamilias.Rows[e.RowIndex].Cells[0].Value.ToString());
-            familiaSeleccionada.Descripcion = grdFamilias.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtDescripcionF.Text = familiaSeleccionada.Descripcion;
-            ActualizarAsignadas();
-            ActualizarDisponibles();
+            if (e.RowIndex >= 0)
+            {
+                familiaSeleccionada.IdFamilia = Int32.Parse(grdFamilias.Rows[e.RowIndex].Cells[0].Value.ToString());
+                familiaSeleccionada.Descripcion = grdFamilias.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtDescripcionF.Text = familiaSeleccionada.Descripcion;
+                ActualizarAsignadas();
+                ActualizarDisponibles();
+            }
         }
 
         private void grdDisponibles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            disponibleSeleccionada.IdPatente = Int32.Parse(grdDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (e.RowIndex >= 0)
+            {
+                disponibleSeleccionada.IdPatente = Int32.Parse(grdDisponibles.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
         }
 
         private void grdAsignadas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            asignadaSeleccionada.IdPatente = Int32.Parse(grdAsignadas.Rows[e.RowIndex].Cells[0].Value.ToString());
+            if (e.RowIndex >= 0)
+            {
+                asignadaSeleccionada.IdPatente = Int32.Parse(grdAsignadas.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
         }
 
 

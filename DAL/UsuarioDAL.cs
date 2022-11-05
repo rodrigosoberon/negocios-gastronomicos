@@ -24,13 +24,15 @@ namespace DAL
                 {
                     IdUsuario = int.Parse(mDataRow["IdUsuario"].ToString()),
                     NombreUsuario = mDataRow["NombreUsuario"].ToString(),
-                    //Password = mDataRow["Password"].ToString(),
                     Nombre = Seguridad.Desencriptar(mDataRow["Nombre"].ToString(), Key, IV),
                     Apellido = Seguridad.Desencriptar(mDataRow["Apellido"].ToString(), Key, IV),
                     Email = Seguridad.Desencriptar(mDataRow["Email"].ToString(), Key, IV),
                     Idioma = mDataRow["Idioma"].ToString(),
                     Estado = bool.Parse(mDataRow["Estado"].ToString()),
+
                 };
+                ObtenerFamilias(mUsuario);
+                ObtenerPatentes(mUsuario);
                 mUsuarios.Add(mUsuario);
             }
             return mUsuarios;
@@ -55,6 +57,40 @@ namespace DAL
             Verificacion.AgregarDVV("Usuario", dvv);
 
             return pUsuario.IdUsuario;
+        }
+
+        public static void ObtenerFamilias(Usuario pUsuario)
+        {
+            string mCommandText = "SELECT * FROM FamUsu WHERE IdUsuario = " + pUsuario.IdUsuario;
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                foreach (Familia mFamilia in FamiliaDAL.Listar())
+                {
+                    if (int.Parse(mDataRow["IdFamilia"].ToString()) == mFamilia.IdFamilia)
+                    {
+                        pUsuario.mFamilias.Add(mFamilia);
+                    }
+                }
+            }
+        }
+
+        public static void ObtenerPatentes(Usuario pUsuario)
+        {
+            string mCommandText = "SELECT * FROM PatUsu WHERE IdUsuario = " + pUsuario.IdUsuario;
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                foreach (Patente mPatente in PatenteDAL.Listar())
+                {
+                    if (int.Parse(mDataRow["IdPatente"].ToString()) == mPatente.IdPatente)
+                    {
+                        pUsuario.mPatentes.Add(mPatente);
+                    }
+                }
+            }
         }
 
         public static DataSet ConsultarRegistro(int idUsuario)
@@ -101,6 +137,76 @@ namespace DAL
             Verificacion.AgregarDVV("Usuario", dvv);
 
             return 1;
+        }
+
+        public static int AsignarFamilia(Usuario pUsuario, Familia pFamilia)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "INSERT INTO FamUsu (IdFamilia, IdUsuario, DVH) VALUES (" + pFamilia.IdFamilia + ", " + pUsuario.IdUsuario + ", 1)";
+            mDAO.ExecuteScalar(mCommandText);
+
+            //Verificadores
+            int DVH = Verificacion.CalcularDVH(ConsultarRegistroFamUsu(pFamilia.IdFamilia, pUsuario.IdUsuario).Tables[0]);
+            Verificacion.AgregarDVH("FamUsu", "IdFamilia", "IdUsuario", pFamilia.IdFamilia, pUsuario.IdUsuario, DVH);
+            int DVV = Verificacion.CalcularDVV("FamUsu");
+            Verificacion.AgregarDVV("FamPat", DVV);
+
+
+            return 1;
+        }
+
+        public static int RemoverFamilia(Usuario pUsuario, Familia pFamilia)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "DELETE FROM FamUsu WHERE IdFamilia = " + pFamilia.IdFamilia + " AND IdUsuario = " + pUsuario.IdUsuario;
+            mDAO.ExecuteScalar(mCommandText);
+            int DVV = Verificacion.CalcularDVV("FamUsu");
+            Verificacion.AgregarDVV("FamUsu", DVV);
+
+            return 1;
+        }
+
+        public static int AsignarPatente(Usuario pUsuario, Patente pPatente)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "INSERT INTO PatUsu (IdPatente, IdUsuario, DVH) VALUES (" + pPatente.IdPatente + ", " + pUsuario.IdUsuario + ", 1)";
+            mDAO.ExecuteScalar(mCommandText);
+
+            //Verificadores
+            int DVH = Verificacion.CalcularDVH(ConsultarRegistroPatUsu(pPatente.IdPatente, pUsuario.IdUsuario).Tables[0]);
+            Verificacion.AgregarDVH("PatUsu", "IdPatente", "IdUsuario", pPatente.IdPatente, pUsuario.IdUsuario, DVH);
+            int DVV = Verificacion.CalcularDVV("PatUsu");
+            Verificacion.AgregarDVV("PatPat", DVV);
+            return 1;
+        }
+
+        public static int RemoverPatente(Usuario pUsuario, Patente pPatente)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "DELETE FROM PatUsu WHERE IdPatente = " + pPatente.IdPatente + " AND IdUsuario = " + pUsuario.IdUsuario;
+            mDAO.ExecuteScalar(mCommandText);
+            int DVV = Verificacion.CalcularDVV("PatUsu");
+            Verificacion.AgregarDVV("PatUsu", DVV);
+
+            return 1;
+        }
+
+        public static DataSet ConsultarRegistroFamUsu(int idFamilia, int idUsuario)
+        {
+            //Consulto por un registro en particular para calculcar su DVH
+            string mCommandText = "SELECT * FROM FamUsu WHERE IdFamilia = " + idFamilia + " AND IdUsuario = " + idUsuario;
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            return mDataSet;
+        }
+
+        public static DataSet ConsultarRegistroPatUsu(int idPatente, int idUsuario)
+        {
+            //Consulto por un registro en particular para calculcar su DVH
+            string mCommandText = "SELECT * FROM PatUsu WHERE IdPatente = " + idPatente + " AND IdUsuario = " + idUsuario;
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            return mDataSet;
         }
     }
 }

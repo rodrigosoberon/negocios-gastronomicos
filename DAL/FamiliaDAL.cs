@@ -20,8 +20,7 @@ namespace DAL
                 mFamilia.Descripcion = dataRow["Descripcion"].ToString();
                 mFamilia.DVH = int.Parse(dataRow["DVH"].ToString());
                 ObtenerAsignados(mFamilia);
-                mFamilias.Add(mFamilia);
-                
+                mFamilias.Add(mFamilia);                
             }
             return mFamilias;
         }

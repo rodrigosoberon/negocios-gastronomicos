@@ -24,5 +24,25 @@ namespace BL
         {
             return UsuarioDAL.CambiarEstado(pUsuario);
         }
+
+        public int AsignarFamilia(Usuario pUsuario, Familia pFamilia)
+        {
+            return UsuarioDAL.AsignarFamilia(pUsuario, pFamilia);
+        }
+
+        public int RemoverFamilia(Usuario pUsuario, Familia pFamilia)
+        {
+            return UsuarioDAL.RemoverFamilia(pUsuario, pFamilia);
+        }
+
+        public int AsignarPatente(Usuario pUsuario, Patente pPatente)
+        {
+            return UsuarioDAL.AsignarPatente(pUsuario, pPatente);
+        }
+
+        public int RemoverPatente(Usuario pUsuario, Patente pPatente)
+        {
+            return UsuarioDAL.RemoverPatente(pUsuario, pPatente);
+        }
     }
 }

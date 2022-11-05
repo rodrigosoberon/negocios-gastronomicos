@@ -9,11 +9,6 @@ namespace BE
     public class Usuario
     {
         public Usuario(){}
-        //public Usuario(int pId)
-        //{
-        //    IdUsuario = pId;
-        //}
-
         public int IdUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string Password { get; set; }
@@ -23,6 +18,7 @@ namespace BE
         public string Idioma { get; set; } = "es";
         public bool Estado { get; set; } = true;
         public int DVH { get; set; } = 1;
-
+        public List<Familia> mFamilias = new List<Familia>();
+        public List<Patente> mPatentes = new List<Patente>();
     }
 }
