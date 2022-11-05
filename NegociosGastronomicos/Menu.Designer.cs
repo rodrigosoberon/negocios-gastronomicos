@@ -195,6 +195,7 @@ namespace NegociosGastronomicos
             this.resguardarrecuperarToolStripMenuItem.Name = "resguardarrecuperarToolStripMenuItem";
             this.resguardarrecuperarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.resguardarrecuperarToolStripMenuItem.Text = "Resguardar/recuperar";
+            this.resguardarrecuperarToolStripMenuItem.Click += new System.EventHandler(this.resguardarrecuperarToolStripMenuItem_Click);
             // 
             // gestionDeUsuariosToolStripMenuItem
             // 

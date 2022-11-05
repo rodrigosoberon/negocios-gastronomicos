@@ -78,7 +78,7 @@ namespace NegociosGastronomicos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Falta alguna traducción para el lenguaje elegido");
+                MessageBox.Show("Falta alguna traducción para el lenguaje elegido. " + ex.Message);
             }
         }
 
@@ -117,6 +117,14 @@ namespace NegociosGastronomicos
             GestionPermisos gestionPermisos = new GestionPermisos() { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(gestionPermisos);
             gestionPermisos.Show();
+        }
+
+        private void resguardarrecuperarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            ResguardarRecuperar resguardarRecuperar = new ResguardarRecuperar() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(resguardarRecuperar);
+            resguardarRecuperar.Show();
         }
     }
 }

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BE;
 using BL;
-using BE;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace NegociosGastronomicos
 {
@@ -26,13 +20,13 @@ namespace NegociosGastronomicos
             int cantidadIngresada;
             if (txtCantidad.Text == "")
             {
-                     cantidadIngresada = 0;
+                cantidadIngresada = 0;
             }
             else
             {
                 cantidadIngresada = Int32.Parse(txtCantidad.Text);
-             }
-            
+            }
+
             Material MaterialNuevo = new Material
             {
                 Descripcion = txtDescripcion.Text,
@@ -69,16 +63,16 @@ namespace NegociosGastronomicos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Falta alguna traducción para el lenguaje elegido");
+                MessageBox.Show("Falta alguna traducción para el lenguaje elegido. " + ex.Message);
             }
 
             ActualizarMateriales();
         }
-        
+
         public void ActualizarMateriales()
         {
             grdMateriales.Rows.Clear();
-            
+
             foreach (Material mMaterial in (new MaterialBL()).Listar())
             {
                 grdMateriales.Rows.Add(mMaterial.IdMaterial, mMaterial.Descripcion, mMaterial.Cantidad, mMaterial.EnRequisicion);
@@ -87,13 +81,16 @@ namespace NegociosGastronomicos
 
         private void grdMateriales_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            materialSeleccionado.IdMaterial = Int32.Parse(grdMateriales.Rows[e.RowIndex].Cells[0].Value.ToString());
-            materialSeleccionado.Descripcion = grdMateriales.Rows[e.RowIndex].Cells[1].Value.ToString();
-            materialSeleccionado.Cantidad = Int32.Parse(grdMateriales.Rows[e.RowIndex].Cells[2].Value.ToString());
-            materialSeleccionado.EnRequisicion = Boolean.Parse(grdMateriales.Rows[e.RowIndex].Cells[3].Value.ToString());
+            if (e.RowIndex >= 0)
+            {
+                materialSeleccionado.IdMaterial = Int32.Parse(grdMateriales.Rows[e.RowIndex].Cells[0].Value.ToString());
+                materialSeleccionado.Descripcion = grdMateriales.Rows[e.RowIndex].Cells[1].Value.ToString();
+                materialSeleccionado.Cantidad = Int32.Parse(grdMateriales.Rows[e.RowIndex].Cells[2].Value.ToString());
+                materialSeleccionado.EnRequisicion = Boolean.Parse(grdMateriales.Rows[e.RowIndex].Cells[3].Value.ToString());
 
-            txtDescripcion.Text = materialSeleccionado.Descripcion;
-            txtCantidad.Text = materialSeleccionado.Cantidad.ToString();
+                txtDescripcion.Text = materialSeleccionado.Descripcion;
+                txtCantidad.Text = materialSeleccionado.Cantidad.ToString();
+            }
         }
 
         private void btnModificarMaterial_Click(object sender, EventArgs e)
@@ -135,7 +132,7 @@ namespace NegociosGastronomicos
             mMensajesView.Sort = "Nombre";
 
             //Obtengo el texto traducido para cada control con texto de la interfaz
-            
+
             //Etiquetas
             lblGestionMateriales.Text = mMensajesView[mMensajesView.Find(lblGestionMateriales.Name)]["Texto"].ToString();
             lblDesccripcion.Text = mMensajesView[mMensajesView.Find(lblDesccripcion.Name)]["Texto"].ToString();
