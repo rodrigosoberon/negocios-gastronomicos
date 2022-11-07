@@ -21,3 +21,4 @@ C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomi
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.GestionUsuarios.resources
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.GestionPermisos.resources
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.ResguardarRecuperar.resources
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.Login.resources

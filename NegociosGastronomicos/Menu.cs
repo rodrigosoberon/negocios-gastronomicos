@@ -14,9 +14,10 @@ namespace NegociosGastronomicos
 {
     public partial class Menu : Form
     {
-        public Menu()
+        public Menu(Usuario usuarioLogueado)
         {
             InitializeComponent();
+            lblNombreUsuario.Text = usuarioLogueado.NombreUsuario;
         }
 
         
@@ -72,6 +73,8 @@ namespace NegociosGastronomicos
 
         private void Menu_Load(object sender, EventArgs e)
         {
+            
+
             try
             {
                 MostrarTextos();

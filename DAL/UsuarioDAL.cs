@@ -1,4 +1,5 @@
 ﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -45,7 +46,7 @@ namespace DAL
             string apellidoEncriptado = Seguridad.Encriptar(pUsuario.Apellido, Key, IV);
             string emailEncriptado = Seguridad.Encriptar(pUsuario.Email, Key, IV);
 
-            string mCommandText = "INSERT INTO Usuario (NombreUsuario, Password, Nombre, Apellido, Email, Idioma, Estado, DVH) VALUES ('" + pUsuario.NombreUsuario + "', '" + passwordEncriptado + "', '" + nombreEncriptado + "', '" + apellidoEncriptado + "', '" + emailEncriptado + "', '" + pUsuario.Idioma + "', '" + pUsuario.Estado + "', '" + pUsuario.DVH + "'); SELECT CAST(scope_identity() AS int)";
+            string mCommandText = "INSERT INTO Usuario (NombreUsuario, Password, Nombre, Apellido, Email, Idioma, Estado, Intentos, DVH) VALUES ('" + pUsuario.NombreUsuario + "', '" + passwordEncriptado + "', '" + nombreEncriptado + "', '" + apellidoEncriptado + "', '" + emailEncriptado + "', '" + pUsuario.Idioma + "', '" + pUsuario.Estado + "', '" + pUsuario.Intentos + "', '" + pUsuario.DVH + "'); SELECT CAST(scope_identity() AS int)";
             // Con scope_indetity() objtengo el ID creado
             DAO mDAO = new DAO();
             pUsuario.IdUsuario = mDAO.ExecuteScalar(mCommandText);
@@ -207,6 +208,81 @@ namespace DAL
             DAO mDAO = new DAO();
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             return mDataSet;
+        }
+
+        //LOGIN
+        public static bool ValidarCredenciales(Usuario pUsuario)
+        {
+
+            pUsuario.Password = Seguridad.EncriptarNR(pUsuario.Password);
+
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "' AND Password = '" + pUsuario.Password + "'";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool ValidarEstado(Usuario pUsuario)
+        {
+
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "' AND Estado = 1";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public static int ObtenerIntentos(Usuario pUsuario)
+        {
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "'";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                return Int32.Parse(mDataSet.Tables[0].Rows[0]["Intentos"].ToString());
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        public static int ActualizarIntentos(Usuario pUsuario)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "'";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            
+            //Solo actualizo contador de intentos si el usuario ingresado existe
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                pUsuario.IdUsuario = Int32.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString());
+                mCommandText = "UPDATE Usuario SET Intentos = " + pUsuario.Intentos + " WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "'";
+                mDAO.ExecuteScalar(mCommandText);
+
+                //Verificadores
+                pUsuario.DVH = Verificacion.CalcularDVH(ConsultarRegistro(pUsuario.IdUsuario).Tables[0]);
+                Verificacion.AgregarDVH("Usuario", pUsuario.IdUsuario, pUsuario.DVH);
+                int dvv = Verificacion.CalcularDVV("Usuario");
+                Verificacion.AgregarDVV("Usuario", dvv);
+            }
+
+            return 1;
         }
     }
 }

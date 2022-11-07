@@ -44,5 +44,25 @@ namespace BL
         {
             return UsuarioDAL.RemoverPatente(pUsuario, pPatente);
         }
+
+        public bool ValidarCredenciales(Usuario pUsuario)
+        {
+            return UsuarioDAL.ValidarCredenciales(pUsuario);
+        }
+
+        public bool ValidarEstado(Usuario pUsuario)
+        {
+            return UsuarioDAL.ValidarEstado(pUsuario);
+        }
+
+        public int ObtenerIntentos(Usuario pUsuario)
+        {
+            return UsuarioDAL.ObtenerIntentos(pUsuario);
+        }
+
+        public int ActualizarIntentos(Usuario pUsuario)
+        {
+            return UsuarioDAL.ActualizarIntentos(pUsuario);
+        }
     }
 }

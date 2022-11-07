@@ -55,6 +55,7 @@ namespace NegociosGastronomicos
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,11 +255,21 @@ namespace NegociosGastronomicos
             this.panelContenedorPrincipal.Size = new System.Drawing.Size(1264, 657);
             this.panelContenedorPrincipal.TabIndex = 1;
             // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(1109, 8);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(78, 13);
+            this.lblNombreUsuario.TabIndex = 2;
+            this.lblNombreUsuario.Text = "nombreUsuario";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lblNombreUsuario);
             this.Controls.Add(this.panelContenedorPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -300,5 +311,6 @@ namespace NegociosGastronomicos
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.Panel panelContenedorPrincipal;
+        private System.Windows.Forms.Label lblNombreUsuario;
     }
 }

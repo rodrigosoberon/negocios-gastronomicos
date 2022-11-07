@@ -248,9 +248,11 @@ namespace NegociosGastronomicos
 
         private void btnEstado_Click(object sender, EventArgs e)
         {
+            usuarioSeleccionado.Intentos = 0;
             usuarioSeleccionado.Estado = !usuarioSeleccionado.Estado;
             UsuarioBL mUsuarioBL = new UsuarioBL();
             mUsuarioBL.CambiarEstado(usuarioSeleccionado);
+            mUsuarioBL.ActualizarIntentos(usuarioSeleccionado);
             ActualizarUsuarios();
         }
 

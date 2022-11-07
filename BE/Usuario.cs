@@ -17,6 +17,7 @@ namespace BE
         public string Email { get; set; }
         public string Idioma { get; set; } = "es";
         public bool Estado { get; set; } = true;
+        public int Intentos { get; set; } = 0;
         public int DVH { get; set; } = 1;
         public List<Familia> mFamilias = new List<Familia>();
         public List<Patente> mPatentes = new List<Patente>();
