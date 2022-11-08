@@ -64,5 +64,26 @@ namespace DAL
             DAO mDAO = new DAO();
             return mDAO.ExecuteScalar(mCommandText);
         }
+
+        public static bool VerificarDVV()
+        {
+            bool resultado = true;
+            DAO mDAO = new DAO();
+            string mCommandText = "SELECT * from DigitoVerificador";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                int DVVCalculado =  CalcularDVV(mDataRow["NombreTabla"].ToString());
+                if (DVVCalculado != int.Parse(mDataRow["DVV"].ToString()))
+                {
+                    AgregarDVV(mDataRow["NombreTabla"].ToString(), DVVCalculado);
+                    //Registrar bitacora
+                    
+                    resultado = false;
+                }
+            }
+
+            return resultado;
+        }
     }
 }
