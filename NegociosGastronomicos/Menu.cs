@@ -2,26 +2,130 @@
 using BL;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NegociosGastronomicos
 {
     public partial class Menu : Form
     {
-        public Menu(Usuario usuarioLogueado)
+        public static Usuario usuarioLogueado = new Usuario();
+        
+        public Menu(Usuario usuario)
         {
             InitializeComponent();
-            lblNombreUsuario.Text = usuarioLogueado.NombreUsuario;
+            lblNombreUsuario.Text = usuario.NombreUsuario;
+            usuarioLogueado = usuario;
         }
 
-        
 
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            
+            HabilitarOpciones();
+
+            //Traducción de UI
+            try
+            {
+                MostrarTextos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falta alguna traducción para el lenguaje elegido. " + ex.Message);
+            }
+        }
+
+        // Manejo de panel contenedor
+
+        private void abrirMesaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            AbrirMesa abrirMesa = new AbrirMesa() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(abrirMesa);
+            abrirMesa.Show();
+
+        }
+
+        private void gestiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionMateriales gestionMateriales = new GestionMateriales() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionMateriales);
+            gestionMateriales.Show();
+        }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionUsuarios gestionUsuarios = new GestionUsuarios() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionUsuarios);
+            gestionUsuarios.Show();
+        }
+
+        private void gestionDePermisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionPermisos gestionPermisos = new GestionPermisos() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionPermisos);
+            gestionPermisos.Show();
+        }
+
+        private void resguardarrecuperarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            ResguardarRecuperar resguardarRecuperar = new ResguardarRecuperar() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(resguardarRecuperar);
+            resguardarRecuperar.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+                Login login = new Login();
+                login.Show();
+            }
+        }
+
+        public void HabilitarOpciones()
+        {
+            foreach (Patente patente in UsuarioBL.ObtenerPermisos(usuarioLogueado))
+            {
+
+                //Ventas
+
+                //Producción
+
+                //Compras y Almacenes
+
+                //Sistema
+                if (patente.Descripcion == "ejecutarRestauracion")
+                {
+                    resguardarrecuperarToolStripMenuItem.Enabled = true;
+                }
+                if(patente.Descripcion == "ABMUsuario")
+                {
+                    gestionDeUsuariosToolStripMenuItem.Enabled = true;
+                }
+                if(patente.Descripcion == "ABMFamiliaPatente")
+                {
+                    gestionDePermisosToolStripMenuItem.Enabled = true;
+                }
+                
+
+                //Usuario
+                if (patente.Descripcion == "CambiarIdioma")
+                {
+                    cambiarIdiomaToolStripMenuItem.Enabled = true;
+                }
+                if (patente.Descripcion == "CambiarContrasena")
+                {
+                    cambiarContrasenaToolStripMenuItem.Enabled = true;
+                }
+            }
+        }
 
 
         public void MostrarTextos()
@@ -67,67 +171,8 @@ namespace NegociosGastronomicos
             cambiarIdiomaToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cambiarIdiomaToolStripMenuItem.Name)]["Texto"].ToString();
             ayudaToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(ayudaToolStripMenuItem.Name)]["Texto"].ToString();
             cerrarSesionToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cerrarSesionToolStripMenuItem.Name)]["Texto"].ToString();
-            
-        }
-
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-            
-
-            try
-            {
-                MostrarTextos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Falta alguna traducción para el lenguaje elegido. " + ex.Message);
-            }
-        }
-
-
-        
-        // Manejo de panel contenedor
-        
-        private void abrirMesaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            AbrirMesa abrirMesa = new AbrirMesa() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(abrirMesa);
-            abrirMesa.Show();
 
         }
 
-        private void gestiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            GestionMateriales gestionMateriales = new GestionMateriales() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(gestionMateriales);
-            gestionMateriales.Show();
-        }
-
-        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            GestionUsuarios gestionUsuarios = new GestionUsuarios() {TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(gestionUsuarios);
-            gestionUsuarios.Show();
-        }
-
-        private void gestionDePermisosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            GestionPermisos gestionPermisos = new GestionPermisos() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(gestionPermisos);
-            gestionPermisos.Show();
-        }
-
-        private void resguardarrecuperarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelContenedorPrincipal.Controls.Clear();
-            ResguardarRecuperar resguardarRecuperar = new ResguardarRecuperar() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(resguardarRecuperar);
-            resguardarRecuperar.Show();
-        }
     }
 }

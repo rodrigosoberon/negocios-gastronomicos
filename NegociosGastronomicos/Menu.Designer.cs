@@ -88,33 +88,38 @@ namespace NegociosGastronomicos
             // 
             // abrirMesaToolStripMenuItem
             // 
+            this.abrirMesaToolStripMenuItem.Enabled = false;
             this.abrirMesaToolStripMenuItem.Name = "abrirMesaToolStripMenuItem";
-            this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.abrirMesaToolStripMenuItem.Text = "Abrir mesa";
             this.abrirMesaToolStripMenuItem.Click += new System.EventHandler(this.abrirMesaToolStripMenuItem_Click);
             // 
             // cambiarMesaToolStripMenuItem
             // 
+            this.cambiarMesaToolStripMenuItem.Enabled = false;
             this.cambiarMesaToolStripMenuItem.Name = "cambiarMesaToolStripMenuItem";
-            this.cambiarMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.cambiarMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarMesaToolStripMenuItem.Text = "Cambiar mesa";
             // 
             // cerrarMesaToolStripMenuItem
             // 
+            this.cerrarMesaToolStripMenuItem.Enabled = false;
             this.cerrarMesaToolStripMenuItem.Name = "cerrarMesaToolStripMenuItem";
-            this.cerrarMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.cerrarMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarMesaToolStripMenuItem.Text = "Cerrar mesa";
             // 
             // generarPedidoToolStripMenuItem
             // 
+            this.generarPedidoToolStripMenuItem.Enabled = false;
             this.generarPedidoToolStripMenuItem.Name = "generarPedidoToolStripMenuItem";
-            this.generarPedidoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.generarPedidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.generarPedidoToolStripMenuItem.Text = "Generar pedido";
             // 
             // realizarCobroToolStripMenuItem
             // 
+            this.realizarCobroToolStripMenuItem.Enabled = false;
             this.realizarCobroToolStripMenuItem.Name = "realizarCobroToolStripMenuItem";
-            this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.realizarCobroToolStripMenuItem.Text = "Realizar cobro";
             // 
             // produccionToolStripMenuItem
@@ -129,18 +134,21 @@ namespace NegociosGastronomicos
             // 
             // prepararPedidoToolStripMenuItem
             // 
+            this.prepararPedidoToolStripMenuItem.Enabled = false;
             this.prepararPedidoToolStripMenuItem.Name = "prepararPedidoToolStripMenuItem";
             this.prepararPedidoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.prepararPedidoToolStripMenuItem.Text = "Preparar pedido";
             // 
             // gestionDePlatosToolStripMenuItem
             // 
+            this.gestionDePlatosToolStripMenuItem.Enabled = false;
             this.gestionDePlatosToolStripMenuItem.Name = "gestionDePlatosToolStripMenuItem";
             this.gestionDePlatosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.gestionDePlatosToolStripMenuItem.Text = "Gestión de platos";
             // 
             // gestionDeMaterialesToolStripMenuItem
             // 
+            this.gestionDeMaterialesToolStripMenuItem.Enabled = false;
             this.gestionDeMaterialesToolStripMenuItem.Name = "gestionDeMaterialesToolStripMenuItem";
             this.gestionDeMaterialesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.gestionDeMaterialesToolStripMenuItem.Text = "Gestión de materiales";
@@ -159,26 +167,30 @@ namespace NegociosGastronomicos
             // 
             // requisicionManualToolStripMenuItem
             // 
+            this.requisicionManualToolStripMenuItem.Enabled = false;
             this.requisicionManualToolStripMenuItem.Name = "requisicionManualToolStripMenuItem";
-            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.requisicionManualToolStripMenuItem.Text = "Requisición manual";
             // 
             // ordenesDeCompraToolStripMenuItem
             // 
+            this.ordenesDeCompraToolStripMenuItem.Enabled = false;
             this.ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
-            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ordenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
             // 
             // recepcionesToolStripMenuItem
             // 
+            this.recepcionesToolStripMenuItem.Enabled = false;
             this.recepcionesToolStripMenuItem.Name = "recepcionesToolStripMenuItem";
-            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recepcionesToolStripMenuItem.Text = "Recepciones";
             // 
             // pagosToolStripMenuItem
             // 
+            this.pagosToolStripMenuItem.Enabled = false;
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // sistemaToolStripMenuItem
@@ -193,6 +205,7 @@ namespace NegociosGastronomicos
             // 
             // resguardarrecuperarToolStripMenuItem
             // 
+            this.resguardarrecuperarToolStripMenuItem.Enabled = false;
             this.resguardarrecuperarToolStripMenuItem.Name = "resguardarrecuperarToolStripMenuItem";
             this.resguardarrecuperarToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.resguardarrecuperarToolStripMenuItem.Text = "Resguardar/recuperar";
@@ -200,6 +213,7 @@ namespace NegociosGastronomicos
             // 
             // gestionDeUsuariosToolStripMenuItem
             // 
+            this.gestionDeUsuariosToolStripMenuItem.Enabled = false;
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestión de usuarios";
@@ -207,6 +221,7 @@ namespace NegociosGastronomicos
             // 
             // gestionDePermisosToolStripMenuItem
             // 
+            this.gestionDePermisosToolStripMenuItem.Enabled = false;
             this.gestionDePermisosToolStripMenuItem.Name = "gestionDePermisosToolStripMenuItem";
             this.gestionDePermisosToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.gestionDePermisosToolStripMenuItem.Text = "Gestión de permisos";
@@ -225,12 +240,14 @@ namespace NegociosGastronomicos
             // 
             // cambiarContrasenaToolStripMenuItem
             // 
+            this.cambiarContrasenaToolStripMenuItem.Enabled = false;
             this.cambiarContrasenaToolStripMenuItem.Name = "cambiarContrasenaToolStripMenuItem";
             this.cambiarContrasenaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarContrasenaToolStripMenuItem.Text = "Cambiar contraseña";
             // 
             // cambiarIdiomaToolStripMenuItem
             // 
+            this.cambiarIdiomaToolStripMenuItem.Enabled = false;
             this.cambiarIdiomaToolStripMenuItem.Name = "cambiarIdiomaToolStripMenuItem";
             this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarIdiomaToolStripMenuItem.Text = "Cambiar idioma";
@@ -246,6 +263,7 @@ namespace NegociosGastronomicos
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // panelContenedorPrincipal
             // 
@@ -258,11 +276,18 @@ namespace NegociosGastronomicos
             // lblNombreUsuario
             // 
             this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(1109, 8);
+            this.lblNombreUsuario.BackColor = System.Drawing.SystemColors.Highlight;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblNombreUsuario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(413, 0);
             this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(78, 13);
+            this.lblNombreUsuario.Padding = new System.Windows.Forms.Padding(0, 3, 0, 4);
+            this.lblNombreUsuario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblNombreUsuario.Size = new System.Drawing.Size(118, 24);
             this.lblNombreUsuario.TabIndex = 2;
             this.lblNombreUsuario.Text = "nombreUsuario";
+            this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Menu
             // 

@@ -64,5 +64,9 @@ namespace BL
         {
             return UsuarioDAL.ActualizarIntentos(pUsuario);
         }
+
+        public static List<Patente> ObtenerPermisos(Usuario pUsuario){
+            return UsuarioDAL.ObtenerPermisos(pUsuario);
+        }
     }
 }

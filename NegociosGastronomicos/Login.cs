@@ -42,7 +42,8 @@ namespace NegociosGastronomicos
                 if (estado)
                 {
                     //Login satisfactorio
-                    
+
+
                     Usuario usuarioLogueado = new Usuario
                     {
                         NombreUsuario = intentoUsuario.NombreUsuario,
