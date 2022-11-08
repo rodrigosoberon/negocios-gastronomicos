@@ -38,7 +38,7 @@ namespace DAL
 
             return pPatente.IdPatente;
         }
-        
+
         public static DataSet ConsultarRegistroPatente(int idPatente)
         {
             //Consulto por un registro en particular para calculcar su DVH
@@ -63,7 +63,7 @@ namespace DAL
 
             return 1;
         }
-        
+
         public static int Borrar(Patente pPatente)
         {
             string mCommandText = "DELETE FROM Patente WHERE IdPatente = " + pPatente.IdPatente;
@@ -72,6 +72,24 @@ namespace DAL
             int dvv = Verificacion.CalcularDVV("Patente");
             Verificacion.AgregarDVV("Patente", dvv);
             return 1;
+        }
+
+        public static bool PatenteAsignada(Patente patente)
+        {
+            //Si hay mas de dos usuarios asignados a la patente, considero que se puede desasignar
+
+            string mCommandText = "SELECT * FROM PatUsu INNER JOIN Usuario ON PatUsu.IdUsuario = Usuario.IdUsuario WHERE PatUsu.IdPatente = " + patente.IdPatente + " AND Usuario.Estado = 1";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count > 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

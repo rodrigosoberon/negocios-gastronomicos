@@ -13,7 +13,7 @@ namespace NegociosGastronomicos
             InitializeComponent();
         }
 
-        public Usuario usuarioSeleccionado = new Usuario();
+        public static Usuario usuarioSeleccionado = new Usuario();
         public Familia familiaDisponibleSeleccionada = new Familia();
         public Familia familiaAsignadaSeleccionada = new Familia();
         public Patente patenteDisponibleSeleccionada = new Patente();
@@ -248,11 +248,50 @@ namespace NegociosGastronomicos
 
         private void btnEstado_Click(object sender, EventArgs e)
         {
-            usuarioSeleccionado.Intentos = 0;
-            usuarioSeleccionado.Estado = !usuarioSeleccionado.Estado;
             UsuarioBL mUsuarioBL = new UsuarioBL();
-            mUsuarioBL.CambiarEstado(usuarioSeleccionado);
-            mUsuarioBL.ActualizarIntentos(usuarioSeleccionado);
+            PatenteBL patenteBL = new PatenteBL();
+            usuarioSeleccionado.mPatentes.Clear();
+            
+            if (usuarioSeleccionado.Estado == true) //Lógica para deshabilitar usuario
+            {
+                bool okDeshabilitar = true;
+                //Loopeo sus patentes para verificar que esten asignadas a otro usuario habilitado
+                foreach (Patente patente in UsuarioBL.ObtenerPatentes(usuarioSeleccionado))
+                {
+                    bool asignada = patenteBL.PatenteAsignada(patente);
+                    if (!asignada)
+                    {
+                        okDeshabilitar = false;
+                    }
+                }
+
+                if (okDeshabilitar)
+                {
+                    //Cambio estado a  deshabilitado
+                    usuarioSeleccionado.Estado = false;
+                    mUsuarioBL.CambiarEstado(usuarioSeleccionado);
+                }
+                else
+                {
+                    MessageBox.Show("Este usuario no puede deshabilitarse: Posee una o más patentes asignadas solo a él o a usuarios deshabilitados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else //Lógica para habilitar el usuario
+            {
+                usuarioSeleccionado.Intentos = 0;
+                usuarioSeleccionado.Estado = true;
+                mUsuarioBL.CambiarEstado(usuarioSeleccionado);
+                mUsuarioBL.ActualizarIntentos(usuarioSeleccionado);
+            }
+            
+            
+            
+
+
+            //Validar patentes
+            
+
+                
             ActualizarUsuarios();
         }
 
@@ -282,8 +321,18 @@ namespace NegociosGastronomicos
 
         private void btnPatRemover_Click(object sender, EventArgs e)
         {
+            PatenteBL patenteBL = new PatenteBL();
             UsuarioBL mUsuarioBL = new UsuarioBL();
-            mUsuarioBL.RemoverPatente(usuarioSeleccionado, patenteAsignadaSeleccionada);
+            
+            bool asignada = patenteBL.PatenteAsignada(patenteAsignadaSeleccionada);
+            if (asignada)
+            {
+                mUsuarioBL.RemoverPatente(usuarioSeleccionado, patenteAsignadaSeleccionada);
+            }
+            else
+            {
+                MessageBox.Show("La patente no puede quedar desasignada. Asignarla a otro usuario habilitado primero", "Error", MessageBoxButtons.OK ,MessageBoxIcon.Information);
+            }
             ActualizarPatentesAsignadas();
             ActualizarPatentesDisponibles();
         }

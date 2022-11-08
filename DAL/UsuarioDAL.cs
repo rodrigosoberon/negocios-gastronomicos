@@ -77,7 +77,7 @@ namespace DAL
             }
         }
 
-        public static void ObtenerPatentes(Usuario pUsuario)
+        public static List<Patente> ObtenerPatentes(Usuario pUsuario)
         {
             string mCommandText = "SELECT * FROM PatUsu WHERE IdUsuario = " + pUsuario.IdUsuario;
             DAO mDAO = new DAO();
@@ -92,6 +92,8 @@ namespace DAL
                     }
                 }
             }
+
+            return pUsuario.mPatentes;
         }
 
         public static DataSet ConsultarRegistro(int idUsuario)

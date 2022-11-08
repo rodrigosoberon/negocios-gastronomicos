@@ -68,5 +68,10 @@ namespace BL
         public static List<Patente> ObtenerPermisos(Usuario pUsuario){
             return UsuarioDAL.ObtenerPermisos(pUsuario);
         }
+
+        public static List<Patente> ObtenerPatentes(Usuario pUsuario)
+        {
+            return UsuarioDAL.ObtenerPatentes(pUsuario);
+        }
     }
 }
