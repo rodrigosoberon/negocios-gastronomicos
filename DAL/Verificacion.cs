@@ -11,14 +11,14 @@ namespace DAL
             string cadena = "";
             int cantidadCampos = pDataTable.Columns.Count;
             int contador = 0;
-            
-            while(contador<cantidadCampos - 1) //con -1 ignoro campo DVH
+
+            while (contador < cantidadCampos - 1) //con -1 ignoro campo DVH
             {
                 cadena += pDataTable.Rows[0][contador].ToString();
                 contador++;
             }
-            
-            
+
+
             int sumaCaracteresASCII = 0;
 
             for (int i = 0; i < Encoding.ASCII.GetBytes(cadena.ToString()).Count(); i++)
@@ -28,6 +28,7 @@ namespace DAL
 
             return sumaCaracteresASCII;
         }
+
 
         public static int AgregarDVH(string nombreTabla, int id, int dvh)
         {
@@ -65,7 +66,7 @@ namespace DAL
             return mDAO.ExecuteScalar(mCommandText);
         }
 
-        public static bool VerificarDVV()
+        public static bool VerificarIntegridad()
         {
             bool resultado = true;
             DAO mDAO = new DAO();
@@ -73,13 +74,38 @@ namespace DAL
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
             {
-                int DVVCalculado =  CalcularDVV(mDataRow["NombreTabla"].ToString());
+
+                //Verificación de DVV
+                int DVVCalculado = CalcularDVV(mDataRow["NombreTabla"].ToString());
                 if (DVVCalculado != int.Parse(mDataRow["DVV"].ToString()))
                 {
                     AgregarDVV(mDataRow["NombreTabla"].ToString(), DVVCalculado);
-                    //Registrar bitacora
                     
+                    //REGISTRAR ACTIVIDAD EN BITACORA!
+
                     resultado = false;
+                }
+
+                //Verificación de DVH
+                mCommandText = "SELECT * FROM " + mDataRow["NombreTabla"].ToString();
+                DataSet dataSetTabla = mDAO.ExecuteDataSet(mCommandText);
+                foreach (DataRow dataRow in dataSetTabla.Tables[0].Rows)
+                {
+                    DataTable registro = dataSetTabla.Tables[0].Copy();
+                    registro.Rows.Clear();
+                    registro.ImportRow(dataRow);
+                    //Genero un nuevo DataTable solo con el registro a verificar
+                    int DVHCalculado = CalcularDVH(registro);
+                    int DVHEnTabla = int.Parse(dataRow["DVH"].ToString());
+                    if (DVHCalculado != DVHEnTabla){
+                        string nombreCampoId = "Id" + mDataRow["NombreTabla"].ToString();
+                        int id = int.Parse(dataRow[nombreCampoId].ToString());
+                        AgregarDVH(mDataRow["NombreTabla"].ToString(), id, DVHCalculado);
+
+                        //REGISTRAR ACTIVIDAD EN BITACORA!
+                        resultado = false;
+                    }
+
                 }
             }
 

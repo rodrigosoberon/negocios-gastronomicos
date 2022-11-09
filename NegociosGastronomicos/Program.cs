@@ -27,23 +27,21 @@ namespace NegociosGastronomicos
         public static void ValidarIntegridad()
         {
 
+            VerificacionBL mVerificacionBL = new VerificacionBL();
+            bool integridadOK = true;
+            
+            integridadOK = mVerificacionBL.VerificarIntegridad();
 
-            VerificarDVV();
+            if (!integridadOK)
+            {
+                MessageBox.Show("La integridad de los datos ha sido comprometida. Revise bitácora de seguridad para mayor detalle.");
+            }
+
             MessageBox.Show("Checkeo de integridad completado. Bienvenido al sistema de gestión de negocios gastronómicos.");
 
         }
 
-        public static void VerificarDVV()
-        {
-            VerificacionBL mVerificacionBL = new VerificacionBL();
-            bool dvvOK = true;
-            dvvOK = mVerificacionBL.VerificarIntegridadDVV();
 
-            if (!dvvOK)
-            {
-                MessageBox.Show("La integridad de los datos a nivel de tabla (DVV) ha sido comprometida. Revise bitácora de seguridad para mayor detalle.");
-            }
 
-        }
     }
 }

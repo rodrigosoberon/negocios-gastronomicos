@@ -4,9 +4,9 @@ namespace BL
 {
     public class VerificacionBL
     {
-        public bool VerificarIntegridadDVV()
+        public bool VerificarIntegridad()
         {
-            return Verificacion.VerificarDVV();
+            return Verificacion.VerificarIntegridad();
         }
     }
 }
