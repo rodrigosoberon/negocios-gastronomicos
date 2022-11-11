@@ -1,5 +1,6 @@
 ﻿using BE;
 using DAL;
+using System;
 using System.Collections.Generic;
 
 namespace BL
@@ -12,12 +13,47 @@ namespace BL
         }
         public int GuardarNuevo(Usuario pUsuario)
         {
-            return UsuarioDAL.GuardarNuevo(pUsuario);
+
+            bool existeUsuario = UsuarioDAL.ExisteNombreUsuario(pUsuario);
+            bool existeEmail = UsuarioDAL.ExisteEmail(pUsuario);
+
+            if (existeEmail)
+            {
+                throw new Exception("Ya existe un usuario registrado con esa dirección email.");
+            }
+            else
+            {
+                if (existeUsuario)
+                {
+                    throw new Exception("El nombre de usuario ya existe. Elija otro");
+                }
+                else
+                {
+                    return UsuarioDAL.GuardarNuevo(pUsuario);
+                }
+            }
         }
 
         public int Modificar(Usuario pUsuario)
         {
-            return UsuarioDAL.Modificar(pUsuario);
+            bool existeUsuario = UsuarioDAL.ExisteNombreUsuario(pUsuario);
+            bool existeEmail = UsuarioDAL.ExisteEmail(pUsuario);
+
+            if (existeEmail)
+            {
+                throw new Exception("Ya existe un usuario registrado con esa dirección email.");
+            }
+            else
+            {
+                if (existeUsuario)
+                {
+                    throw new Exception("El nombre de usuario ya existe. Elija otro");
+                }
+                else
+                {
+                    return UsuarioDAL.Modificar(pUsuario);
+                }
+            }
         }
 
         public int CambiarEstado(Usuario pUsuario)
@@ -65,7 +101,8 @@ namespace BL
             return UsuarioDAL.ActualizarIntentos(pUsuario);
         }
 
-        public static List<Patente> ObtenerPermisos(Usuario pUsuario){
+        public static List<Patente> ObtenerPermisos(Usuario pUsuario)
+        {
             return UsuarioDAL.ObtenerPermisos(pUsuario);
         }
 
@@ -78,7 +115,7 @@ namespace BL
         {
             return UsuarioDAL.CambiarPassword(pPassActual, pPassNuevo, pIdUsuario);
         }
-        
+
         public Usuario ValorizarUsuario(Usuario pIdUsuario)
         {
             return UsuarioDAL.ValorizarUsuario(pIdUsuario);

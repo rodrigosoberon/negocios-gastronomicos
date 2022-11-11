@@ -12,10 +12,6 @@ namespace BL
     public class MensajeBL
     {
 
-        //Harcodeado idioma del usuario
-
-        
-
         public List<Mensaje> Listar(string idiomaUsuario)
         {
             return MensajeDAL.Listar(idiomaUsuario);

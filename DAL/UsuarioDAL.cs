@@ -269,7 +269,7 @@ namespace DAL
             DAO mDAO = new DAO();
             string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
-            
+
             //Solo actualizo contador de intentos si el usuario ingresado existe
             if (mDataSet.Tables[0].Rows.Count > 0)
             {
@@ -287,7 +287,7 @@ namespace DAL
             return 1;
         }
 
-        
+
         public static List<Patente> ObtenerPermisos(Usuario pUsuario)
         {
             DAO mDAO = new DAO();
@@ -341,13 +341,13 @@ namespace DAL
                 resultado = true;
             }
 
-                return resultado;
+            return resultado;
         }
 
         public static Usuario ValorizarUsuario(Usuario pUsuario)
         {
             DAO mDAO = new DAO();
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario +"'";
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "'";
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             Usuario mUsuario = new Usuario
             {
@@ -371,6 +371,57 @@ namespace DAL
             int dvv = Verificacion.CalcularDVV("Usuario");
             Verificacion.AgregarDVV("Usuario", dvv);
             return 1;
+        }
+
+        public static bool ExisteNombreUsuario(Usuario pUsuario)
+        {
+
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                //Valido si es una actualización (mismo IdUsuario)
+                if (int.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString()) != pUsuario.IdUsuario)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public static bool ExisteEmail(Usuario pUsuario)
+        {
+
+            string mCommandText = "SELECT * FROM Usuario WHERE Email = '" + Seguridad.Encriptar(pUsuario.Email, Key, IV) + "'";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                //Valido si es una actualización (mismo IdUsuario)
+                if (int.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString()) != pUsuario.IdUsuario)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

@@ -209,6 +209,7 @@ namespace NegociosGastronomicos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             Usuario nuevoUsuario = new Usuario
             {
                 NombreUsuario = txtNombreUsuario.Text,
@@ -218,27 +219,35 @@ namespace NegociosGastronomicos
                 Password = txtPassword.Text,
             };
 
-            UsuarioBL mUBL = new UsuarioBL();
-            mUBL.GuardarNuevo(nuevoUsuario);
-
-            txtNombreUsuario.Text = "";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtEmail.Text = "";
-            txtPassword.Text = "";
-
-            ActualizarUsuarios();
-
-            //Registro nuevo usuario en bitacora
-            Bitacora bitacora = new Bitacora
+            try
             {
-                Fecha = DateTime.Now,
-                Descripcion = "Usuario " + nuevoUsuario.NombreUsuario + " creado por administrador",
-                Criticidad = "Medio"
-            };
-            BitacoraBL mBitacoraBL = new BitacoraBL();
-            mBitacoraBL.AgregarBitacora(bitacora);
+                UsuarioBL mUBL = new UsuarioBL();
+                mUBL.GuardarNuevo(nuevoUsuario);
 
+                //Registro nuevo usuario en bitacora
+                Bitacora bitacora = new Bitacora
+                {
+                    Fecha = DateTime.Now,
+                    Usuario = usuarioLogueado.IdUsuario,
+                    Descripcion = "Usuario " + nuevoUsuario.NombreUsuario + " creado por administrador",
+                    Criticidad = "Medio"
+                };
+                BitacoraBL mBitacoraBL = new BitacoraBL();
+                mBitacoraBL.AgregarBitacora(bitacora);
+
+                txtNombreUsuario.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtEmail.Text = "";
+                txtPassword.Text = "";
+
+                ActualizarUsuarios();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -248,13 +257,32 @@ namespace NegociosGastronomicos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+
             usuarioSeleccionado.NombreUsuario = txtNombreUsuario.Text;
             usuarioSeleccionado.Nombre = txtNombre.Text;
             usuarioSeleccionado.Apellido = txtApellido.Text;
             usuarioSeleccionado.Email = txtEmail.Text;
-
             UsuarioBL mUsuarioBL = new UsuarioBL();
-            mUsuarioBL.Modificar(usuarioSeleccionado);
+            try
+            {
+                mUsuarioBL.Modificar(usuarioSeleccionado);
+
+                //Registro nuevo usuario en bitacora
+                Bitacora bitacora = new Bitacora
+                {
+                    Fecha = DateTime.Now,
+                    Usuario = usuarioLogueado.IdUsuario,
+                    Descripcion = "Usuario " + usuarioSeleccionado.NombreUsuario + " modificado por administrador",
+                    Criticidad = "Medio"
+                };
+                BitacoraBL mBitacoraBL = new BitacoraBL();
+                mBitacoraBL.AgregarBitacora(bitacora);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             ActualizarUsuarios();
         }
 
@@ -263,7 +291,7 @@ namespace NegociosGastronomicos
             UsuarioBL mUsuarioBL = new UsuarioBL();
             PatenteBL patenteBL = new PatenteBL();
             usuarioSeleccionado.mPatentes.Clear();
-            
+
             if (usuarioSeleccionado.Estado == true) //Lógica para deshabilitar usuario
             {
                 bool okDeshabilitar = true;
@@ -347,7 +375,7 @@ namespace NegociosGastronomicos
         {
             PatenteBL patenteBL = new PatenteBL();
             UsuarioBL mUsuarioBL = new UsuarioBL();
-            
+
             bool asignada = patenteBL.PatenteAsignada(patenteAsignadaSeleccionada);
             if (asignada)
             {
@@ -355,7 +383,7 @@ namespace NegociosGastronomicos
             }
             else
             {
-                MessageBox.Show("La patente no puede quedar desasignada. Asignarla a otro usuario habilitado primero", "Error", MessageBoxButtons.OK ,MessageBoxIcon.Information);
+                MessageBox.Show("La patente no puede quedar desasignada. Asignarla a otro usuario habilitado primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             ActualizarPatentesAsignadas();
             ActualizarPatentesDisponibles();
