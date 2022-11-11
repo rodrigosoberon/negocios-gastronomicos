@@ -88,7 +88,7 @@ namespace DAL
                     Bitacora bitacora = new Bitacora {
                         Criticidad = "Alta",
                         Fecha = DateTime.Now,
-                        Descripcion = "Error integridad DVV para tabla" + mDataRow["NombreTabla"].ToString(),
+                        Descripcion = "Error integridad DVV para tabla: " + mDataRow["NombreTabla"].ToString(),
                     };
                     BitacoraDAL.AgregarBitacora(bitacora);
                     resultado = false;

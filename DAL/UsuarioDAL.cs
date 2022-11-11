@@ -152,7 +152,7 @@ namespace DAL
             int DVH = Verificacion.CalcularDVH(ConsultarRegistroFamUsu(pFamilia.IdFamilia, pUsuario.IdUsuario).Tables[0]);
             Verificacion.AgregarDVH("FamUsu", "IdFamilia", "IdUsuario", pFamilia.IdFamilia, pUsuario.IdUsuario, DVH);
             int DVV = Verificacion.CalcularDVV("FamUsu");
-            Verificacion.AgregarDVV("FamPat", DVV);
+            Verificacion.AgregarDVV("FamUsu", DVV);
 
 
             return 1;
@@ -179,7 +179,7 @@ namespace DAL
             int DVH = Verificacion.CalcularDVH(ConsultarRegistroPatUsu(pPatente.IdPatente, pUsuario.IdUsuario).Tables[0]);
             Verificacion.AgregarDVH("PatUsu", "IdPatente", "IdUsuario", pPatente.IdPatente, pUsuario.IdUsuario, DVH);
             int DVV = Verificacion.CalcularDVV("PatUsu");
-            Verificacion.AgregarDVV("PatPat", DVV);
+            Verificacion.AgregarDVV("PatUsu", DVV);
             return 1;
         }
 

@@ -15,14 +15,10 @@ namespace NegociosGastronomicos
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-
             ValidarIntegridad();
-
-
 
             Application.Run(new Login());
         }
-
 
         public static void ValidarIntegridad()
         {

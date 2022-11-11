@@ -69,11 +69,11 @@ namespace NegociosGastronomicos
             panelContenedorPrincipal.Controls.Add(gestionPermisos);
             gestionPermisos.Show();
         }
-
+        
         private void resguardarrecuperarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            ResguardarRecuperar resguardarRecuperar = new ResguardarRecuperar() { TopLevel = false, Dock = DockStyle.Fill };
+            ResguardarRecuperar resguardarRecuperar = new ResguardarRecuperar(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(resguardarRecuperar);
             resguardarRecuperar.Show();
         }

@@ -7,12 +7,16 @@ namespace NegociosGastronomicos
 {
     public partial class ResguardarRecuperar : Form
     {
-        public ResguardarRecuperar()
+        public static Usuario usuarioLogueado = new Usuario();
+        public ResguardarRecuperar(Usuario usuario)
         {
             InitializeComponent();
+            usuarioLogueado = usuario;
         }
 
         Backup copiaSeleccionada = new Backup();
+
+        
 
         private void ResguardarRecuperar_Load(object sender, EventArgs e)
         {
@@ -27,7 +31,7 @@ namespace NegociosGastronomicos
             grdBackups.AllowUserToDeleteRows = false;
             grdBackups.MultiSelect = false;
             grdBackups.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+                      
             ActualizarBackups();
         }
 
@@ -52,8 +56,22 @@ namespace NegociosGastronomicos
                     Particiones = Int32.Parse(cbPartes.SelectedItem.ToString()),
                     Ubicacion = txtUbicacion.Text
                 };
+
+                //Log en bitacora
+                Bitacora bitacora = new Bitacora
+                {
+                    Fecha = DateTime.Now,
+                    Usuario = usuarioLogueado.IdUsuario,
+                    Descripcion = "El administrador UsuarioId " + usuarioLogueado.IdUsuario + " realizó un resguardo de la base de datos",
+                    Criticidad = "Bajo"
+                };
+                BitacoraBL mBitacoraBL = new BitacoraBL();
+                mBitacoraBL.AgregarBitacora(bitacora);
+
+                
                 BackupBL mBackupBL = new BackupBL();
                 mBackupBL.Resguardar(mBackup);
+
 
                 MessageBox.Show("Backup realizado con exito!");
             }
@@ -70,6 +88,16 @@ namespace NegociosGastronomicos
             try {
                 BackupBL mBackupBL = new BackupBL();
                 mBackupBL.Restaurar(copiaSeleccionada);
+                //Log en bitacora
+                Bitacora bitacora = new Bitacora
+                {
+                    Fecha = DateTime.Now,
+                    Usuario = usuarioLogueado.IdUsuario,
+                    Descripcion = "El administrador UsuarioId " + usuarioLogueado.IdUsuario + " restauró la copia de seguridad Id " + copiaSeleccionada.IdResguardo + " Descripción: " + copiaSeleccionada.Descripcion,
+                    Criticidad = "Alta"
+                };
+                BitacoraBL mBitacoraBL = new BitacoraBL();
+                mBitacoraBL.AgregarBitacora(bitacora);
 
                 MessageBox.Show("Restauracion realizada con exito!");
             }
