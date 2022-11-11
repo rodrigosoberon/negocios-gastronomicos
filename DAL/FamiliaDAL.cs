@@ -93,10 +93,26 @@ namespace DAL
 
         public static int Borrar(Familia pFamilia)
         {
-            string mCommandText = "DELETE FROM Familia WHERE IdFamilia = " + pFamilia.IdFamilia;
+            string mCommandText;
             DAO mDAO = new DAO();
+            int dvv;
+            
+            //Elimino relaciones con Usuarios
+            mCommandText = "DELETE FROM FamUsu WHERE IdFamilia = " + pFamilia.IdFamilia;
             mDAO.ExecuteScalar(mCommandText);
-            int dvv = Verificacion.CalcularDVV("Familia");
+            dvv = Verificacion.CalcularDVV("FamUsu");
+            Verificacion.AgregarDVV("FamUsu", dvv);
+
+            //Elimino relaciones con Patentes
+            mCommandText = "DELETE FROM FamPat WHERE IdFamilia = " + pFamilia.IdFamilia;
+            mDAO.ExecuteScalar(mCommandText);
+            dvv = Verificacion.CalcularDVV("FamPat");
+            Verificacion.AgregarDVV("FamPat", dvv);
+
+            //Elimino la Familia
+            mCommandText = "DELETE FROM Familia WHERE IdFamilia = " + pFamilia.IdFamilia;
+            mDAO.ExecuteScalar(mCommandText);
+            dvv = Verificacion.CalcularDVV("Familia");
             Verificacion.AgregarDVV("Familia", dvv);
             return 1;
         }

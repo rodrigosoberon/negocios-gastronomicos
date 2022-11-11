@@ -66,11 +66,28 @@ namespace DAL
 
         public static int Borrar(Patente pPatente)
         {
-            string mCommandText = "DELETE FROM Patente WHERE IdPatente = " + pPatente.IdPatente;
+            string mCommandText;
             DAO mDAO = new DAO();
+            int dvv;
+
+            //Elimino relaciones con Familias
+            mCommandText = "DELETE FROM FamPat WHERE IdPatente = " + pPatente.IdPatente;
             mDAO.ExecuteScalar(mCommandText);
-            int dvv = Verificacion.CalcularDVV("Patente");
+            dvv = Verificacion.CalcularDVV("FamPat");
+            Verificacion.AgregarDVV("FamPat", dvv);
+
+            //Elimino relaciones con Usuarios
+            mCommandText = "DELETE FROM PatUsu WHERE IdPatente = " + pPatente.IdPatente;
+            mDAO.ExecuteScalar(mCommandText);
+            dvv = Verificacion.CalcularDVV("PatUsu");
+            Verificacion.AgregarDVV("PatUsu", dvv);
+
+            //Elimino la patente
+            mCommandText = "DELETE FROM Patente WHERE IdPatente = " + pPatente.IdPatente;
+            mDAO.ExecuteScalar(mCommandText);
+            dvv = Verificacion.CalcularDVV("Patente");
             Verificacion.AgregarDVV("Patente", dvv);
+            
             return 1;
         }
 
