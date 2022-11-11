@@ -24,3 +24,11 @@ C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomi
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.Login.resources
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.CambiarContrasena.resources
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.CambiarIdioma.resources
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Security.AccessControl.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Security.Permissions.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Security.AccessControl.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Security.Permissions.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\System.Security.Principal.Windows.xml

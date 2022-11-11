@@ -7,3 +7,11 @@ C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\obj\Debug\DAL.
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\obj\Debug\DAL.dll
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\obj\Debug\DAL.pdb
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.AccessControl.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.Permissions.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.AccessControl.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.Permissions.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.Principal.Windows.xml
