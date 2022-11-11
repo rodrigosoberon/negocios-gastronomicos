@@ -227,6 +227,16 @@ namespace NegociosGastronomicos
 
             ActualizarUsuarios();
 
+            //Registro nuevo usuario en bitacora
+            Bitacora bitacora = new Bitacora
+            {
+                Fecha = DateTime.Now,
+                Descripcion = "Usuario " + nuevoUsuario.NombreUsuario + " creado por administrador",
+                Criticidad = "Medio"
+            };
+            BitacoraBL mBitacoraBL = new BitacoraBL();
+            mBitacoraBL.AgregarBitacora(bitacora);
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -270,6 +280,17 @@ namespace NegociosGastronomicos
                     //Cambio estado a  deshabilitado
                     usuarioSeleccionado.Estado = false;
                     mUsuarioBL.CambiarEstado(usuarioSeleccionado);
+
+                    //Log en bitacora
+                    Bitacora bitacora = new Bitacora
+                    {
+                        Fecha = DateTime.Now,
+                        Usuario = usuarioSeleccionado.IdUsuario,
+                        Descripcion = "Usuario " + usuarioSeleccionado.NombreUsuario + " deshabilitado por administrador",
+                        Criticidad = "Bajo"
+                    };
+                    BitacoraBL mBitacoraBL = new BitacoraBL();
+                    mBitacoraBL.AgregarBitacora(bitacora);
                 }
                 else
                 {
@@ -282,16 +303,17 @@ namespace NegociosGastronomicos
                 usuarioSeleccionado.Estado = true;
                 mUsuarioBL.CambiarEstado(usuarioSeleccionado);
                 mUsuarioBL.ActualizarIntentos(usuarioSeleccionado);
+
+                Bitacora bitacora = new Bitacora
+                {
+                    Fecha = DateTime.Now,
+                    Usuario = usuarioSeleccionado.IdUsuario,
+                    Descripcion = "Usuario " + usuarioSeleccionado.NombreUsuario + " habilitado por administrador",
+                    Criticidad = "Medio"
+                };
+                BitacoraBL mBitacoraBL = new BitacoraBL();
+                mBitacoraBL.AgregarBitacora(bitacora);
             }
-            
-            
-            
-
-
-            //Validar patentes
-            
-
-                
             ActualizarUsuarios();
         }
 
