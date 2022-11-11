@@ -54,12 +54,13 @@
             this.grdFamDisponibles = new System.Windows.Forms.DataGridView();
             this.grdFamAsignadas = new System.Windows.Forms.DataGridView();
             this.tabPagePatentes = new System.Windows.Forms.TabPage();
+            this.btnPatRemover = new System.Windows.Forms.Button();
+            this.btnPatAsignar = new System.Windows.Forms.Button();
             this.lblPatDisponibles = new System.Windows.Forms.Label();
             this.lblPatAsignadas = new System.Windows.Forms.Label();
             this.grdPatDisponibles = new System.Windows.Forms.DataGridView();
             this.grdPatAsignadas = new System.Windows.Forms.DataGridView();
-            this.btnPatRemover = new System.Windows.Forms.Button();
-            this.btnPatAsignar = new System.Windows.Forms.Button();
+            this.hpUsuario = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsuarios)).BeginInit();
             this.tabControlFP.SuspendLayout();
             this.tabPageFamilias.SuspendLayout();
@@ -137,15 +138,20 @@
             // 
             // txtNombreUsuario
             // 
+            this.hpUsuario.SetHelpString(this.txtNombreUsuario, "Ingrese un nombre identificatorio para el usuario");
             this.txtNombreUsuario.Location = new System.Drawing.Point(584, 145);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.hpUsuario.SetShowHelp(this.txtNombreUsuario, true);
             this.txtNombreUsuario.Size = new System.Drawing.Size(188, 20);
             this.txtNombreUsuario.TabIndex = 19;
             // 
             // txtNombre
             // 
+            this.hpUsuario.SetHelpKeyword(this.txtNombre, "");
+            this.hpUsuario.SetHelpString(this.txtNombre, "Ingrese el nombre de pila del usuario");
             this.txtNombre.Location = new System.Drawing.Point(584, 212);
             this.txtNombre.Name = "txtNombre";
+            this.hpUsuario.SetShowHelp(this.txtNombre, true);
             this.txtNombre.Size = new System.Drawing.Size(188, 20);
             this.txtNombre.TabIndex = 20;
             // 
@@ -318,6 +324,26 @@
             this.tabPagePatentes.Text = "Patentes";
             this.tabPagePatentes.UseVisualStyleBackColor = true;
             // 
+            // btnPatRemover
+            // 
+            this.btnPatRemover.Location = new System.Drawing.Point(206, 291);
+            this.btnPatRemover.Name = "btnPatRemover";
+            this.btnPatRemover.Size = new System.Drawing.Size(52, 23);
+            this.btnPatRemover.TabIndex = 7;
+            this.btnPatRemover.Text = "->";
+            this.btnPatRemover.UseVisualStyleBackColor = true;
+            this.btnPatRemover.Click += new System.EventHandler(this.btnPatRemover_Click);
+            // 
+            // btnPatAsignar
+            // 
+            this.btnPatAsignar.Location = new System.Drawing.Point(206, 209);
+            this.btnPatAsignar.Name = "btnPatAsignar";
+            this.btnPatAsignar.Size = new System.Drawing.Size(52, 23);
+            this.btnPatAsignar.TabIndex = 6;
+            this.btnPatAsignar.Text = "<-";
+            this.btnPatAsignar.UseVisualStyleBackColor = true;
+            this.btnPatAsignar.Click += new System.EventHandler(this.btnPatAsignar_Click);
+            // 
             // lblPatDisponibles
             // 
             this.lblPatDisponibles.AutoSize = true;
@@ -353,26 +379,6 @@
             this.grdPatAsignadas.Size = new System.Drawing.Size(176, 456);
             this.grdPatAsignadas.TabIndex = 2;
             this.grdPatAsignadas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPatAsignadas_CellClick);
-            // 
-            // btnPatRemover
-            // 
-            this.btnPatRemover.Location = new System.Drawing.Point(206, 291);
-            this.btnPatRemover.Name = "btnPatRemover";
-            this.btnPatRemover.Size = new System.Drawing.Size(52, 23);
-            this.btnPatRemover.TabIndex = 7;
-            this.btnPatRemover.Text = "->";
-            this.btnPatRemover.UseVisualStyleBackColor = true;
-            this.btnPatRemover.Click += new System.EventHandler(this.btnPatRemover_Click);
-            // 
-            // btnPatAsignar
-            // 
-            this.btnPatAsignar.Location = new System.Drawing.Point(206, 209);
-            this.btnPatAsignar.Name = "btnPatAsignar";
-            this.btnPatAsignar.Size = new System.Drawing.Size(52, 23);
-            this.btnPatAsignar.TabIndex = 6;
-            this.btnPatAsignar.Text = "<-";
-            this.btnPatAsignar.UseVisualStyleBackColor = true;
-            this.btnPatAsignar.Click += new System.EventHandler(this.btnPatAsignar_Click);
             // 
             // GestionUsuarios
             // 
@@ -450,5 +456,6 @@
         private System.Windows.Forms.Label lblPatAsignadas;
         private System.Windows.Forms.Button btnPatRemover;
         private System.Windows.Forms.Button btnPatAsignar;
+        public System.Windows.Forms.HelpProvider hpUsuario;
     }
 }

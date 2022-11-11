@@ -29,6 +29,7 @@ namespace NegociosGastronomicos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblDesccripcion = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
@@ -40,6 +41,8 @@ namespace NegociosGastronomicos
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblGestionMateriales = new System.Windows.Forms.Label();
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdMateriales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,8 +76,10 @@ namespace NegociosGastronomicos
             // 
             // txtDescripcion
             // 
+            this.helpProvider.SetHelpString(this.txtDescripcion, "Ingrese una descripción para el material");
             this.txtDescripcion.Location = new System.Drawing.Point(846, 73);
             this.txtDescripcion.Name = "txtDescripcion";
+            this.helpProvider.SetShowHelp(this.txtDescripcion, true);
             this.txtDescripcion.Size = new System.Drawing.Size(406, 20);
             this.txtDescripcion.TabIndex = 3;
             // 
@@ -184,6 +189,8 @@ namespace NegociosGastronomicos
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblGestionMateriales;
+        private System.Windows.Forms.HelpProvider helpProvider;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

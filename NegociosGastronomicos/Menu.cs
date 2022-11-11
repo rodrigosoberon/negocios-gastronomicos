@@ -113,6 +113,10 @@ namespace NegociosGastronomicos
                 //Ventas
 
                 //Producción
+                if (patente.Descripcion == "Materiales")
+                {
+                    gestionDeMaterialesToolStripMenuItem.Enabled = true;
+                }
 
                 //Compras y Almacenes
 

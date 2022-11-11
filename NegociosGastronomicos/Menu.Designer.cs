@@ -297,7 +297,9 @@ namespace NegociosGastronomicos
             this.Controls.Add(this.lblNombreUsuario);
             this.Controls.Add(this.panelContenedorPrincipal);
             this.Controls.Add(this.menuStrip1);
+            this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Menu";
             this.Text = "Negocios Gastronómicos";
             this.Load += new System.EventHandler(this.Menu_Load);

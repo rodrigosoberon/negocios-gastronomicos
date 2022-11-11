@@ -49,6 +49,9 @@ namespace NegociosGastronomicos
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
+
             grdMateriales.Columns.Add("IdMaterial", "Id");
             grdMateriales.Columns.Add("Descripcion", "Descripcion");
             grdMateriales.Columns.Add("Cantidad", "Cantidad");
@@ -152,6 +155,17 @@ namespace NegociosGastronomicos
             {
                 grdMateriales.Columns[i].HeaderText = mMensajesView[mMensajesView.Find(grdMateriales.Columns[i].Name)]["Texto"].ToString();
             }
+
+            //Helpers
+            helpProvider.SetHelpString(txtDescripcion, mMensajesView[mMensajesView.Find("hpDescripcionProducto")]["Texto"].ToString());
+            helpProvider.SetHelpString(txtCantidad, mMensajesView[mMensajesView.Find("hpCantidadProducto")]["Texto"].ToString());
+
+            //ToolTips
+            toolTip.SetToolTip(btnAgregar, mMensajesView[mMensajesView.Find("ttAgregarProducto")]["Texto"].ToString());
+            toolTip.SetToolTip(btnModificar, mMensajesView[mMensajesView.Find("ttModificarProducto")]["Texto"].ToString());
+            toolTip.SetToolTip(btnBaja, mMensajesView[mMensajesView.Find("ttEliminarProducto")]["Texto"].ToString());
+            toolTip.SetToolTip(btnCancelar, mMensajesView[mMensajesView.Find("ttCancelar")]["Texto"].ToString());
+            toolTip.SetToolTip(btnLimpiarCampos, mMensajesView[mMensajesView.Find("ttLimpiar")]["Texto"].ToString());
         }
 
     }
