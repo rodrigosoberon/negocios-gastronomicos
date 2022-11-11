@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupBL.cs" />
+    <Compile Include="BitacoraBL.cs" />
     <Compile Include="FamiliaBL.cs" />
     <Compile Include="MaterialBL.cs" />
     <Compile Include="MensajeBL.cs" />

@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using BE;
+using System;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -79,10 +81,17 @@ namespace DAL
                 int DVVCalculado = CalcularDVV(mDataRow["NombreTabla"].ToString());
                 if (DVVCalculado != int.Parse(mDataRow["DVV"].ToString()))
                 {
+                    mDataRow["DVV"] = DVVCalculado;
                     AgregarDVV(mDataRow["NombreTabla"].ToString(), DVVCalculado);
-                    
-                    //REGISTRAR ACTIVIDAD EN BITACORA!
 
+                    //REGISTRAR ACTIVIDAD EN BITACORA!
+                    Bitacora bitacora = new Bitacora {
+                        Criticidad = "Alta",
+                        Fecha = DateTime.Now,
+                        Descripcion = "Error integridad DVV para tabla" + mDataRow["NombreTabla"].ToString(),
+                    };
+                    BitacoraDAL.AgregarBitacora(bitacora);
+                    
                     resultado = false;
                 }
 
@@ -103,6 +112,7 @@ namespace DAL
                         AgregarDVH(mDataRow["NombreTabla"].ToString(), id, DVHCalculado);
 
                         //REGISTRAR ACTIVIDAD EN BITACORA!
+                        
                         resultado = false;
                     }
 

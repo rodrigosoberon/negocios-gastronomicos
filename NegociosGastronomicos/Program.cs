@@ -28,7 +28,7 @@ namespace NegociosGastronomicos
         {
 
             VerificacionBL mVerificacionBL = new VerificacionBL();
-            bool integridadOK = true;
+            bool integridadOK;
             
             integridadOK = mVerificacionBL.VerificarIntegridad();
 

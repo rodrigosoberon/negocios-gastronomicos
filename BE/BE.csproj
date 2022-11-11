@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backup.cs" />
+    <Compile Include="Bitacora.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Mensaje.cs" />

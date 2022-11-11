@@ -90,7 +90,7 @@ namespace NegociosGastronomicos
             // 
             this.abrirMesaToolStripMenuItem.Enabled = false;
             this.abrirMesaToolStripMenuItem.Name = "abrirMesaToolStripMenuItem";
-            this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.abrirMesaToolStripMenuItem.Text = "Abrir mesa";
             this.abrirMesaToolStripMenuItem.Click += new System.EventHandler(this.abrirMesaToolStripMenuItem_Click);
             // 
@@ -98,28 +98,28 @@ namespace NegociosGastronomicos
             // 
             this.cambiarMesaToolStripMenuItem.Enabled = false;
             this.cambiarMesaToolStripMenuItem.Name = "cambiarMesaToolStripMenuItem";
-            this.cambiarMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambiarMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.cambiarMesaToolStripMenuItem.Text = "Cambiar mesa";
             // 
             // cerrarMesaToolStripMenuItem
             // 
             this.cerrarMesaToolStripMenuItem.Enabled = false;
             this.cerrarMesaToolStripMenuItem.Name = "cerrarMesaToolStripMenuItem";
-            this.cerrarMesaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarMesaToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.cerrarMesaToolStripMenuItem.Text = "Cerrar mesa";
             // 
             // generarPedidoToolStripMenuItem
             // 
             this.generarPedidoToolStripMenuItem.Enabled = false;
             this.generarPedidoToolStripMenuItem.Name = "generarPedidoToolStripMenuItem";
-            this.generarPedidoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generarPedidoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.generarPedidoToolStripMenuItem.Text = "Generar pedido";
             // 
             // realizarCobroToolStripMenuItem
             // 
             this.realizarCobroToolStripMenuItem.Enabled = false;
             this.realizarCobroToolStripMenuItem.Name = "realizarCobroToolStripMenuItem";
-            this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.realizarCobroToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.realizarCobroToolStripMenuItem.Text = "Realizar cobro";
             // 
             // produccionToolStripMenuItem
@@ -169,28 +169,28 @@ namespace NegociosGastronomicos
             // 
             this.requisicionManualToolStripMenuItem.Enabled = false;
             this.requisicionManualToolStripMenuItem.Name = "requisicionManualToolStripMenuItem";
-            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.requisicionManualToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.requisicionManualToolStripMenuItem.Text = "Requisición manual";
             // 
             // ordenesDeCompraToolStripMenuItem
             // 
             this.ordenesDeCompraToolStripMenuItem.Enabled = false;
             this.ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
-            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.ordenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
             // 
             // recepcionesToolStripMenuItem
             // 
             this.recepcionesToolStripMenuItem.Enabled = false;
             this.recepcionesToolStripMenuItem.Name = "recepcionesToolStripMenuItem";
-            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recepcionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.recepcionesToolStripMenuItem.Text = "Recepciones";
             // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Enabled = false;
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             // 
             // sistemaToolStripMenuItem
