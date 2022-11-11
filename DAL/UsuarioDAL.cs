@@ -315,5 +315,33 @@ namespace DAL
 
             return mPermisos;
         }
+
+        public static bool CambiarPassword(string passActual, string passNuevo, int idUsuario)
+        {
+            bool resultado = false;
+            passActual = Seguridad.EncriptarNR(passActual);
+            passNuevo = Seguridad.EncriptarNR(passNuevo);
+            DAO mDAO = new DAO();
+
+            string mCommandText = "SELECT * FROM Usuario WHERE IdUsuario = " + idUsuario + " AND Password = '" + passActual + "'";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count > 0)
+            {
+                mCommandText = "UPDATE Usuario SET Password = '" + passNuevo + "' WHERE IdUsuario = " + idUsuario;
+                mDAO.ExecuteScalar(mCommandText);
+
+                //Verificadores
+                Usuario pUsuario = new Usuario();
+                pUsuario.IdUsuario = idUsuario;
+                pUsuario.DVH = Verificacion.CalcularDVH(ConsultarRegistro(pUsuario.IdUsuario).Tables[0]);
+                Verificacion.AgregarDVH("Usuario", pUsuario.IdUsuario, pUsuario.DVH);
+                int dvv = Verificacion.CalcularDVV("Usuario");
+                Verificacion.AgregarDVV("Usuario", dvv);
+
+                resultado = true;
+            }
+
+                return resultado;
+        }
     }
 }

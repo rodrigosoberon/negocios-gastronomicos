@@ -52,6 +52,12 @@
     <Compile Include="AbrirMesa.Designer.cs">
       <DependentUpon>AbrirMesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="CambiarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarContrasena.Designer.cs">
+      <DependentUpon>CambiarContrasena.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionMateriales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="AbrirMesa.resx">
       <DependentUpon>AbrirMesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambiarContrasena.resx">
+      <DependentUpon>CambiarContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionMateriales.resx">
       <DependentUpon>GestionMateriales.cs</DependentUpon>

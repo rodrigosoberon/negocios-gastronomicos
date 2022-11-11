@@ -78,6 +78,19 @@ namespace NegociosGastronomicos
             resguardarRecuperar.Show();
         }
 
+        private void cambiarContrasenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            CambiarContrasena cambiarContrasena = new CambiarContrasena(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(cambiarContrasena);
+            cambiarContrasena.Show();
+        }
+
+        private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -173,6 +186,7 @@ namespace NegociosGastronomicos
             cerrarSesionToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cerrarSesionToolStripMenuItem.Name)]["Texto"].ToString();
 
         }
+
 
     }
 }

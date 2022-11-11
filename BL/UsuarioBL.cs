@@ -73,5 +73,10 @@ namespace BL
         {
             return UsuarioDAL.ObtenerPatentes(pUsuario);
         }
+
+        public bool CambiarPassword(string pPassActual, string pPassNuevo, int pIdUsuario)
+        {
+            return UsuarioDAL.CambiarPassword(pPassActual, pPassNuevo, pIdUsuario);
+        }
     }
 }

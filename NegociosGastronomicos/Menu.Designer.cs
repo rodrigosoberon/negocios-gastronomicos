@@ -240,17 +240,17 @@ namespace NegociosGastronomicos
             // 
             // cambiarContrasenaToolStripMenuItem
             // 
-            this.cambiarContrasenaToolStripMenuItem.Enabled = false;
             this.cambiarContrasenaToolStripMenuItem.Name = "cambiarContrasenaToolStripMenuItem";
             this.cambiarContrasenaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarContrasenaToolStripMenuItem.Text = "Cambiar contraseña";
+            this.cambiarContrasenaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContrasenaToolStripMenuItem_Click);
             // 
             // cambiarIdiomaToolStripMenuItem
             // 
-            this.cambiarIdiomaToolStripMenuItem.Enabled = false;
             this.cambiarIdiomaToolStripMenuItem.Name = "cambiarIdiomaToolStripMenuItem";
             this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarIdiomaToolStripMenuItem.Text = "Cambiar idioma";
+            this.cambiarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.cambiarIdiomaToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
