@@ -42,14 +42,11 @@ namespace NegociosGastronomicos
                 if (estado)
                 {
                     //Login satisfactorio
-
-
                     Usuario usuarioLogueado = new Usuario
                     {
                         NombreUsuario = intentoUsuario.NombreUsuario,
                         Password = intentoUsuario.Password
                     };
-
                     intentoUsuario.Intentos = 0;
                     mUsuarioBL.ActualizarIntentos(intentoUsuario);
                     this.Hide();
@@ -60,13 +57,22 @@ namespace NegociosGastronomicos
                 {
                     //Usuario bloqueado
                     MessageBox.Show("Usuario bloqueado. Contacte al administrador.");
+                    //Log en bitacora
+                    Bitacora bitacora = new Bitacora
+                    {
+                        Usuario = intentoUsuario.IdUsuario,
+                        Fecha = DateTime.Now,
+                        Descripcion = "Usuario id " + intentoUsuario.IdUsuario + " bloqueado intentó iniciar sesión.",
+                        Criticidad = "Media"
+                    };
+                    BitacoraBL mBitacoraBL = new BitacoraBL();
+                    mBitacoraBL.AgregarBitacora(bitacora);
                 }
 
             }
             else
             {
                 //Login incorrecto
-                
                 intentoUsuario.Intentos = mUsuarioBL.ObtenerIntentos(intentoUsuario) + 1;
                 mUsuarioBL.ActualizarIntentos(intentoUsuario);
                 if (intentoUsuario.Intentos > 2 )
@@ -74,10 +80,29 @@ namespace NegociosGastronomicos
                     intentoUsuario.Estado = false;
                     mUsuarioBL.CambiarEstado(intentoUsuario);
                     MessageBox.Show("Usuario bloqueado. Contacte al administrador.");
+                    
+                    Bitacora bitacora = new Bitacora
+                    {
+                        Usuario = intentoUsuario.IdUsuario,
+                        Fecha = DateTime.Now,
+                        Descripcion = "Usuario " + intentoUsuario.NombreUsuario + " bloqueado por exceder intentos de inicio de sesión.",
+                        Criticidad = "Media"
+                    };
+                    BitacoraBL mBitacoraBL = new BitacoraBL();
+                    mBitacoraBL.AgregarBitacora(bitacora);
+
                 }
                 else
                 {
                     MessageBox.Show("Usuario y/o contraseña incorrectos.");
+                    Bitacora bitacora = new Bitacora
+                    {
+                        Fecha = DateTime.Now,
+                        Descripcion = "Intento fallido de inicio de sesión para usuario " + intentoUsuario.NombreUsuario,
+                        Criticidad = "Bajo"
+                    };
+                    BitacoraBL mBitacoraBL = new BitacoraBL();
+                    mBitacoraBL.AgregarBitacora(bitacora);
                 }
             }
         }

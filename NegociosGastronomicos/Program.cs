@@ -48,8 +48,5 @@ namespace NegociosGastronomicos
             MessageBox.Show("Checkeo de integridad completado. Bienvenido al sistema de gestión de negocios gastronómicos.");
 
         }
-
-
-
     }
 }
