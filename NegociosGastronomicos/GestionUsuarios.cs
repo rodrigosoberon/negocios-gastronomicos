@@ -349,30 +349,53 @@ namespace NegociosGastronomicos
 
         private void btnFamAsignar_Click(object sender, EventArgs e)
         {
-            UsuarioBL mUsuarioBL = new UsuarioBL();
-            mUsuarioBL.AsignarFamilia(usuarioSeleccionado, familiaDisponibleSeleccionada);
-            ActualizarFamiliasAsignadas();
-            ActualizarFamiliasDisponibles();
+            try
+            {
+                UsuarioBL mUsuarioBL = new UsuarioBL();
+                mUsuarioBL.AsignarFamilia(usuarioSeleccionado, familiaDisponibleSeleccionada);
+                ActualizarFamiliasAsignadas();
+                ActualizarFamiliasDisponibles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnFamRemover_Click(object sender, EventArgs e)
         {
+            try { 
             UsuarioBL mUsuarioBL = new UsuarioBL();
             mUsuarioBL.RemoverFamilia(usuarioSeleccionado, familiaAsignadaSeleccionada);
             ActualizarFamiliasAsignadas();
             ActualizarFamiliasDisponibles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnPatAsignar_Click(object sender, EventArgs e)
         {
+            try { 
             UsuarioBL mUsuarioBL = new UsuarioBL();
             mUsuarioBL.AsignarPatente(usuarioSeleccionado, patenteDisponibleSeleccionada);
             ActualizarPatentesAsignadas();
             ActualizarPatentesDisponibles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnPatRemover_Click(object sender, EventArgs e)
         {
+            try{
             PatenteBL patenteBL = new PatenteBL();
             UsuarioBL mUsuarioBL = new UsuarioBL();
 
@@ -387,6 +410,12 @@ namespace NegociosGastronomicos
             }
             ActualizarPatentesAsignadas();
             ActualizarPatentesDisponibles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void grdFamAsignadas_CellClick(object sender, DataGridViewCellEventArgs e)

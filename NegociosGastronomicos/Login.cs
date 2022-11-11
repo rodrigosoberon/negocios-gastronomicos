@@ -98,6 +98,7 @@ namespace NegociosGastronomicos
                     MessageBox.Show("Usuario y/o contraseña incorrectos.");
                     Bitacora bitacora = new Bitacora
                     {
+                        Usuario = intentoUsuario.IdUsuario,
                         Fecha = DateTime.Now,
                         Descripcion = "Intento fallido de inicio de sesión para usuario " + intentoUsuario.NombreUsuario,
                         Criticidad = "Bajo"

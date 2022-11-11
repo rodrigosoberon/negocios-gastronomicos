@@ -129,21 +129,35 @@ namespace NegociosGastronomicos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            try { 
             Patente nuevaPatente = new Patente { Descripcion = txtDescripcion.Text };
 
             PatenteBL mPatenteBL = new PatenteBL();
             mPatenteBL.GuardarNuevo(nuevaPatente);
             txtDescripcion.Text = "";
             ActualizarPatentes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            try { 
             patenteSeleccionada.Descripcion = txtDescripcion.Text;
 
             PatenteBL mPatenteBL = new PatenteBL();
             mPatenteBL.Modificar(patenteSeleccionada);
             ActualizarPatentes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void grdPatentes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -158,10 +172,17 @@ namespace NegociosGastronomicos
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
+            try{
             Patente patenteBorrar = new Patente { IdPatente = patenteSeleccionada.IdPatente };
             PatenteBL patenteBL = new PatenteBL();
             patenteBL.Borrar(patenteBorrar);
             ActualizarPatentes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -176,29 +197,50 @@ namespace NegociosGastronomicos
 
         private void btnAgregarF_Click(object sender, EventArgs e)
         {
+            try { 
             Familia nuevaFamilia = new Familia { Descripcion = txtDescripcionF.Text };
 
             FamiliaBL mFamiliaBL = new FamiliaBL();
             mFamiliaBL.GuardarNuevo(nuevaFamilia);
             txtDescripcionF.Text = "";
             ActualizarFamilias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnModificarF_Click(object sender, EventArgs e)
         {
+            try { 
             familiaSeleccionada.Descripcion = txtDescripcionF.Text;
 
             FamiliaBL mFamiliaBL = new FamiliaBL();
             mFamiliaBL.Modificar(familiaSeleccionada);
             ActualizarFamilias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnBajaF_Click(object sender, EventArgs e)
         {
+            try { 
             Familia familiaBorrar = new Familia { IdFamilia = familiaSeleccionada.IdFamilia };
             FamiliaBL familiaBL = new FamiliaBL();
             familiaBL.Borrar(familiaBorrar);
             ActualizarFamilias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnCancelarF_Click(object sender, EventArgs e)
@@ -213,18 +255,32 @@ namespace NegociosGastronomicos
 
         private void btnAsignarPatente_Click(object sender, EventArgs e)
         {
+            try{
             FamiliaBL mFamiliaBL = new FamiliaBL();
             mFamiliaBL.AsignarPatente(familiaSeleccionada, disponibleSeleccionada);
             ActualizarAsignadas();
             ActualizarDisponibles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnRemoverPatente_Click(object sender, EventArgs e)
         {
+            try { 
             FamiliaBL mFamiliaBL = new FamiliaBL();
             mFamiliaBL.DesasignarPatente(familiaSeleccionada, asignadaSeleccionada);
             ActualizarAsignadas();
             ActualizarDisponibles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void grdFamilias_CellClick(object sender, DataGridViewCellEventArgs e)

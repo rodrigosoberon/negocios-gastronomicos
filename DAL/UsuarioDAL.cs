@@ -367,6 +367,7 @@ namespace DAL
             mDAO.ExecuteScalar(mCommandText);
 
             //Verificadores
+            pUsuario.DVH = Verificacion.CalcularDVH(ConsultarRegistro(pUsuario.IdUsuario).Tables[0]);
             Verificacion.AgregarDVH("Usuario", pUsuario.IdUsuario, pUsuario.DVH);
             int dvv = Verificacion.CalcularDVV("Usuario");
             Verificacion.AgregarDVV("Usuario", dvv);
