@@ -68,7 +68,7 @@ namespace DAL
             return mDAO.ExecuteScalar(mCommandText);
         }
 
-        public static bool VerificarIntegridad()
+        public static bool VerificarIntegridadVertical()
         {
             bool resultado = true;
             DAO mDAO = new DAO();
@@ -76,25 +76,36 @@ namespace DAL
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
             {
+                int DVVCalculado = CalcularDVV(mDataRow["NombreTabla"].ToString());
 
                 //Verificación de DVV
-                int DVVCalculado = CalcularDVV(mDataRow["NombreTabla"].ToString());
                 if (DVVCalculado != int.Parse(mDataRow["DVV"].ToString()))
                 {
                     mDataRow["DVV"] = DVVCalculado;
                     AgregarDVV(mDataRow["NombreTabla"].ToString(), DVVCalculado);
 
-                    //REGISTRAR ACTIVIDAD EN BITACORA!
+                    //REGISTRAR ACTIVIDAD EN BITACORA
                     Bitacora bitacora = new Bitacora {
                         Criticidad = "Alta",
                         Fecha = DateTime.Now,
                         Descripcion = "Error integridad DVV para tabla" + mDataRow["NombreTabla"].ToString(),
                     };
                     BitacoraDAL.AgregarBitacora(bitacora);
-                    
                     resultado = false;
                 }
+            }
+            return resultado;
+        }
 
+        public static bool VerificarIntegridadHorizontal()
+        {
+            bool resultado = true;
+            DAO mDAO = new DAO();
+            string mCommandText = "SELECT * from DigitoVerificador";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                int DVVCalculado;
                 //Verificación de DVH
                 mCommandText = "SELECT * FROM " + mDataRow["NombreTabla"].ToString();
                 DataSet dataSetTabla = mDAO.ExecuteDataSet(mCommandText);
@@ -106,19 +117,31 @@ namespace DAL
                     //Genero un nuevo DataTable solo con el registro a verificar
                     int DVHCalculado = CalcularDVH(registro);
                     int DVHEnTabla = int.Parse(dataRow["DVH"].ToString());
-                    if (DVHCalculado != DVHEnTabla){
+
+                    if (DVHCalculado != DVHEnTabla)
+                    {
+                        //Error de integridad detectado. Corrige DVH
                         string nombreCampoId = "Id" + mDataRow["NombreTabla"].ToString();
                         int id = int.Parse(dataRow[nombreCampoId].ToString());
                         AgregarDVH(mDataRow["NombreTabla"].ToString(), id, DVHCalculado);
 
-                        //REGISTRAR ACTIVIDAD EN BITACORA!
-                        
+                        //Recalculo y actualizo DVV para la tabla del registro corrupto
+                        DVVCalculado = CalcularDVV(mDataRow["NombreTabla"].ToString());
+                        AgregarDVV(mDataRow["NombreTabla"].ToString(), DVVCalculado);
+
+                        //REGISTRAR ACTIVIDAD EN BITACORA
+                        Bitacora bitacora = new Bitacora
+                        {
+                            Criticidad = "Alta",
+                            Fecha = DateTime.Now,
+                            Descripcion = "Error integridad DVH para tabla: " + mDataRow["NombreTabla"].ToString() + " Id: " + dataRow[0],
+                        };
+                        BitacoraDAL.AgregarBitacora(bitacora);
+
                         resultado = false;
                     }
-
                 }
             }
-
             return resultado;
         }
     }

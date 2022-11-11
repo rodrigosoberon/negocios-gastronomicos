@@ -4,9 +4,13 @@ namespace BL
 {
     public class VerificacionBL
     {
-        public bool VerificarIntegridad()
+        public bool VerificarIntegridadVertical()
         {
-            return Verificacion.VerificarIntegridad();
+            return Verificacion.VerificarIntegridadVertical();
+        }
+        public bool VerificarIntegridadHorizontal()
+        {
+            return Verificacion.VerificarIntegridadHorizontal();
         }
     }
 }
