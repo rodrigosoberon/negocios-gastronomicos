@@ -49,6 +49,7 @@ namespace NegociosGastronomicos
                     };
                     intentoUsuario.Intentos = 0;
                     mUsuarioBL.ActualizarIntentos(intentoUsuario);
+                    usuarioLogueado = mUsuarioBL.ValorizarUsuario(usuarioLogueado);
                     this.Hide();
                     Menu menu = new Menu(usuarioLogueado);
                     menu.Show();

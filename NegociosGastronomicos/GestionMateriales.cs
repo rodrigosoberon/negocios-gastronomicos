@@ -8,9 +8,11 @@ namespace NegociosGastronomicos
 {
     public partial class GestionMateriales : Form
     {
-        public GestionMateriales()
+        public static Usuario usuarioLogueado = new Usuario();
+        public GestionMateriales(Usuario usuario)
         {
             InitializeComponent();
+            usuarioLogueado = usuario;
         }
 
         public Material materialSeleccionado = new Material();
@@ -125,7 +127,7 @@ namespace NegociosGastronomicos
 
         public void MostrarTextos()
         {
-            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones();
+            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones(usuarioLogueado.Idioma);
 
             //Creo un DataView de la tabla de traducciones para poder filtrar por el nombre del control
             DataView mMensajesView = new DataView(mMensajes);

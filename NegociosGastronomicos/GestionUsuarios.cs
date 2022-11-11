@@ -8,9 +8,11 @@ namespace NegociosGastronomicos
 {
     public partial class GestionUsuarios : Form
     {
-        public GestionUsuarios()
+        public static Usuario usuarioLogueado = new Usuario();
+        public GestionUsuarios(Usuario usuario)
         {
             InitializeComponent();
+            usuarioLogueado = usuario;
         }
 
         public static Usuario usuarioSeleccionado = new Usuario();
@@ -397,7 +399,7 @@ namespace NegociosGastronomicos
 
         public void MostrarTextos()
         {
-            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones();
+            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones(usuarioLogueado.Idioma);
 
             //Creo un DataView de la tabla de traducciones para poder filtrar por el nombre del control
             DataView mMensajesView = new DataView(mMensajes);

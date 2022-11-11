@@ -49,7 +49,7 @@ namespace NegociosGastronomicos
         private void gestiónDeMaterialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            GestionMateriales gestionMateriales = new GestionMateriales() { TopLevel = false, Dock = DockStyle.Fill };
+            GestionMateriales gestionMateriales = new GestionMateriales(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(gestionMateriales);
             gestionMateriales.Show();
         }
@@ -57,7 +57,7 @@ namespace NegociosGastronomicos
         private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            GestionUsuarios gestionUsuarios = new GestionUsuarios() { TopLevel = false, Dock = DockStyle.Fill };
+            GestionUsuarios gestionUsuarios = new GestionUsuarios(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(gestionUsuarios);
             gestionUsuarios.Show();
         }
@@ -65,7 +65,7 @@ namespace NegociosGastronomicos
         private void gestionDePermisosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            GestionPermisos gestionPermisos = new GestionPermisos() { TopLevel = false, Dock = DockStyle.Fill };
+            GestionPermisos gestionPermisos = new GestionPermisos(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(gestionPermisos);
             gestionPermisos.Show();
         }
@@ -88,7 +88,10 @@ namespace NegociosGastronomicos
 
         private void cambiarIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            panelContenedorPrincipal.Controls.Clear();
+            CambiarIdioma cambiarIdioma = new CambiarIdioma(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(cambiarIdioma);
+            cambiarIdioma.Show();
         }
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,7 +146,7 @@ namespace NegociosGastronomicos
 
         public void MostrarTextos()
         {
-            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones();
+            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones(usuarioLogueado.Idioma);
 
             //Creo un DataView de la tabla para poder filtrar por el nombre del control
             DataView mMensajesView = new DataView(mMensajes);

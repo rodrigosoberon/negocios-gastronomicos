@@ -13,15 +13,15 @@ namespace BL
     {
 
         //Harcodeado idioma del usuario
-        public string idiomaUsuario = "en";
+
         
 
-        public List<Mensaje> Listar()
+        public List<Mensaje> Listar(string idiomaUsuario)
         {
             return MensajeDAL.Listar(idiomaUsuario);
         }
 
-        public DataTable ObtenerTraducciones()
+        public DataTable ObtenerTraducciones(string idiomaUsuario)
         {
             //Devuelve un DataTable con las traducciones del idioma del usuario
             DataTable mMensajes = new DataTable();
@@ -34,7 +34,7 @@ namespace BL
             mMensajes.Columns.Add(Nombre);
             mMensajes.Columns.Add(Texto);
 
-            foreach (Mensaje mMensaje in (new MensajeBL()).Listar())
+            foreach (Mensaje mMensaje in (new MensajeBL()).Listar(idiomaUsuario))
             {
                 mMensajes.Rows.Add(mMensaje.IdMensaje, mMensaje.Idioma, mMensaje.Nombre, mMensaje.Texto);
             }

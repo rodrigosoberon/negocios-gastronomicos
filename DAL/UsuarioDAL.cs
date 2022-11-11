@@ -343,5 +343,34 @@ namespace DAL
 
                 return resultado;
         }
+
+        public static Usuario ValorizarUsuario(Usuario pUsuario)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario +"'";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            Usuario mUsuario = new Usuario
+            {
+                IdUsuario = Int32.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString()),
+                NombreUsuario = mDataSet.Tables[0].Rows[0]["NombreUsuario"].ToString(),
+                //Email = mDataSet.Tables[0].Rows[0]["Email"].ToString(),
+                Idioma = mDataSet.Tables[0].Rows[0]["Idioma"].ToString(),
+            };
+
+            return mUsuario;
+        }
+
+        public static int ActualizarIdioma(Usuario pUsuario)
+        {
+            DAO mDAO = new DAO();
+            string mCommandText = "UPDATE Usuario SET Idioma = '" + pUsuario.Idioma + "' WHERE IdUsuario = " + pUsuario.IdUsuario;
+            mDAO.ExecuteScalar(mCommandText);
+
+            //Verificadores
+            Verificacion.AgregarDVH("Usuario", pUsuario.IdUsuario, pUsuario.DVH);
+            int dvv = Verificacion.CalcularDVV("Usuario");
+            Verificacion.AgregarDVV("Usuario", dvv);
+            return 1;
+        }
     }
 }

@@ -78,5 +78,15 @@ namespace BL
         {
             return UsuarioDAL.CambiarPassword(pPassActual, pPassNuevo, pIdUsuario);
         }
+        
+        public Usuario ValorizarUsuario(Usuario pIdUsuario)
+        {
+            return UsuarioDAL.ValorizarUsuario(pIdUsuario);
+        }
+
+        public int ActualizarIdioma(Usuario pUsuario)
+        {
+            return UsuarioDAL.ActualizarIdioma(pUsuario);
+        }
     }
 }
