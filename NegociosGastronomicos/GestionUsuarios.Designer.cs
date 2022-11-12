@@ -34,12 +34,10 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblContrasenaTemporal = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -94,7 +92,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(584, 129);
+            this.lblUsuario.Location = new System.Drawing.Point(586, 195);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 14;
@@ -103,7 +101,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(584, 196);
+            this.lblNombre.Location = new System.Drawing.Point(586, 262);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 15;
@@ -112,7 +110,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(584, 264);
+            this.lblApellido.Location = new System.Drawing.Point(586, 330);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 16;
@@ -121,25 +119,16 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(584, 330);
+            this.lblEmail.Location = new System.Drawing.Point(586, 396);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 17;
             this.lblEmail.Text = "Email";
             // 
-            // lblContrasenaTemporal
-            // 
-            this.lblContrasenaTemporal.AutoSize = true;
-            this.lblContrasenaTemporal.Location = new System.Drawing.Point(584, 457);
-            this.lblContrasenaTemporal.Name = "lblContrasenaTemporal";
-            this.lblContrasenaTemporal.Size = new System.Drawing.Size(104, 13);
-            this.lblContrasenaTemporal.TabIndex = 18;
-            this.lblContrasenaTemporal.Text = "Contraseña temporal";
-            // 
             // txtNombreUsuario
             // 
             this.hpUsuario.SetHelpString(this.txtNombreUsuario, "Ingrese un nombre identificatorio para el usuario");
-            this.txtNombreUsuario.Location = new System.Drawing.Point(584, 145);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(586, 211);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.hpUsuario.SetShowHelp(this.txtNombreUsuario, true);
             this.txtNombreUsuario.Size = new System.Drawing.Size(188, 20);
@@ -149,7 +138,7 @@
             // 
             this.hpUsuario.SetHelpKeyword(this.txtNombre, "");
             this.hpUsuario.SetHelpString(this.txtNombre, "Ingrese el nombre de pila del usuario");
-            this.txtNombre.Location = new System.Drawing.Point(584, 212);
+            this.txtNombre.Location = new System.Drawing.Point(586, 278);
             this.txtNombre.Name = "txtNombre";
             this.hpUsuario.SetShowHelp(this.txtNombre, true);
             this.txtNombre.Size = new System.Drawing.Size(188, 20);
@@ -157,28 +146,21 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(584, 280);
+            this.txtApellido.Location = new System.Drawing.Point(586, 346);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(188, 20);
             this.txtApellido.TabIndex = 21;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(584, 346);
+            this.txtEmail.Location = new System.Drawing.Point(586, 412);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(188, 20);
             this.txtEmail.TabIndex = 22;
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(584, 473);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(188, 20);
-            this.txtPassword.TabIndex = 23;
-            // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(634, 517);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(643, 466);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(89, 23);
             this.btnLimpiarCampos.TabIndex = 24;
@@ -391,12 +373,10 @@
             this.Controls.Add(this.btnEstado);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnLimpiarCampos);
-            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtNombreUsuario);
-            this.Controls.Add(this.lblContrasenaTemporal);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
@@ -430,12 +410,10 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblContrasenaTemporal;
         private System.Windows.Forms.TextBox txtNombreUsuario;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLimpiarCampos;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCancelar;

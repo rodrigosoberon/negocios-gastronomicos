@@ -3,6 +3,7 @@ using BL;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
 
 namespace NegociosGastronomicos
 {
@@ -181,7 +182,6 @@ namespace NegociosGastronomicos
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtEmail.Text = "";
-            txtPassword.Text = "";
         }
 
         private void grdUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -210,13 +210,15 @@ namespace NegociosGastronomicos
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
+            string passTemporario = GenerarPassword();
+
             Usuario nuevoUsuario = new Usuario
             {
                 NombreUsuario = txtNombreUsuario.Text,
                 Nombre = txtNombre.Text,
                 Apellido = txtApellido.Text,
                 Email = txtEmail.Text,
-                Password = txtPassword.Text,
+                Password = passTemporario,
             };
 
             try
@@ -239,9 +241,14 @@ namespace NegociosGastronomicos
                 txtNombre.Text = "";
                 txtApellido.Text = "";
                 txtEmail.Text = "";
-                txtPassword.Text = "";
 
                 ActualizarUsuarios();
+
+
+                //Mandar password por correo
+                StreamWriter Archivo = new StreamWriter(@"C:\correo\correo.txt");
+                Archivo.WriteLine("Enviar correo a: " + nuevoUsuario.Email + " con el password: " + passTemporario);
+                Archivo.Close();
 
             }
             catch (Exception ex)
@@ -454,6 +461,20 @@ namespace NegociosGastronomicos
             }
         }
 
+        public string GenerarPassword()
+        {
+            string pass = "";
+            //Generate random string of characterspassword
+            Random random = new Random();
+            for (int i = 0; i < 8; i++)
+            {
+                char c = (char)random.Next(65, 90);
+                pass += c.ToString();
+            }
+            return pass;
+        }
+            
+       
         public void MostrarTextos()
         {
             DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones(usuarioLogueado.Idioma);
@@ -470,7 +491,6 @@ namespace NegociosGastronomicos
             lblNombre.Text = mMensajesView[mMensajesView.Find(lblNombre.Name)]["Texto"].ToString();
             lblApellido.Text = mMensajesView[mMensajesView.Find(lblApellido.Name)]["Texto"].ToString();
             lblEmail.Text = mMensajesView[mMensajesView.Find(lblEmail.Name)]["Texto"].ToString();
-            lblContrasenaTemporal.Text = mMensajesView[mMensajesView.Find(lblContrasenaTemporal.Name)]["Texto"].ToString();
             lblFamAsignadas.Text = mMensajesView[mMensajesView.Find(lblFamAsignadas.Name)]["Texto"].ToString();
             lblFamDisponibles.Text = mMensajesView[mMensajesView.Find(lblFamDisponibles.Name)]["Texto"].ToString();
             lblPatAsignadas.Text = mMensajesView[mMensajesView.Find(lblPatAsignadas.Name)]["Texto"].ToString();
