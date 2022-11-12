@@ -1,10 +1,35 @@
 ﻿using BE;
+using System.Collections.Generic;
 using System.Data;
+using System;
 
 namespace DAL
 {
     public class BitacoraDAL
     {
+        public static List<Bitacora> Listar()
+        {
+            string mCommandText = "SELECT * FROM Bitacora";
+            DAO mDAO = new DAO();
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            List<Bitacora> mBitacoras = new List<Bitacora>();
+            foreach(DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                {
+                    Bitacora mBitacora = new Bitacora();
+                    mBitacora.IdBitacora = int.Parse(mDataRow["IdBitacora"].ToString());
+                    if (mDataRow["Usuario"].ToString() != "")
+                        mBitacora.Usuario = int.Parse(mDataRow["Usuario"].ToString());
+                    mBitacora.Fecha = (DateTime)mDataRow["Fecha"];
+                    mBitacora.Criticidad = mDataRow["Criticidad"].ToString();
+                    mBitacora.Descripcion = mDataRow["Descripcion"].ToString();
+                    mBitacora.DVH = int.Parse(mDataRow["DVH"].ToString());
+                    mBitacoras.Add(mBitacora);
+                }
+            }
+            return mBitacoras;
+        }
+
         public static int AgregarBitacora(Bitacora pBitacora)
         {
             //Si el usuario es 0, inserto un NULL

@@ -78,6 +78,14 @@ namespace NegociosGastronomicos
             resguardarRecuperar.Show();
         }
 
+        private void reporteBitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            ReporteBitacora reporteBitacora = new ReporteBitacora() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(reporteBitacora);
+            reporteBitacora.Show();
+        }
+
         private void cambiarContrasenaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
@@ -133,7 +141,11 @@ namespace NegociosGastronomicos
                 {
                     gestionDePermisosToolStripMenuItem.Enabled = true;
                 }
-                
+                if (patente.Descripcion == "Bitacora")
+                {
+                    reporteBitacoraToolStripMenuItem.Enabled = true;
+                }
+
 
                 //Usuario
                 if (patente.Descripcion == "CambiarIdioma")
@@ -189,11 +201,10 @@ namespace NegociosGastronomicos
             usuarioToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(usuarioToolStripMenuItem.Name)]["Texto"].ToString();
             cambiarContrasenaToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cambiarContrasenaToolStripMenuItem.Name)]["Texto"].ToString();
             cambiarIdiomaToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cambiarIdiomaToolStripMenuItem.Name)]["Texto"].ToString();
-            ayudaToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(ayudaToolStripMenuItem.Name)]["Texto"].ToString();
+            reporteBitacoraToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(reporteBitacoraToolStripMenuItem.Name)]["Texto"].ToString();
             cerrarSesionToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cerrarSesionToolStripMenuItem.Name)]["Texto"].ToString();
 
         }
-
 
     }
 }

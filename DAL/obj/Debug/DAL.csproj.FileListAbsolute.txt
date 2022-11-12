@@ -15,3 +15,8 @@ C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\Syst
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.AccessControl.xml
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.Permissions.xml
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\DAL\bin\Debug\Microsoft.SqlServer.Types.dll

@@ -52,10 +52,10 @@ namespace NegociosGastronomicos
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContrasenaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.reporteBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -198,7 +198,8 @@ namespace NegociosGastronomicos
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resguardarrecuperarToolStripMenuItem,
             this.gestionDeUsuariosToolStripMenuItem,
-            this.gestionDePermisosToolStripMenuItem});
+            this.gestionDePermisosToolStripMenuItem,
+            this.reporteBitacoraToolStripMenuItem});
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "Sistema";
@@ -232,7 +233,6 @@ namespace NegociosGastronomicos
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cambiarContrasenaToolStripMenuItem,
             this.cambiarIdiomaToolStripMenuItem,
-            this.ayudaToolStripMenuItem,
             this.cerrarSesionToolStripMenuItem});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -251,12 +251,6 @@ namespace NegociosGastronomicos
             this.cambiarIdiomaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambiarIdiomaToolStripMenuItem.Text = "Cambiar idioma";
             this.cambiarIdiomaToolStripMenuItem.Click += new System.EventHandler(this.cambiarIdiomaToolStripMenuItem_Click);
-            // 
-            // ayudaToolStripMenuItem
-            // 
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -288,6 +282,14 @@ namespace NegociosGastronomicos
             this.lblNombreUsuario.TabIndex = 2;
             this.lblNombreUsuario.Text = "nombreUsuario";
             this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // reporteBitacoraToolStripMenuItem
+            // 
+            this.reporteBitacoraToolStripMenuItem.Enabled = false;
+            this.reporteBitacoraToolStripMenuItem.Name = "reporteBitacoraToolStripMenuItem";
+            this.reporteBitacoraToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.reporteBitacoraToolStripMenuItem.Text = "Reporte Bitácora";
+            this.reporteBitacoraToolStripMenuItem.Click += new System.EventHandler(this.reporteBitacoraToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -335,9 +337,9 @@ namespace NegociosGastronomicos
         private System.Windows.Forms.ToolStripMenuItem gestionDePermisosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarContrasenaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarIdiomaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.Panel panelContenedorPrincipal;
         private System.Windows.Forms.Label lblNombreUsuario;
+        private System.Windows.Forms.ToolStripMenuItem reporteBitacoraToolStripMenuItem;
     }
 }
