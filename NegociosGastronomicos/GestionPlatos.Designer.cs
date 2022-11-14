@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblGestionUsuarios = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.lblGestionPlatos = new System.Windows.Forms.Label();
             this.grdPlatos = new System.Windows.Forms.DataGridView();
             this.grdIncluidos = new System.Windows.Forms.DataGridView();
             this.grdDisponibles = new System.Windows.Forms.DataGridView();
             this.lblPlatos = new System.Windows.Forms.Label();
             this.lblMaterialesIncluidos = new System.Windows.Forms.Label();
             this.lblMaterialesDisponibles = new System.Windows.Forms.Label();
-            this.lblNombrePLato = new System.Windows.Forms.Label();
+            this.lblNombrePlato = new System.Windows.Forms.Label();
             this.lblImporte = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
@@ -46,20 +47,22 @@
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdPlatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIncluidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisponibles)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblGestionUsuarios
+            // lblGestionPlatos
             // 
-            this.lblGestionUsuarios.AutoSize = true;
-            this.lblGestionUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGestionUsuarios.Location = new System.Drawing.Point(15, 15);
-            this.lblGestionUsuarios.Name = "lblGestionUsuarios";
-            this.lblGestionUsuarios.Size = new System.Drawing.Size(225, 31);
-            this.lblGestionUsuarios.TabIndex = 13;
-            this.lblGestionUsuarios.Text = "Gestión de platos";
+            this.lblGestionPlatos.AutoSize = true;
+            this.lblGestionPlatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGestionPlatos.Location = new System.Drawing.Point(15, 15);
+            this.lblGestionPlatos.Name = "lblGestionPlatos";
+            this.lblGestionPlatos.Size = new System.Drawing.Size(225, 31);
+            this.lblGestionPlatos.TabIndex = 13;
+            this.lblGestionPlatos.Text = "Gestión de platos";
             // 
             // grdPlatos
             // 
@@ -115,14 +118,14 @@
             this.lblMaterialesDisponibles.TabIndex = 19;
             this.lblMaterialesDisponibles.Text = "Materiales disponibles";
             // 
-            // lblNombrePLato
+            // lblNombrePlato
             // 
-            this.lblNombrePLato.AutoSize = true;
-            this.lblNombrePLato.Location = new System.Drawing.Point(492, 239);
-            this.lblNombrePLato.Name = "lblNombrePLato";
-            this.lblNombrePLato.Size = new System.Drawing.Size(87, 13);
-            this.lblNombrePLato.TabIndex = 20;
-            this.lblNombrePLato.Text = "Nombre del plato";
+            this.lblNombrePlato.AutoSize = true;
+            this.lblNombrePlato.Location = new System.Drawing.Point(492, 239);
+            this.lblNombrePlato.Name = "lblNombrePlato";
+            this.lblNombrePlato.Size = new System.Drawing.Size(87, 13);
+            this.lblNombrePlato.TabIndex = 20;
+            this.lblNombrePlato.Text = "Nombre del plato";
             // 
             // lblImporte
             // 
@@ -232,14 +235,14 @@
             this.Controls.Add(this.txtImporte);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblImporte);
-            this.Controls.Add(this.lblNombrePLato);
+            this.Controls.Add(this.lblNombrePlato);
             this.Controls.Add(this.lblMaterialesDisponibles);
             this.Controls.Add(this.lblMaterialesIncluidos);
             this.Controls.Add(this.lblPlatos);
             this.Controls.Add(this.grdDisponibles);
             this.Controls.Add(this.grdIncluidos);
             this.Controls.Add(this.grdPlatos);
-            this.Controls.Add(this.lblGestionUsuarios);
+            this.Controls.Add(this.lblGestionPlatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionPlatos";
             this.Text = "GestionPlatos";
@@ -254,14 +257,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblGestionUsuarios;
+        private System.Windows.Forms.Label lblGestionPlatos;
         private System.Windows.Forms.DataGridView grdPlatos;
         private System.Windows.Forms.DataGridView grdIncluidos;
         private System.Windows.Forms.DataGridView grdDisponibles;
         private System.Windows.Forms.Label lblPlatos;
         private System.Windows.Forms.Label lblMaterialesIncluidos;
         private System.Windows.Forms.Label lblMaterialesDisponibles;
-        private System.Windows.Forms.Label lblNombrePLato;
+        private System.Windows.Forms.Label lblNombrePlato;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtImporte;
@@ -272,5 +275,7 @@
         private System.Windows.Forms.Button btnLimpiarCampos;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnIncluir;
+        private System.Windows.Forms.HelpProvider helpProvider;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

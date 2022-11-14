@@ -1,15 +1,18 @@
 ﻿using BE;
 using BL;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace NegociosGastronomicos
 {
     public partial class GestionPlatos : Form
     {
-        public GestionPlatos()
+        public static Usuario usuarioLogueado = new Usuario();
+        public GestionPlatos(Usuario usuario)
         {
             InitializeComponent();
+            usuarioLogueado = usuario;
         }
 
         Plato platoSeleccionado = new Plato();
@@ -43,7 +46,7 @@ namespace NegociosGastronomicos
             grdDisponibles.MultiSelect = false;
             grdDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //Mostras texts
+            MostrarTextos();
 
             ActualizarPlatos();
             ActualizarDisponibles();
@@ -227,6 +230,63 @@ namespace NegociosGastronomicos
             {
                 disponibleSeleccionado.IdMaterial = Int32.Parse(grdDisponibles.Rows[e.RowIndex].Cells["IdMaterial"].Value.ToString());
             }
+        }
+
+
+        public void MostrarTextos()
+        {
+            DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones(usuarioLogueado.Idioma);
+            
+            //Creo un DataView de la tabla de traducciones para poder filtrar por el nombre del control
+            DataView mMensajesView = new DataView(mMensajes);
+            mMensajesView.Sort = "Nombre";
+
+            //Obtengo el texto traducido para cada control con texto de la interfaz
+
+            //Etiquetas
+            lblGestionPlatos.Text = mMensajesView[mMensajesView.Find(lblGestionPlatos.Name)]["Texto"].ToString();
+            lblNombrePlato.Text = mMensajesView[mMensajesView.Find(lblNombrePlato.Name)]["Texto"].ToString();
+            lblPlatos.Text = mMensajesView[mMensajesView.Find(lblPlatos.Name)]["Texto"].ToString();
+            lblImporte.Text = mMensajesView[mMensajesView.Find(lblImporte.Name)]["Texto"].ToString();
+            lblMaterialesIncluidos.Text = mMensajesView[mMensajesView.Find(lblMaterialesIncluidos.Name)]["Texto"].ToString();
+            lblMaterialesDisponibles.Text = mMensajesView[mMensajesView.Find(lblMaterialesDisponibles.Name)]["Texto"].ToString();
+
+            //Botones
+            btnAgregar.Text = mMensajesView[mMensajesView.Find(btnAgregar.Name)]["Texto"].ToString();
+            btnModificar.Text = mMensajesView[mMensajesView.Find(btnModificar.Name)]["Texto"].ToString();
+            btnBaja.Text = mMensajesView[mMensajesView.Find(btnBaja.Name)]["Texto"].ToString();
+            btnCancelar.Text = mMensajesView[mMensajesView.Find(btnCancelar.Name)]["Texto"].ToString();
+            btnLimpiarCampos.Text = mMensajesView[mMensajesView.Find(btnLimpiarCampos.Name)]["Texto"].ToString();
+            btnIncluir.Text = mMensajesView[mMensajesView.Find(btnIncluir.Name)]["Texto"].ToString();
+            btnQuitar.Text = mMensajesView[mMensajesView.Find(btnQuitar.Name)]["Texto"].ToString();
+
+            //Datagrids
+            for (int i = 1; i < grdPlatos.Columns.Count; i++)
+            {
+                grdPlatos.Columns[i].HeaderText = mMensajesView[mMensajesView.Find(grdPlatos.Columns[i].Name)]["Texto"].ToString();
+            }
+            for (int i = 1; i < grdIncluidos.Columns.Count; i++)
+            {
+                grdIncluidos.Columns[i].HeaderText = mMensajesView[mMensajesView.Find(grdIncluidos.Columns[i].Name)]["Texto"].ToString();
+            }
+            for (int i = 1; i < grdDisponibles.Columns.Count; i++)
+            {
+                grdDisponibles.Columns[i].HeaderText = mMensajesView[mMensajesView.Find(grdDisponibles.Columns[i].Name)]["Texto"].ToString();
+            }
+
+            //Helpers
+            helpProvider.SetHelpString(txtDescripcion, mMensajesView[mMensajesView.Find("hpDescripcionPlato")]["Texto"].ToString());
+            helpProvider.SetHelpString(txtImporte, mMensajesView[mMensajesView.Find("hpImporte")]["Texto"].ToString());
+
+            //ToolTips
+            toolTip.SetToolTip(btnAgregar, mMensajesView[mMensajesView.Find("ttAgregarPlato")]["Texto"].ToString());
+            toolTip.SetToolTip(btnModificar, mMensajesView[mMensajesView.Find("ttModificarPlato")]["Texto"].ToString());
+            toolTip.SetToolTip(btnBaja, mMensajesView[mMensajesView.Find("ttBajaPlato")]["Texto"].ToString());
+            toolTip.SetToolTip(btnCancelar, mMensajesView[mMensajesView.Find("ttCancelar")]["Texto"].ToString());
+            toolTip.SetToolTip(btnLimpiarCampos, mMensajesView[mMensajesView.Find("ttLimpiar")]["Texto"].ToString());
+            toolTip.SetToolTip(btnIncluir, mMensajesView[mMensajesView.Find("ttIncluirMaterial")]["Texto"].ToString());
+            toolTip.SetToolTip(btnQuitar, mMensajesView[mMensajesView.Find("ttQuitarMaterial")]["Texto"].ToString());
+
         }
     }
 }

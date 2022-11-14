@@ -56,7 +56,7 @@ namespace NegociosGastronomicos
         private void gestionDePlatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            GestionPlatos gestionPlatos = new GestionPlatos() { TopLevel = false, Dock = DockStyle.Fill };
+            GestionPlatos gestionPlatos = new GestionPlatos(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(gestionPlatos);
             gestionPlatos.Show();
         }
