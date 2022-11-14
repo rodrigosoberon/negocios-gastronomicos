@@ -1,7 +1,6 @@
 ﻿using BE;
 using BL;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -10,7 +9,7 @@ namespace NegociosGastronomicos
     public partial class Menu : Form
     {
         public static Usuario usuarioLogueado = new Usuario();
-        
+
         public Menu(Usuario usuario)
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace NegociosGastronomicos
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            
+
             HabilitarOpciones();
 
             //Traducción de UI
@@ -54,6 +53,14 @@ namespace NegociosGastronomicos
             gestionMateriales.Show();
         }
 
+        private void gestionDePlatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelContenedorPrincipal.Controls.Clear();
+            GestionPlatos gestionPlatos = new GestionPlatos() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(gestionPlatos);
+            gestionPlatos.Show();
+        }
+
         private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
@@ -69,7 +76,7 @@ namespace NegociosGastronomicos
             panelContenedorPrincipal.Controls.Add(gestionPermisos);
             gestionPermisos.Show();
         }
-        
+
         private void resguardarrecuperarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
@@ -126,6 +133,11 @@ namespace NegociosGastronomicos
                     gestionDeMaterialesToolStripMenuItem.Enabled = true;
                 }
 
+                if (patente.Descripcion == "Platos")
+                {
+                    gestionDePlatosToolStripMenuItem.Enabled = true;
+                }
+
                 //Compras y Almacenes
 
                 //Sistema
@@ -133,11 +145,11 @@ namespace NegociosGastronomicos
                 {
                     resguardarrecuperarToolStripMenuItem.Enabled = true;
                 }
-                if(patente.Descripcion == "ABMUsuario")
+                if (patente.Descripcion == "ABMUsuario")
                 {
                     gestionDeUsuariosToolStripMenuItem.Enabled = true;
                 }
-                if(patente.Descripcion == "ABMFamiliaPatente")
+                if (patente.Descripcion == "ABMFamiliaPatente")
                 {
                     gestionDePermisosToolStripMenuItem.Enabled = true;
                 }
@@ -205,6 +217,7 @@ namespace NegociosGastronomicos
             cerrarSesionToolStripMenuItem.Text = mMensajesView[mMensajesView.Find(cerrarSesionToolStripMenuItem.Name)]["Texto"].ToString();
 
         }
+
 
     }
 }

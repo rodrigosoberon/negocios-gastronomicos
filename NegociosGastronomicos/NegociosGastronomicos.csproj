@@ -113,6 +113,12 @@
     <Compile Include="GestionPermisos.Designer.cs">
       <DependentUpon>GestionPermisos.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionPlatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionPlatos.Designer.cs">
+      <DependentUpon>GestionPlatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionPermisos.resx">
       <DependentUpon>GestionPermisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionPlatos.resx">
+      <DependentUpon>GestionPlatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionUsuarios.resx">
       <DependentUpon>GestionUsuarios.cs</DependentUpon>

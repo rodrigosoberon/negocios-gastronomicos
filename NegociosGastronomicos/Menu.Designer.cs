@@ -49,13 +49,13 @@ namespace NegociosGastronomicos
             this.resguardarrecuperarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDePermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarContrasenaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedorPrincipal = new System.Windows.Forms.Panel();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.reporteBitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +145,7 @@ namespace NegociosGastronomicos
             this.gestionDePlatosToolStripMenuItem.Name = "gestionDePlatosToolStripMenuItem";
             this.gestionDePlatosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.gestionDePlatosToolStripMenuItem.Text = "Gestión de platos";
+            this.gestionDePlatosToolStripMenuItem.Click += new System.EventHandler(this.gestionDePlatosToolStripMenuItem_Click);
             // 
             // gestionDeMaterialesToolStripMenuItem
             // 
@@ -228,6 +229,14 @@ namespace NegociosGastronomicos
             this.gestionDePermisosToolStripMenuItem.Text = "Gestión de permisos";
             this.gestionDePermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionDePermisosToolStripMenuItem_Click);
             // 
+            // reporteBitacoraToolStripMenuItem
+            // 
+            this.reporteBitacoraToolStripMenuItem.Enabled = false;
+            this.reporteBitacoraToolStripMenuItem.Name = "reporteBitacoraToolStripMenuItem";
+            this.reporteBitacoraToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.reporteBitacoraToolStripMenuItem.Text = "Reporte Bitácora";
+            this.reporteBitacoraToolStripMenuItem.Click += new System.EventHandler(this.reporteBitacoraToolStripMenuItem_Click);
+            // 
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -282,14 +291,6 @@ namespace NegociosGastronomicos
             this.lblNombreUsuario.TabIndex = 2;
             this.lblNombreUsuario.Text = "nombreUsuario";
             this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // reporteBitacoraToolStripMenuItem
-            // 
-            this.reporteBitacoraToolStripMenuItem.Enabled = false;
-            this.reporteBitacoraToolStripMenuItem.Name = "reporteBitacoraToolStripMenuItem";
-            this.reporteBitacoraToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.reporteBitacoraToolStripMenuItem.Text = "Reporte Bitácora";
-            this.reporteBitacoraToolStripMenuItem.Click += new System.EventHandler(this.reporteBitacoraToolStripMenuItem_Click);
             // 
             // Menu
             // 

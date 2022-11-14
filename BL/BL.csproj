@@ -50,6 +50,7 @@
     <Compile Include="MaterialBL.cs" />
     <Compile Include="MensajeBL.cs" />
     <Compile Include="PatenteBL.cs" />
+    <Compile Include="PlatoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UsuarioBL.cs" />
