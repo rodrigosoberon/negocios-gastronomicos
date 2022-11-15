@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using System.Configuration;
+using System.IO;
 
 namespace DAL
 {
@@ -10,7 +10,17 @@ namespace DAL
         private static string Key = "5c69Ycj6rwdHOJbvfgt4mD50MM96Opxm"; //Clave de 32
         private static string IV = "dKho5jGR8nsqZswy"; //Vector de inicialización de 16
 
-        SqlConnection mConnection = new SqlConnection(Seguridad.Desencriptar(ConfigurationManager.ConnectionStrings["myKey"].ConnectionString, Key, IV));
+        
+
+        public static string ObtenerCadenaConexion()
+        {
+            StreamReader Archivo = new StreamReader(Path.Combine(Environment.CurrentDirectory, "stringConnection.txt"));
+            string cadenaConexion = Archivo.ReadLine();
+            Archivo.Close();
+            return cadenaConexion;
+        }    
+
+        SqlConnection mConnection = new SqlConnection(Seguridad.Desencriptar(ObtenerCadenaConexion(), Key, IV));
         public DataSet ExecuteDataSet(string pCommandText)
         {
             try

@@ -106,6 +106,7 @@
             this.MinimizeBox = false;
             this.Name = "Login";
             this.Text = "Iniciar Sesión";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -108,5 +108,10 @@ namespace NegociosGastronomicos
                 }
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
     }
 }
