@@ -180,10 +180,10 @@ C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomi
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.ReporteBitacora.resources
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.ResguardarRecuperar.resources
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.GenerateResource.cache
-C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\RdlCompile.cache
-C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\RdlCompile.compiled
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.CoreCompileInputs.cache
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.CopyComplete
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.exe
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.pdb
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.Ayuda.resources
+C:\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\EnvDTE.xml
+C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.SuggestedBindingRedirects.cache

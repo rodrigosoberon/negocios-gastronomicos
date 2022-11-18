@@ -24,7 +24,7 @@ namespace DAL
                 Usuario mUsuario = new Usuario
                 {
                     IdUsuario = int.Parse(mDataRow["IdUsuario"].ToString()),
-                    NombreUsuario = mDataRow["NombreUsuario"].ToString(),
+                    NombreUsuario = Seguridad.Desencriptar(mDataRow["NombreUsuario"].ToString(), Key, IV),
                     Nombre = Seguridad.Desencriptar(mDataRow["Nombre"].ToString(), Key, IV),
                     Apellido = Seguridad.Desencriptar(mDataRow["Apellido"].ToString(), Key, IV),
                     Email = Seguridad.Desencriptar(mDataRow["Email"].ToString(), Key, IV),
@@ -42,11 +42,12 @@ namespace DAL
         public static int GuardarNuevo(Usuario pUsuario)
         {
             string passwordEncriptado = Seguridad.EncriptarNR(pUsuario.Password);
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
             string nombreEncriptado = Seguridad.Encriptar(pUsuario.Nombre, Key, IV);
             string apellidoEncriptado = Seguridad.Encriptar(pUsuario.Apellido, Key, IV);
             string emailEncriptado = Seguridad.Encriptar(pUsuario.Email, Key, IV);
 
-            string mCommandText = "INSERT INTO Usuario (NombreUsuario, Password, Nombre, Apellido, Email, Idioma, Estado, Intentos, DVH) VALUES ('" + pUsuario.NombreUsuario.Replace("'", "''") + "', '" + passwordEncriptado + "', '" + nombreEncriptado + "', '" + apellidoEncriptado + "', '" + emailEncriptado + "', '" + pUsuario.Idioma + "', '" + pUsuario.Estado + "', '" + pUsuario.Intentos + "', '" + pUsuario.DVH + "'); SELECT CAST(scope_identity() AS int)";
+            string mCommandText = "INSERT INTO Usuario (NombreUsuario, Password, Nombre, Apellido, Email, Idioma, Estado, Intentos, DVH) VALUES ('" + nombreUsuarioEncriptado + "', '" + passwordEncriptado + "', '" + nombreEncriptado + "', '" + apellidoEncriptado + "', '" + emailEncriptado + "', '" + pUsuario.Idioma + "', '" + pUsuario.Estado + "', '" + pUsuario.Intentos + "', '" + pUsuario.DVH + "'); SELECT CAST(scope_identity() AS int)";
             // Con scope_indetity() objtengo el ID creado
             DAO mDAO = new DAO();
             pUsuario.IdUsuario = mDAO.ExecuteScalar(mCommandText);
@@ -107,11 +108,12 @@ namespace DAL
 
         public static int Modificar(Usuario pUsuario)
         {
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
             pUsuario.Nombre = Seguridad.Encriptar(pUsuario.Nombre, Key, IV);
             pUsuario.Apellido = Seguridad.Encriptar(pUsuario.Apellido, Key, IV);
             pUsuario.Email = Seguridad.Encriptar(pUsuario.Email, Key, IV);
 
-            string mCommandText = "UPDATE Usuario SET NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "', Nombre = '" + pUsuario.Nombre + "', Apellido = '" + pUsuario.Apellido + "', Email = '" + pUsuario.Email + "', Idioma = '" + pUsuario.Idioma + "', Estado = '" + pUsuario.Estado + "' WHERE IdUsuario = " + pUsuario.IdUsuario;
+            string mCommandText = "UPDATE Usuario SET NombreUsuario = '" + nombreUsuarioEncriptado + "', Nombre = '" + pUsuario.Nombre + "', Apellido = '" + pUsuario.Apellido + "', Email = '" + pUsuario.Email + "', Idioma = '" + pUsuario.Idioma + "', Estado = '" + pUsuario.Estado + "' WHERE IdUsuario = " + pUsuario.IdUsuario;
 
             DAO mDAO = new DAO();
             mDAO.ExecuteScalar(mCommandText);
@@ -215,10 +217,10 @@ namespace DAL
         //LOGIN
         public static bool ValidarCredenciales(Usuario pUsuario)
         {
-
             pUsuario.Password = Seguridad.EncriptarNR(pUsuario.Password);
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
 
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "' AND Password = '" + pUsuario.Password + "'";
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "' AND Password = '" + pUsuario.Password + "'";
             DAO mDAO = new DAO();
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             if (mDataSet.Tables[0].Rows.Count > 0)
@@ -233,8 +235,8 @@ namespace DAL
 
         public static bool ValidarEstado(Usuario pUsuario)
         {
-
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "' AND Estado = 1";
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "' AND Estado = 1";
             DAO mDAO = new DAO();
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             if (mDataSet.Tables[0].Rows.Count > 0)
@@ -250,7 +252,8 @@ namespace DAL
 
         public static int ObtenerIntentos(Usuario pUsuario)
         {
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "'";
             DAO mDAO = new DAO();
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
 
@@ -266,15 +269,17 @@ namespace DAL
 
         public static int ActualizarIntentos(Usuario pUsuario)
         {
+            
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
             DAO mDAO = new DAO();
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "'";
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
 
             //Solo actualizo contador de intentos si el usuario ingresado existe
             if (mDataSet.Tables[0].Rows.Count > 0)
             {
                 pUsuario.IdUsuario = Int32.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString());
-                mCommandText = "UPDATE Usuario SET Intentos = " + pUsuario.Intentos + " WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
+                mCommandText = "UPDATE Usuario SET Intentos = " + pUsuario.Intentos + " WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "'";
                 mDAO.ExecuteScalar(mCommandText);
 
                 //Verificadores
@@ -290,8 +295,9 @@ namespace DAL
 
         public static List<Patente> ObtenerPermisos(Usuario pUsuario)
         {
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
             DAO mDAO = new DAO();
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "'";
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
 
             pUsuario.IdUsuario = Int32.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString());
@@ -346,14 +352,16 @@ namespace DAL
 
         public static Usuario ValorizarUsuario(Usuario pUsuario)
         {
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
+
             DAO mDAO = new DAO();
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario + "'";
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "'";
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             Usuario mUsuario = new Usuario
             {
                 IdUsuario = Int32.Parse(mDataSet.Tables[0].Rows[0]["IdUsuario"].ToString()),
-                NombreUsuario = mDataSet.Tables[0].Rows[0]["NombreUsuario"].ToString(),
-                //Email = mDataSet.Tables[0].Rows[0]["Email"].ToString(),
+                //NombreUsuario = mDataSet.Tables[0].Rows[0]["NombreUsuario"].ToString(),
+                NombreUsuario = pUsuario.NombreUsuario,
                 Idioma = mDataSet.Tables[0].Rows[0]["Idioma"].ToString(),
             };
 
@@ -376,8 +384,9 @@ namespace DAL
 
         public static bool ExisteNombreUsuario(Usuario pUsuario)
         {
+            string nombreUsuarioEncriptado = Seguridad.Encriptar(pUsuario.NombreUsuario, Key, IV);
 
-            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + pUsuario.NombreUsuario.Replace("'", "''") + "'";
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + nombreUsuarioEncriptado + "'";
             DAO mDAO = new DAO();
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             if (mDataSet.Tables[0].Rows.Count > 0)
