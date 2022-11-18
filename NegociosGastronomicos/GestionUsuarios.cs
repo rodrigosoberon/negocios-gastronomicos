@@ -12,6 +12,7 @@ namespace NegociosGastronomicos
         public static Usuario usuarioLogueado = new Usuario();
         public GestionUsuarios(Usuario usuario)
         {
+            this.KeyPreview = true;
             InitializeComponent();
             usuarioLogueado = usuario;
         }
@@ -511,7 +512,14 @@ namespace NegociosGastronomicos
 
         }
 
-
+        private void GestionUsuarios_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Show();
+            }
+        }
     }
 
 }

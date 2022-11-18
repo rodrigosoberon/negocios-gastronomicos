@@ -306,6 +306,7 @@ namespace NegociosGastronomicos
             this.Name = "Menu";
             this.Text = "Negocios Gastronómicos";
             this.Load += new System.EventHandler(this.Menu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

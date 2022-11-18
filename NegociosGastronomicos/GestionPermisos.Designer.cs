@@ -386,6 +386,7 @@
             this.Name = "GestionPermisos";
             this.Text = "GestionPermisos";
             this.Load += new System.EventHandler(this.GestionPermisos_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GestionPermisos_KeyDown);
             this.tabControl1.ResumeLayout(false);
             this.tabFamilias.ResumeLayout(false);
             this.tabFamilias.PerformLayout();

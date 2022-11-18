@@ -17,6 +17,7 @@ namespace NegociosGastronomicos
         public static Usuario usuarioLogueado = new Usuario();
         public CambiarIdioma(Usuario usuario)
         {
+            this.KeyPreview = true;
             usuarioLogueado = usuario;
             InitializeComponent();
         }
@@ -38,6 +39,16 @@ namespace NegociosGastronomicos
         private void CambiarIdioma_Load(object sender, EventArgs e)
         {
             lblIdioma.Text = usuarioLogueado.Idioma;
+        }
+
+        private void CambiarIdioma_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Focus();
+                ayuda.Show();
+            }
         }
     }
 }

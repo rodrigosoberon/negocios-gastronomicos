@@ -10,3 +10,15 @@ C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\bin\Debug\SqlSe
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\hkrod\OneDrive\Documentos\dev\negocios-gastronomicos\BE\obj\Debug\BE.csproj.CopyComplete
+C:\dev\negocios-gastronomicos\BE\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\dev\negocios-gastronomicos\BE\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\dev\negocios-gastronomicos\BE\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\dev\negocios-gastronomicos\BE\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\dev\negocios-gastronomicos\BE\bin\Debug\BE.dll
+C:\dev\negocios-gastronomicos\BE\bin\Debug\BE.pdb
+C:\dev\negocios-gastronomicos\BE\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\dev\negocios-gastronomicos\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\dev\negocios-gastronomicos\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\dev\negocios-gastronomicos\BE\obj\Debug\BE.csproj.CopyComplete
+C:\dev\negocios-gastronomicos\BE\obj\Debug\BE.dll
+C:\dev\negocios-gastronomicos\BE\obj\Debug\BE.pdb

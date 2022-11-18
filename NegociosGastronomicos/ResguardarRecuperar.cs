@@ -10,6 +10,7 @@ namespace NegociosGastronomicos
         public static Usuario usuarioLogueado = new Usuario();
         public ResguardarRecuperar(Usuario usuario)
         {
+            this.KeyPreview = true;
             InitializeComponent();
             usuarioLogueado = usuario;
         }
@@ -115,6 +116,15 @@ namespace NegociosGastronomicos
                 copiaSeleccionada.Descripcion = grdBackups.Rows[e.RowIndex].Cells[3].Value.ToString();
                 copiaSeleccionada.Particiones = Int32.Parse(grdBackups.Rows[e.RowIndex].Cells[4].Value.ToString());
                 copiaSeleccionada.Ubicacion = grdBackups.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+        }
+
+        private void ResguardarRecuperar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Show();
             }
         }
     }

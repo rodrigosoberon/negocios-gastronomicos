@@ -50,6 +50,7 @@
             this.Name = "ReporteBitacora";
             this.Text = "ReporteBitacora";
             this.Load += new System.EventHandler(this.ReporteBitacora_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReporteBitacora_KeyDown);
             this.ResumeLayout(false);
 
         }

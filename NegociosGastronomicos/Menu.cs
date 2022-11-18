@@ -50,6 +50,7 @@ namespace NegociosGastronomicos
             panelContenedorPrincipal.Controls.Clear();
             GestionMateriales gestionMateriales = new GestionMateriales(usuarioLogueado) { TopLevel = false, Dock = DockStyle.Fill };
             panelContenedorPrincipal.Controls.Add(gestionMateriales);
+            gestionMateriales.KeyPreview = true; //Para que reciba teclas
             gestionMateriales.Show();
         }
 
@@ -218,6 +219,14 @@ namespace NegociosGastronomicos
 
         }
 
-
+        private void Menu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Focus();
+                ayuda.Show();
+            }
+        }
     }
 }

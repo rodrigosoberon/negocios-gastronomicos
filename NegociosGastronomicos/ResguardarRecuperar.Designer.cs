@@ -147,6 +147,7 @@
             this.Name = "ResguardarRecuperar";
             this.Text = "ResguardarRecuperar";
             this.Load += new System.EventHandler(this.ResguardarRecuperar_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ResguardarRecuperar_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grdBackups)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

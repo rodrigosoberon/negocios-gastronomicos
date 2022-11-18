@@ -11,6 +11,7 @@ namespace NegociosGastronomicos
         public static Usuario usuarioLogueado = new Usuario();
         public GestionPlatos(Usuario usuario)
         {
+            this.KeyPreview = true;
             InitializeComponent();
             usuarioLogueado = usuario;
         }
@@ -287,6 +288,16 @@ namespace NegociosGastronomicos
             toolTip.SetToolTip(btnIncluir, mMensajesView[mMensajesView.Find("ttIncluirMaterial")]["Texto"].ToString());
             toolTip.SetToolTip(btnQuitar, mMensajesView[mMensajesView.Find("ttQuitarMaterial")]["Texto"].ToString());
 
+        }
+
+        private void GestionPlatos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Focus();
+                ayuda.Show();
+            }
         }
     }
 }

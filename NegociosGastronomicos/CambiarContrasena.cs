@@ -10,6 +10,7 @@ namespace NegociosGastronomicos
         public static Usuario usuarioLogueado = new Usuario();
         public CambiarContrasena(Usuario usuario)
         {
+            this.KeyPreview = true;
             InitializeComponent();
             usuarioLogueado = usuario;
         }
@@ -48,6 +49,16 @@ namespace NegociosGastronomicos
                     MessageBox.Show("Contraseña actual incorrecta");
                     LimpiarCampos();
                 }
+            }
+        }
+
+        private void CambiarContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Focus();
+                ayuda.Show();
             }
         }
     }

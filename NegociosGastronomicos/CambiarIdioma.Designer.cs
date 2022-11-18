@@ -123,6 +123,7 @@
             this.Name = "CambiarIdioma";
             this.Text = "CambiarIdioma";
             this.Load += new System.EventHandler(this.CambiarIdioma_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CambiarIdioma_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

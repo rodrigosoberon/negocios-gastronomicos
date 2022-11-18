@@ -247,6 +247,7 @@
             this.Name = "GestionPlatos";
             this.Text = "GestionPlatos";
             this.Load += new System.EventHandler(this.GestionPlatos_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GestionPlatos_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grdPlatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdIncluidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDisponibles)).EndInit();

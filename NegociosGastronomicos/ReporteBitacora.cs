@@ -11,6 +11,7 @@ namespace NegociosGastronomicos
     {
         public ReporteBitacora()
         {
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -28,6 +29,15 @@ namespace NegociosGastronomicos
 
 
             this.reportViewer1.RefreshReport();
+        }
+
+        private void ReporteBitacora_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Show();
+            }
         }
     }
 }

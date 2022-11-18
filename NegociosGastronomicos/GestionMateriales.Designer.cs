@@ -170,6 +170,7 @@ namespace NegociosGastronomicos
             this.Name = "GestionMateriales";
             this.Text = "Gestión de Materiales";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GestionMateriales_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grdMateriales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

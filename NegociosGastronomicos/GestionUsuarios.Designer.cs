@@ -387,6 +387,7 @@
             this.Name = "GestionUsuarios";
             this.Text = "GestionUsuarios";
             this.Load += new System.EventHandler(this.GestionUsuarios_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GestionUsuarios_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.grdUsuarios)).EndInit();
             this.tabControlFP.ResumeLayout(false);
             this.tabPageFamilias.ResumeLayout(false);

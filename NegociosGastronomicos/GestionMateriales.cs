@@ -9,8 +9,11 @@ namespace NegociosGastronomicos
     public partial class GestionMateriales : Form
     {
         public static Usuario usuarioLogueado = new Usuario();
+
+
         public GestionMateriales(Usuario usuario)
         {
+            this.KeyPreview = true;
             InitializeComponent();
             usuarioLogueado = usuario;
         }
@@ -49,7 +52,7 @@ namespace NegociosGastronomicos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
 
 
             grdMateriales.Columns.Add("IdMaterial", "Id");
@@ -168,5 +171,14 @@ namespace NegociosGastronomicos
             toolTip.SetToolTip(btnLimpiarCampos, mMensajesView[mMensajesView.Find("ttLimpiar")]["Texto"].ToString());
         }
 
+        private void GestionMateriales_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Focus();
+                ayuda.Show();
+            }
+        }
     }
 }

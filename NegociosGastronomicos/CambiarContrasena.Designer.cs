@@ -135,6 +135,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CambiarContrasena";
             this.Text = "CambiarContrasena";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CambiarContrasena_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

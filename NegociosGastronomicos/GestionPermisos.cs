@@ -11,6 +11,7 @@ namespace NegociosGastronomicos
         public static Usuario usuarioLogueado = new Usuario();
         public GestionPermisos(Usuario usuario)
         {
+            this.KeyPreview = true;
             InitializeComponent();
             usuarioLogueado = usuario;
         }
@@ -348,6 +349,13 @@ namespace NegociosGastronomicos
             btnRemoverPatente.Text = mMensajesView[mMensajesView.Find(btnRemoverPatente.Name)]["Texto"].ToString();
         }
 
-
+        private void GestionPermisos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Ayuda ayuda = new Ayuda();
+                ayuda.Show();
+            }
+        }
     }
 }
