@@ -52,7 +52,7 @@ namespace NegociosGastronomicos
                 Backup mBackup = new Backup
                 {
                     Creado = DateTime.Now,
-                    Usuario = new Usuario { IdUsuario = 1 }, //TODO: Cambiar por el usuario de la sesion
+                    Usuario = new Usuario { IdUsuario = usuarioLogueado.IdUsuario },
                     Descripcion = DateTime.Now.ToString().Replace(" ", "-").Replace(":", "-"),
                     Particiones = Int32.Parse(cbPartes.SelectedItem.ToString()),
                     Ubicacion = txtUbicacion.Text

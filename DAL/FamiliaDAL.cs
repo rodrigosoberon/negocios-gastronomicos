@@ -20,19 +20,21 @@ namespace DAL
                 mFamilia.Descripcion = dataRow["Descripcion"].ToString();
                 mFamilia.DVH = int.Parse(dataRow["DVH"].ToString());
                 ObtenerAsignados(mFamilia);
-                mFamilias.Add(mFamilia);                
+                mFamilias.Add(mFamilia);
             }
             return mFamilias;
         }
 
-        public static void ObtenerAsignados(Familia pFamilia) {
+        public static void ObtenerAsignados(Familia pFamilia)
+        {
             string mCommandText = "SELECT * FROM FamPat WHERE IdFamilia = " + pFamilia.IdFamilia;
             DAO mDAO = new DAO();
 
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
             {
-                foreach(Patente mPatente in PatenteDAL.Listar()){
+                foreach (Patente mPatente in PatenteDAL.Listar())
+                {
                     if (int.Parse(mDataRow["IdPatente"].ToString()) == mPatente.IdPatente)
                     {
                         pFamilia.mPatentes.Add(mPatente);
@@ -96,7 +98,7 @@ namespace DAL
             string mCommandText;
             DAO mDAO = new DAO();
             int dvv;
-            
+
             //Elimino relaciones con Usuarios
             mCommandText = "DELETE FROM FamUsu WHERE IdFamilia = " + pFamilia.IdFamilia;
             mDAO.ExecuteScalar(mCommandText);
@@ -121,7 +123,7 @@ namespace DAL
         {
             DAO mDAO = new DAO();
             string mCommandText = "INSERT INTO FamPat (IdFamilia, IdPatente, DVH) VALUES (" + pFamilia.IdFamilia + ", " + pPatente.IdPatente + ", 1)";
-            
+
 
             mDAO.ExecuteScalar(mCommandText);
 
@@ -143,6 +145,26 @@ namespace DAL
             Verificacion.AgregarDVV("FamPat", DVV);
             return 1;
         }
-        
+
+        public static bool EnFamiliaAsignada(Familia pFamilia, Patente pPatente)
+        {
+            DAO mDAO = new DAO();
+            bool asignada = false;
+            //Devuelve true si hay otra familia asignada a un usuario activo que posea la patente
+            string mCommandText = "SELECT * FROM FamUsu INNER JOIN Usuario ON FamUsu.IdUsuario = Usuario.IdUsuario WHERE Usuario.Estado = 1 AND IdFamilia != " + pFamilia.IdFamilia;
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                mCommandText = "SELECT * FROM FamPat WHERE IdFamilia = '" + mDataRow["IdFamilia"] + "' AND IdPatente = '" + pPatente.IdPatente + "'";
+                DataSet mDataSet2 = mDAO.ExecuteDataSet(mCommandText);
+                foreach (DataRow mDataRow2 in mDataSet2.Tables[0].Rows)
+                {
+                    asignada = true;
+                }
+            }
+
+            return asignada;
+
+        }
     }
 }

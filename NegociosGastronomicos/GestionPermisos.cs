@@ -130,13 +130,14 @@ namespace NegociosGastronomicos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try { 
-            Patente nuevaPatente = new Patente { Descripcion = txtDescripcion.Text };
+            try
+            {
+                Patente nuevaPatente = new Patente { Descripcion = txtDescripcion.Text };
 
-            PatenteBL mPatenteBL = new PatenteBL();
-            mPatenteBL.GuardarNuevo(nuevaPatente);
-            txtDescripcion.Text = "";
-            ActualizarPatentes();
+                PatenteBL mPatenteBL = new PatenteBL();
+                mPatenteBL.GuardarNuevo(nuevaPatente);
+                txtDescripcion.Text = "";
+                ActualizarPatentes();
             }
             catch (Exception ex)
             {
@@ -147,12 +148,13 @@ namespace NegociosGastronomicos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            try { 
-            patenteSeleccionada.Descripcion = txtDescripcion.Text;
+            try
+            {
+                patenteSeleccionada.Descripcion = txtDescripcion.Text;
 
-            PatenteBL mPatenteBL = new PatenteBL();
-            mPatenteBL.Modificar(patenteSeleccionada);
-            ActualizarPatentes();
+                PatenteBL mPatenteBL = new PatenteBL();
+                mPatenteBL.Modificar(patenteSeleccionada);
+                ActualizarPatentes();
             }
             catch (Exception ex)
             {
@@ -173,11 +175,12 @@ namespace NegociosGastronomicos
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            try{
-            Patente patenteBorrar = new Patente { IdPatente = patenteSeleccionada.IdPatente };
-            PatenteBL patenteBL = new PatenteBL();
-            patenteBL.Borrar(patenteBorrar);
-            ActualizarPatentes();
+            try
+            {
+                Patente patenteBorrar = new Patente { IdPatente = patenteSeleccionada.IdPatente };
+                PatenteBL patenteBL = new PatenteBL();
+                patenteBL.Borrar(patenteBorrar);
+                ActualizarPatentes();
             }
             catch (Exception ex)
             {
@@ -198,13 +201,14 @@ namespace NegociosGastronomicos
 
         private void btnAgregarF_Click(object sender, EventArgs e)
         {
-            try { 
-            Familia nuevaFamilia = new Familia { Descripcion = txtDescripcionF.Text };
+            try
+            {
+                Familia nuevaFamilia = new Familia { Descripcion = txtDescripcionF.Text };
 
-            FamiliaBL mFamiliaBL = new FamiliaBL();
-            mFamiliaBL.GuardarNuevo(nuevaFamilia);
-            txtDescripcionF.Text = "";
-            ActualizarFamilias();
+                FamiliaBL mFamiliaBL = new FamiliaBL();
+                mFamiliaBL.GuardarNuevo(nuevaFamilia);
+                txtDescripcionF.Text = "";
+                ActualizarFamilias();
             }
             catch (Exception ex)
             {
@@ -215,12 +219,13 @@ namespace NegociosGastronomicos
 
         private void btnModificarF_Click(object sender, EventArgs e)
         {
-            try { 
-            familiaSeleccionada.Descripcion = txtDescripcionF.Text;
+            try
+            {
+                familiaSeleccionada.Descripcion = txtDescripcionF.Text;
 
-            FamiliaBL mFamiliaBL = new FamiliaBL();
-            mFamiliaBL.Modificar(familiaSeleccionada);
-            ActualizarFamilias();
+                FamiliaBL mFamiliaBL = new FamiliaBL();
+                mFamiliaBL.Modificar(familiaSeleccionada);
+                ActualizarFamilias();
             }
             catch (Exception ex)
             {
@@ -231,11 +236,44 @@ namespace NegociosGastronomicos
 
         private void btnBajaF_Click(object sender, EventArgs e)
         {
-            try { 
-            Familia familiaBorrar = new Familia { IdFamilia = familiaSeleccionada.IdFamilia };
-            FamiliaBL familiaBL = new FamiliaBL();
-            familiaBL.Borrar(familiaBorrar);
-            ActualizarFamilias();
+            try
+            {
+                Familia familiaBorrar = new Familia { IdFamilia = familiaSeleccionada.IdFamilia };
+                PatenteBL mPatenteBL = new PatenteBL();
+                FamiliaBL mFamiliaBL = new FamiliaBL();
+
+                //Validar si ok borrar familia
+                familiaSeleccionada.mPatentes.Clear();
+                mFamiliaBL.ObtenerAsignados(familiaSeleccionada);
+
+                //Validar que no queden patentes de la familia desasignadas
+                bool tieneDesasignadas = false;
+
+                //Loopeo todas las patentes de la familia
+                foreach (Patente mPatente in familiaSeleccionada.mPatentes)
+                {
+                    if (!mPatenteBL.PatenteAsignadaDirecta(mPatente))
+                    {
+                        if (!mFamiliaBL.EnFamiliaAsignada(familiaSeleccionada, mPatente))
+                        {
+                            tieneDesasignadas = true;
+                        }
+
+                    }
+                }
+
+                //Si no hay patentes desasignadas, borro la familia
+                if (!tieneDesasignadas)
+                {
+                    mFamiliaBL.Borrar(familiaBorrar);
+                }
+                else
+                {
+                    MessageBox.Show("La familia no puede ser borrada. Dejaría permisos sin asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+                ActualizarFamilias();
             }
             catch (Exception ex)
             {
@@ -256,11 +294,12 @@ namespace NegociosGastronomicos
 
         private void btnAsignarPatente_Click(object sender, EventArgs e)
         {
-            try{
-            FamiliaBL mFamiliaBL = new FamiliaBL();
-            mFamiliaBL.AsignarPatente(familiaSeleccionada, disponibleSeleccionada);
-            ActualizarAsignadas();
-            ActualizarDisponibles();
+            try
+            {
+                FamiliaBL mFamiliaBL = new FamiliaBL();
+                mFamiliaBL.AsignarPatente(familiaSeleccionada, disponibleSeleccionada);
+                ActualizarAsignadas();
+                ActualizarDisponibles();
             }
             catch (Exception ex)
             {
@@ -271,11 +310,26 @@ namespace NegociosGastronomicos
 
         private void btnRemoverPatente_Click(object sender, EventArgs e)
         {
-            try { 
-            FamiliaBL mFamiliaBL = new FamiliaBL();
-            mFamiliaBL.DesasignarPatente(familiaSeleccionada, asignadaSeleccionada);
-            ActualizarAsignadas();
-            ActualizarDisponibles();
+            try
+            {
+                FamiliaBL mFamiliaBL = new FamiliaBL();
+                PatenteBL mPatenteBL = new PatenteBL();
+
+                //Validar si patente esta asignada direactamente a usuario
+                bool asignadaDirecta = mPatenteBL.PatenteAsignadaDirecta(asignadaSeleccionada);
+                bool enFamiliaAsignada = mFamiliaBL.EnFamiliaAsignada(familiaSeleccionada, asignadaSeleccionada);
+
+                if (asignadaDirecta || enFamiliaAsignada)
+                {
+                    mFamiliaBL.DesasignarPatente(familiaSeleccionada, asignadaSeleccionada);
+                }
+                else
+                {
+                    MessageBox.Show("La patente no puede ser desasignada. Dejaría un permiso sin asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                ActualizarAsignadas();
+                ActualizarDisponibles();
             }
             catch (Exception ex)
             {

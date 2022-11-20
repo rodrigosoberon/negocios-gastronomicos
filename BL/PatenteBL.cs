@@ -25,9 +25,19 @@ namespace BL
             return PatenteDAL.Borrar(pPatente);
         }
 
-        public bool PatenteAsignada(Patente pPatente)
+        public bool PatenteAsignada(Usuario pUsuario, Patente pPatente)
+        {
+            return PatenteDAL.PatenteAsignada(pUsuario, pPatente);
+        }
+
+        public bool PatenteAsignada( Patente pPatente)
         {
             return PatenteDAL.PatenteAsignada(pPatente);
+        }
+
+        public bool PatenteAsignadaDirecta(Patente pPatente)
+        {
+            return PatenteDAL.PatenteAsignadaDirecta(pPatente) ;
         }
     }
 }

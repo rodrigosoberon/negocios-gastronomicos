@@ -33,6 +33,7 @@ namespace DAL
         public static Usuario ObtenerUsuario(int IdUsuario)
         {
             Usuario mUsuario = new Usuario();
+
             DataSet mDataSet = UsuarioDAL.ConsultarRegistro(IdUsuario);
             DataRow mDataRow = mDataSet.Tables[0].Rows[0];
             mUsuario.IdUsuario = IdUsuario;

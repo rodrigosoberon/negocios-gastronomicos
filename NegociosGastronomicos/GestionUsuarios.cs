@@ -2,8 +2,8 @@
 using BL;
 using System;
 using System.Data;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace NegociosGastronomicos
 {
@@ -303,10 +303,10 @@ namespace NegociosGastronomicos
             if (usuarioSeleccionado.Estado == true) //Lógica para deshabilitar usuario
             {
                 bool okDeshabilitar = true;
-                //Loopeo sus patentes para verificar que esten asignadas a otro usuario habilitado
-                foreach (Patente patente in UsuarioBL.ObtenerPatentes(usuarioSeleccionado))
+                //Loopeo sus permisos para verificar que esten todos asignadas a al menos un usuario habilitado
+                foreach (Patente patente in UsuarioBL.ObtenerPermisos(usuarioSeleccionado))
                 {
-                    bool asignada = patenteBL.PatenteAsignada(patente);
+                    bool asignada = patenteBL.PatenteAsignada(usuarioSeleccionado, patente);
                     if (!asignada)
                     {
                         okDeshabilitar = false;
@@ -373,11 +373,38 @@ namespace NegociosGastronomicos
 
         private void btnFamRemover_Click(object sender, EventArgs e)
         {
-            try { 
-            UsuarioBL mUsuarioBL = new UsuarioBL();
-            mUsuarioBL.RemoverFamilia(usuarioSeleccionado, familiaAsignadaSeleccionada);
-            ActualizarFamiliasAsignadas();
-            ActualizarFamiliasDisponibles();
+            try
+            {
+                UsuarioBL mUsuarioBL = new UsuarioBL();
+                PatenteBL mPatenteBL = new PatenteBL();
+                FamiliaBL mFamiliaBL = new FamiliaBL();
+                familiaAsignadaSeleccionada.mPatentes.Clear();
+                mFamiliaBL.ObtenerAsignados(familiaAsignadaSeleccionada);
+
+                //Validar que no queden patentes de la familia desasignadas
+                bool tieneDesasignadas = false;
+
+                //Loopeo todas las patentes de la familia
+                foreach (Patente mPatente in familiaAsignadaSeleccionada.mPatentes)
+                {
+                    //Si la patente esta asociada a otro usuario devuelve true
+                    if (!mPatenteBL.PatenteAsignada(usuarioSeleccionado, mPatente))
+                    {
+                        tieneDesasignadas = true;
+                    }
+                }
+
+                //Si no hay patentes desasignadas, desasigna la familia
+                if (!tieneDesasignadas)
+                {
+                    mUsuarioBL.RemoverFamilia(usuarioSeleccionado, familiaAsignadaSeleccionada);
+                }
+                else
+                {
+                    MessageBox.Show("La familia no puede ser desasignada. Dejaría permisos sin asignar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                ActualizarFamiliasAsignadas();
+                ActualizarFamiliasDisponibles();
             }
             catch (Exception ex)
             {
@@ -388,11 +415,12 @@ namespace NegociosGastronomicos
 
         private void btnPatAsignar_Click(object sender, EventArgs e)
         {
-            try { 
-            UsuarioBL mUsuarioBL = new UsuarioBL();
-            mUsuarioBL.AsignarPatente(usuarioSeleccionado, patenteDisponibleSeleccionada);
-            ActualizarPatentesAsignadas();
-            ActualizarPatentesDisponibles();
+            try
+            {
+                UsuarioBL mUsuarioBL = new UsuarioBL();
+                mUsuarioBL.AsignarPatente(usuarioSeleccionado, patenteDisponibleSeleccionada);
+                ActualizarPatentesAsignadas();
+                ActualizarPatentesDisponibles();
             }
             catch (Exception ex)
             {
@@ -403,21 +431,22 @@ namespace NegociosGastronomicos
 
         private void btnPatRemover_Click(object sender, EventArgs e)
         {
-            try{
-            PatenteBL patenteBL = new PatenteBL();
-            UsuarioBL mUsuarioBL = new UsuarioBL();
+            try
+            {
+                PatenteBL mPatenteBL = new PatenteBL();
+                UsuarioBL mUsuarioBL = new UsuarioBL();
 
-            bool asignada = patenteBL.PatenteAsignada(patenteAsignadaSeleccionada);
-            if (asignada)
-            {
-                mUsuarioBL.RemoverPatente(usuarioSeleccionado, patenteAsignadaSeleccionada);
-            }
-            else
-            {
-                MessageBox.Show("La patente no puede quedar desasignada. Asignarla a otro usuario habilitado primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            ActualizarPatentesAsignadas();
-            ActualizarPatentesDisponibles();
+                bool asignada = mPatenteBL.PatenteAsignada(patenteAsignadaSeleccionada);
+                if (asignada)
+                {
+                    mUsuarioBL.RemoverPatente(usuarioSeleccionado, patenteAsignadaSeleccionada);
+                }
+                else
+                {
+                    MessageBox.Show("La patente no puede quedar desasignada. Asignarla a otro usuario habilitado primero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                ActualizarPatentesAsignadas();
+                ActualizarPatentesDisponibles();
             }
             catch (Exception ex)
             {
@@ -474,8 +503,8 @@ namespace NegociosGastronomicos
             }
             return pass;
         }
-            
-       
+
+
         public void MostrarTextos()
         {
             DataTable mMensajes = (new MensajeBL()).ObtenerTraducciones(usuarioLogueado.Idioma);

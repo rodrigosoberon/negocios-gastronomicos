@@ -34,5 +34,15 @@ namespace BL
         {
             return FamiliaDAL.Desasignar(pFamilia, pPatente);
         }
+
+        public void ObtenerAsignados(Familia pFamilia)
+        {
+           FamiliaDAL.ObtenerAsignados(pFamilia);
+        }
+
+        public bool EnFamiliaAsignada(Familia pFamilia,Patente pPatente)
+        {
+            return FamiliaDAL.EnFamiliaAsignada(pFamilia, pPatente);
+        }
     }
 }

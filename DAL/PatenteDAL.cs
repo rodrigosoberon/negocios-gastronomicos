@@ -1,4 +1,5 @@
 ﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -87,26 +88,129 @@ namespace DAL
             mDAO.ExecuteScalar(mCommandText);
             dvv = Verificacion.CalcularDVV("Patente");
             Verificacion.AgregarDVV("Patente", dvv);
-            
+
             return 1;
         }
 
-        public static bool PatenteAsignada(Patente patente)
+        public static bool PatenteAsignada(Usuario pUsuario, Patente pPatente)
         {
-            //Si hay mas de dos usuarios asignados a la patente, considero que se puede desasignar
-
-            string mCommandText = "SELECT * FROM PatUsu INNER JOIN Usuario ON PatUsu.IdUsuario = Usuario.IdUsuario WHERE PatUsu.IdPatente = " + patente.IdPatente + " AND Usuario.Estado = 1";
             DAO mDAO = new DAO();
+            //List<int> usuariosConLaPatente = new List<int>();
+
+            bool asignada = false;
+
+            //Compruebo si hay otros usuarios habilitados con la patente asignada directamente
+            string mCommandText = "SELECT * FROM PatUsu INNER JOIN Usuario ON PatUsu.IdUsuario = Usuario.IdUsuario WHERE PatUsu.IdPatente = " + pPatente.IdPatente + " AND Usuario.Estado = 1 AND PatUsu.IdUsuario != " + pUsuario.IdUsuario;
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
-            if (mDataSet.Tables[0].Rows.Count > 1)
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                asignada= true;
+            }
+
+
+            //Compruebo si hay otros usuarios que tengan la patante a traves de una familia
+            mCommandText = "SELECT * FROM FamPat WHERE IdPatente = '" + pPatente.IdPatente + "'";
+            mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                //Loopeo cada famila que contenga la patente
+                string mCommandText2 = "SELECT * FROM FamUsu INNER JOIN Usuario ON FamUsu.IdUsuario = Usuario.IdUsuario WHERE FamUsu.IdFamilia = " + mDataRow["IdFamilia"].ToString() + " AND Usuario.Estado = 1 AND FamUsu.IdUsuario != " + pUsuario.IdUsuario;
+                //string mCommandText2 = "SELECT * FROM FamUsu INNER JOIN Usuario ON FamUsu.IdUsuario = Usuario.IdUsuario WHERE FamUsu.IdFamilia = " + mDataRow["IdFamilia"].ToString() + " AND Usuario.Estado = 1 ";
+                DataSet famUsuDS = mDAO.ExecuteDataSet(mCommandText2);
+                foreach (DataRow famUsuDR in famUsuDS.Tables[0].Rows)
+                {
+                    //Agrego los usuarios habilitados con la familia asignada -NO-
+                    //usuariosConLaPatente.Add(Int32.Parse(famUsuDR["IdUsuario"].ToString()));
+
+
+                    asignada = true;
+                }
+            }
+
+            return asignada;
+
+
+            //Elimino usuarios repetidos de la lista
+
+            //Hace falta elimnar los repetidos?? 
+            //usuariosConLaPatente = usuariosConLaPatente.Distinct().ToList();
+
+
+            //Si hay mas de dos usuarios relacionados a la patente, considero que se puede desasignar
+            //if (usuariosConLaPatente.Count > 1)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    //Valido si esta incluida en una familia asignada a un usuario habilitado
+
+            //    return false;
+            //}
+
+        }
+
+        public static bool PatenteAsignada(Patente pPatente)
+        {
+            DAO mDAO = new DAO();
+            bool asignada = false;
+            List<int> usuariosConLaPatente = new List<int>();
+
+            //Compruebo si hay usuarios habilitados con la patente asignada directamente
+            string mCommandText = "SELECT * FROM PatUsu INNER JOIN Usuario ON PatUsu.IdUsuario = Usuario.IdUsuario WHERE PatUsu.IdPatente = " + pPatente.IdPatente + " AND Usuario.Estado = 1 ";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                usuariosConLaPatente.Add(Int32.Parse(mDataRow["IdUsuario"].ToString()));
+            }
+
+
+            //Compruebo si hay otros usuarios que tengan la patante a traves de una familia
+            mCommandText = "SELECT * FROM FamPat WHERE IdPatente = '" + pPatente.IdPatente + "'";
+            mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
+            {
+                //Loopeo cada famila que contenga la patente
+                string mCommandText2 = "SELECT * FROM FamUsu INNER JOIN Usuario ON FamUsu.IdUsuario = Usuario.IdUsuario WHERE FamUsu.IdFamilia = " + mDataRow["IdFamilia"].ToString() + " AND Usuario.Estado = 1";
+                DataSet famUsuDS = mDAO.ExecuteDataSet(mCommandText2);
+                foreach (DataRow famUsuDR in famUsuDS.Tables[0].Rows)
+                {
+                    //Agrego los usuarios habilitados con la familia asignada
+                    usuariosConLaPatente.Add(Int32.Parse(famUsuDR["IdUsuario"].ToString()));
+
+                }
+            }
+
+            //Elimino usuarios repetidos de la lista
+
+            //Hace falta elimnar los repetidos?? 
+            //usuariosConLaPatente = usuariosConLaPatente.Distinct().ToList();
+
+
+            //Si hay mas de dos usuarios relacionados a la patente, considero que se puede desasignar
+            if (usuariosConLaPatente.Count > 1)
             {
                 return true;
             }
             else
             {
+                //Valido si esta incluida en una familia asignada a un usuario habilitado
                 return false;
             }
+        }
 
+        public static bool PatenteAsignadaDirecta(Patente pPatente)
+        {
+            DAO mDAO = new DAO();
+            //Devuelve true si la patente esta asociada a uno o mas usuarios activos
+            bool asignada = true;
+            string mCommandText = "SELECT * FROM PatUsu INNER JOIN Usuario ON PatUsu.IdUsuario = Usuario.IdUsuario WHERE PatUsu.IdPatente = " + pPatente.IdPatente + " AND Usuario.Estado = 1";
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
+            if (mDataSet.Tables[0].Rows.Count < 1)
+            {
+                asignada = false;
+            }
+            return asignada;
         }
     }
 }
