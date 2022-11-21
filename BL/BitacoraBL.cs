@@ -7,9 +7,9 @@ namespace BL
 {
     public class BitacoraBL
     {
-        public List<Bitacora> Listar(DateTime desde, DateTime hasta, String usuario, String criticidad)
+        public List<Bitacora> Listar(DateTime desde, DateTime hasta, String usuario, String criticidad, bool ordFecha, bool ordUsuario, bool ordCriticidad, bool fechDesc, bool usuarioDesc, bool criticidadDesc)
         {
-            return BitacoraDAL.Listar(desde, hasta, usuario, criticidad);
+            return BitacoraDAL.Listar(desde, hasta, usuario, criticidad, ordFecha, ordUsuario, ordCriticidad, fechDesc, usuarioDesc, criticidadDesc);
         }
         public int AgregarBitacora(Bitacora pBitacora)
         {

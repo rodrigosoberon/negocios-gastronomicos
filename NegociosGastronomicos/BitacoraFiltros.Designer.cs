@@ -38,6 +38,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbUsuario = new System.Windows.Forms.ComboBox();
             this.cbCriticidad = new System.Windows.Forms.ComboBox();
+            this.gbFecha = new System.Windows.Forms.GroupBox();
+            this.rbFechaAsc = new System.Windows.Forms.RadioButton();
+            this.rbFechaDesc = new System.Windows.Forms.RadioButton();
+            this.gbUsuario = new System.Windows.Forms.GroupBox();
+            this.rbUsuarioAsc = new System.Windows.Forms.RadioButton();
+            this.rbUsuarioDesc = new System.Windows.Forms.RadioButton();
+            this.gbCriticidad = new System.Windows.Forms.GroupBox();
+            this.rbCriticidadAsc = new System.Windows.Forms.RadioButton();
+            this.rbCriticidadDesc = new System.Windows.Forms.RadioButton();
+            this.checkFecha = new System.Windows.Forms.CheckBox();
+            this.checkUsuarios = new System.Windows.Forms.CheckBox();
+            this.checkCriticidad = new System.Windows.Forms.CheckBox();
+            this.gbFecha.SuspendLayout();
+            this.gbUsuario.SuspendLayout();
+            this.gbCriticidad.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -52,7 +67,7 @@
             // 
             // btnEjecutar
             // 
-            this.btnEjecutar.Location = new System.Drawing.Point(545, 386);
+            this.btnEjecutar.Location = new System.Drawing.Point(597, 449);
             this.btnEjecutar.Name = "btnEjecutar";
             this.btnEjecutar.Size = new System.Drawing.Size(75, 23);
             this.btnEjecutar.TabIndex = 14;
@@ -63,7 +78,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(437, 211);
+            this.label1.Location = new System.Drawing.Point(312, 246);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 15;
@@ -72,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(437, 250);
+            this.label2.Location = new System.Drawing.Point(312, 285);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 16;
@@ -80,7 +95,7 @@
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(502, 208);
+            this.dtpDesde.Location = new System.Drawing.Point(377, 243);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpDesde.TabIndex = 17;
@@ -88,7 +103,7 @@
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(502, 246);
+            this.dtpHasta.Location = new System.Drawing.Point(377, 281);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpHasta.TabIndex = 18;
@@ -97,7 +112,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(437, 289);
+            this.label3.Location = new System.Drawing.Point(312, 331);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 19;
@@ -106,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(437, 328);
+            this.label5.Location = new System.Drawing.Point(312, 383);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 20;
@@ -115,7 +130,7 @@
             // cbUsuario
             // 
             this.cbUsuario.FormattingEnabled = true;
-            this.cbUsuario.Location = new System.Drawing.Point(502, 286);
+            this.cbUsuario.Location = new System.Drawing.Point(377, 328);
             this.cbUsuario.Name = "cbUsuario";
             this.cbUsuario.Size = new System.Drawing.Size(200, 21);
             this.cbUsuario.TabIndex = 21;
@@ -128,16 +143,157 @@
             "Alta",
             "Medio",
             "Bajo"});
-            this.cbCriticidad.Location = new System.Drawing.Point(502, 325);
+            this.cbCriticidad.Location = new System.Drawing.Point(377, 380);
             this.cbCriticidad.Name = "cbCriticidad";
             this.cbCriticidad.Size = new System.Drawing.Size(200, 21);
             this.cbCriticidad.TabIndex = 22;
+            // 
+            // gbFecha
+            // 
+            this.gbFecha.Controls.Add(this.rbFechaDesc);
+            this.gbFecha.Controls.Add(this.rbFechaAsc);
+            this.gbFecha.Enabled = false;
+            this.gbFecha.Location = new System.Drawing.Point(756, 243);
+            this.gbFecha.Name = "gbFecha";
+            this.gbFecha.Size = new System.Drawing.Size(200, 60);
+            this.gbFecha.TabIndex = 24;
+            this.gbFecha.TabStop = false;
+            this.gbFecha.Text = "Orden fecha";
+            // 
+            // rbFechaAsc
+            // 
+            this.rbFechaAsc.AutoSize = true;
+            this.rbFechaAsc.Checked = true;
+            this.rbFechaAsc.Location = new System.Drawing.Point(6, 24);
+            this.rbFechaAsc.Name = "rbFechaAsc";
+            this.rbFechaAsc.Size = new System.Drawing.Size(82, 17);
+            this.rbFechaAsc.TabIndex = 0;
+            this.rbFechaAsc.TabStop = true;
+            this.rbFechaAsc.Text = "Ascendente";
+            this.rbFechaAsc.UseVisualStyleBackColor = true;
+            // 
+            // rbFechaDesc
+            // 
+            this.rbFechaDesc.AutoSize = true;
+            this.rbFechaDesc.Location = new System.Drawing.Point(105, 24);
+            this.rbFechaDesc.Name = "rbFechaDesc";
+            this.rbFechaDesc.Size = new System.Drawing.Size(89, 17);
+            this.rbFechaDesc.TabIndex = 1;
+            this.rbFechaDesc.Text = "Descendente";
+            this.rbFechaDesc.UseVisualStyleBackColor = true;
+            // 
+            // gbUsuario
+            // 
+            this.gbUsuario.Controls.Add(this.rbUsuarioDesc);
+            this.gbUsuario.Controls.Add(this.rbUsuarioAsc);
+            this.gbUsuario.Enabled = false;
+            this.gbUsuario.Location = new System.Drawing.Point(756, 309);
+            this.gbUsuario.Name = "gbUsuario";
+            this.gbUsuario.Size = new System.Drawing.Size(200, 45);
+            this.gbUsuario.TabIndex = 25;
+            this.gbUsuario.TabStop = false;
+            this.gbUsuario.Text = "Orden usuarios";
+            // 
+            // rbUsuarioAsc
+            // 
+            this.rbUsuarioAsc.AutoSize = true;
+            this.rbUsuarioAsc.Checked = true;
+            this.rbUsuarioAsc.Location = new System.Drawing.Point(6, 19);
+            this.rbUsuarioAsc.Name = "rbUsuarioAsc";
+            this.rbUsuarioAsc.Size = new System.Drawing.Size(82, 17);
+            this.rbUsuarioAsc.TabIndex = 0;
+            this.rbUsuarioAsc.TabStop = true;
+            this.rbUsuarioAsc.Text = "Ascendente";
+            this.rbUsuarioAsc.UseVisualStyleBackColor = true;
+            // 
+            // rbUsuarioDesc
+            // 
+            this.rbUsuarioDesc.AutoSize = true;
+            this.rbUsuarioDesc.Location = new System.Drawing.Point(105, 19);
+            this.rbUsuarioDesc.Name = "rbUsuarioDesc";
+            this.rbUsuarioDesc.Size = new System.Drawing.Size(89, 17);
+            this.rbUsuarioDesc.TabIndex = 1;
+            this.rbUsuarioDesc.Text = "Descendente";
+            this.rbUsuarioDesc.UseVisualStyleBackColor = true;
+            // 
+            // gbCriticidad
+            // 
+            this.gbCriticidad.Controls.Add(this.rbCriticidadDesc);
+            this.gbCriticidad.Controls.Add(this.rbCriticidadAsc);
+            this.gbCriticidad.Enabled = false;
+            this.gbCriticidad.Location = new System.Drawing.Point(756, 361);
+            this.gbCriticidad.Name = "gbCriticidad";
+            this.gbCriticidad.Size = new System.Drawing.Size(200, 44);
+            this.gbCriticidad.TabIndex = 26;
+            this.gbCriticidad.TabStop = false;
+            this.gbCriticidad.Text = "Orden criticidad";
+            // 
+            // rbCriticidadAsc
+            // 
+            this.rbCriticidadAsc.AutoSize = true;
+            this.rbCriticidadAsc.Checked = true;
+            this.rbCriticidadAsc.Location = new System.Drawing.Point(7, 20);
+            this.rbCriticidadAsc.Name = "rbCriticidadAsc";
+            this.rbCriticidadAsc.Size = new System.Drawing.Size(82, 17);
+            this.rbCriticidadAsc.TabIndex = 0;
+            this.rbCriticidadAsc.TabStop = true;
+            this.rbCriticidadAsc.Text = "Ascendente";
+            this.rbCriticidadAsc.UseVisualStyleBackColor = true;
+            // 
+            // rbCriticidadDesc
+            // 
+            this.rbCriticidadDesc.AutoSize = true;
+            this.rbCriticidadDesc.Location = new System.Drawing.Point(105, 19);
+            this.rbCriticidadDesc.Name = "rbCriticidadDesc";
+            this.rbCriticidadDesc.Size = new System.Drawing.Size(89, 17);
+            this.rbCriticidadDesc.TabIndex = 1;
+            this.rbCriticidadDesc.Text = "Descendente";
+            this.rbCriticidadDesc.UseVisualStyleBackColor = true;
+            // 
+            // checkFecha
+            // 
+            this.checkFecha.AutoSize = true;
+            this.checkFecha.Location = new System.Drawing.Point(635, 267);
+            this.checkFecha.Name = "checkFecha";
+            this.checkFecha.Size = new System.Drawing.Size(112, 17);
+            this.checkFecha.TabIndex = 27;
+            this.checkFecha.Text = "Ordenar por fecha";
+            this.checkFecha.UseVisualStyleBackColor = true;
+            this.checkFecha.CheckStateChanged += new System.EventHandler(this.checkFecha_CheckStateChanged);
+            // 
+            // checkUsuarios
+            // 
+            this.checkUsuarios.AutoSize = true;
+            this.checkUsuarios.Location = new System.Drawing.Point(635, 328);
+            this.checkUsuarios.Name = "checkUsuarios";
+            this.checkUsuarios.Size = new System.Drawing.Size(119, 17);
+            this.checkUsuarios.TabIndex = 28;
+            this.checkUsuarios.Text = "Ordenar por usuario";
+            this.checkUsuarios.UseVisualStyleBackColor = true;
+            this.checkUsuarios.CheckStateChanged += new System.EventHandler(this.checkUsuarios_CheckStateChanged);
+            // 
+            // checkCriticidad
+            // 
+            this.checkCriticidad.AutoSize = true;
+            this.checkCriticidad.Location = new System.Drawing.Point(635, 378);
+            this.checkCriticidad.Name = "checkCriticidad";
+            this.checkCriticidad.Size = new System.Drawing.Size(115, 17);
+            this.checkCriticidad.TabIndex = 29;
+            this.checkCriticidad.Text = "Order por criticidad";
+            this.checkCriticidad.UseVisualStyleBackColor = true;
+            this.checkCriticidad.CheckStateChanged += new System.EventHandler(this.checkCriticidad_CheckStateChanged);
             // 
             // BitacoraFiltros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 657);
+            this.Controls.Add(this.checkCriticidad);
+            this.Controls.Add(this.checkUsuarios);
+            this.Controls.Add(this.checkFecha);
+            this.Controls.Add(this.gbCriticidad);
+            this.Controls.Add(this.gbUsuario);
+            this.Controls.Add(this.gbFecha);
             this.Controls.Add(this.cbCriticidad);
             this.Controls.Add(this.cbUsuario);
             this.Controls.Add(this.label5);
@@ -153,6 +309,12 @@
             this.Text = "BitacoraFiltros";
             this.Load += new System.EventHandler(this.BitacoraFiltros_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BitacoraFiltros_KeyDown);
+            this.gbFecha.ResumeLayout(false);
+            this.gbFecha.PerformLayout();
+            this.gbUsuario.ResumeLayout(false);
+            this.gbUsuario.PerformLayout();
+            this.gbCriticidad.ResumeLayout(false);
+            this.gbCriticidad.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +332,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbUsuario;
         private System.Windows.Forms.ComboBox cbCriticidad;
+        private System.Windows.Forms.GroupBox gbFecha;
+        private System.Windows.Forms.RadioButton rbFechaDesc;
+        private System.Windows.Forms.RadioButton rbFechaAsc;
+        private System.Windows.Forms.GroupBox gbUsuario;
+        private System.Windows.Forms.RadioButton rbUsuarioDesc;
+        private System.Windows.Forms.RadioButton rbUsuarioAsc;
+        private System.Windows.Forms.GroupBox gbCriticidad;
+        private System.Windows.Forms.RadioButton rbCriticidadDesc;
+        private System.Windows.Forms.RadioButton rbCriticidadAsc;
+        private System.Windows.Forms.CheckBox checkFecha;
+        private System.Windows.Forms.CheckBox checkUsuarios;
+        private System.Windows.Forms.CheckBox checkCriticidad;
     }
 }

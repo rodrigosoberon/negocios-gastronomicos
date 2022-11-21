@@ -7,7 +7,7 @@ namespace DAL
 {
     public class BitacoraDAL
     {
-        public static List<Bitacora> Listar(DateTime pDesde, DateTime pHasta, String pUsuario, String pCriticidad)
+        public static List<Bitacora> Listar(DateTime pDesde, DateTime pHasta, string pUsuario, string pCriticidad, bool pOrdFecha, bool pOrdUsuario, bool pOrdCriticidad, bool pFechDesc, bool pUsuarioDesc, bool pCriticidadDesc)
         {
             DAO mDAO = new DAO();
 
@@ -18,13 +18,38 @@ namespace DAL
                 mCommandText += " AND Criticidad = '" + pCriticidad + "'";
             }
 
-
             if (pUsuario != "")
             {
                 int mUsuario = UsuarioDAL.ObtenerId(pUsuario);
                 mCommandText += " AND Usuario = '" + mUsuario + "'";
             }
 
+            if (pOrdFecha || pOrdCriticidad || pOrdUsuario)
+            {
+                mCommandText += " ORDER BY ";
+                if (pOrdFecha)
+                {
+                    mCommandText += "Fecha";
+                    if (pFechDesc)
+                    { mCommandText += " DESC, "; }
+                    else { mCommandText += ", "; }
+                }
+                if (pOrdUsuario)
+                {
+                    mCommandText += "Usuario";
+                    if (pUsuarioDesc)
+                    { mCommandText += " DESC, "; }
+                    else { mCommandText += ", "; }
+                }
+                if (pOrdCriticidad)
+                {
+                    mCommandText += "Criticidad";
+                    if (pCriticidadDesc)
+                    { mCommandText += " DESC, "; }
+                    else { mCommandText += ", "; }
+                }
+                mCommandText = mCommandText.Remove(mCommandText.Length - 2); //Le saco la ultima coma
+            }
 
 
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);

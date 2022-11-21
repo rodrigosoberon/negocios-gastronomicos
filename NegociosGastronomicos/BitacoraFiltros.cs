@@ -20,13 +20,14 @@ namespace NegociosGastronomicos
             {
                 cbUsuario.Items.Add(mUsuario.NombreUsuario);
             }
+            dtpHasta.Value = DateTime.Now;
         }
 
         private void btnEjecutar_Click(object sender, EventArgs e)
         {
             DateTime desde = dtpDesde.Value;
             DateTime hasta = dtpHasta.Value;
-            ReporteBitacora reporteBitacora = new ReporteBitacora(desde, hasta, cbUsuario.Text, cbCriticidad.Text);
+            ReporteBitacora reporteBitacora = new ReporteBitacora(desde, hasta, cbUsuario.Text, cbCriticidad.Text, checkFecha.Checked, checkUsuarios.Checked, checkCriticidad.Checked, rbFechaDesc.Checked, rbUsuarioDesc.Checked, rbCriticidadDesc.Checked);
             reporteBitacora.Show();
         }
 
@@ -39,6 +40,29 @@ namespace NegociosGastronomicos
             }
         }
 
+        private void checkFecha_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkFecha.Checked)
+            { gbFecha.Enabled = true; }
+            else
+            { gbFecha.Enabled = false; }
 
+        }
+
+        private void checkUsuarios_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkUsuarios.Checked)
+            { gbUsuario.Enabled = true; }
+            else
+            { gbUsuario.Enabled = false; }
+        }
+
+        private void checkCriticidad_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkCriticidad.Checked)
+            { gbCriticidad.Enabled = true; }
+            else
+            { gbCriticidad.Enabled = false; }
+        }
     }
 }
