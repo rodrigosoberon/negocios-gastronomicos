@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BL;
+using System;
 using System.Windows.Forms;
 
 namespace NegociosGastronomicos
@@ -16,9 +14,8 @@ namespace NegociosGastronomicos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //Cambiar aca el form de inicio
-            Application.Run(new Form1());
+            Application.Run(new Inicio());
         }
+
     }
 }

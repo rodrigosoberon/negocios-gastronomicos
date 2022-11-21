@@ -1,17 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 
 namespace DAL
 {
     public class DAO
     {
-        SqlConnection mConnection = new SqlConnection(@"Data Source=PREDATOR\SQLEXPRESS;Initial Catalog=NegociosGastronomicos; Integrated Security=True");
+        private static string Key = "5c69Ycj6rwdHOJbvfgt4mD50MM96Opxm"; //Clave de 32
+        private static string IV = "dKho5jGR8nsqZswy"; //Vector de inicialización de 16
 
+        
+
+        public static string ObtenerCadenaConexion()
+        {
+            StreamReader Archivo = new StreamReader(Path.Combine(Environment.CurrentDirectory, "stringConnection.txt"));
+            string cadenaConexion = Archivo.ReadLine();
+            Archivo.Close();
+            return cadenaConexion;
+        }    
+
+        SqlConnection mConnection = new SqlConnection(Seguridad.Desencriptar(ObtenerCadenaConexion(), Key, IV));
         public DataSet ExecuteDataSet(string pCommandText)
         {
             try

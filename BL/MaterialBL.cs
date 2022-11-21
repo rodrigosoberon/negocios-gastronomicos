@@ -23,5 +23,9 @@ namespace BL
         {
             return MaterialDAL.Modificar(pMaterial);
         }
+
+        public int Borrar(Material pMaterial){
+            return MaterialDAL.Borrar(pMaterial);
+        }
     }
 }
