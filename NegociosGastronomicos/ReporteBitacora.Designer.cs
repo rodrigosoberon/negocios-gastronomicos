@@ -46,7 +46,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 657);
             this.Controls.Add(this.reportViewer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteBitacora";
             this.Text = "ReporteBitacora";
             this.Load += new System.EventHandler(this.ReporteBitacora_Load);

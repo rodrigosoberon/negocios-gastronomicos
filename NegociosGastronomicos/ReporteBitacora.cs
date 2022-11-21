@@ -9,25 +9,27 @@ namespace NegociosGastronomicos
 {
     public partial class ReporteBitacora : Form
     {
-        public ReporteBitacora()
+        public DateTime desde { get; set; }
+        public DateTime hasta { get; set; }
+        public String usuario { get; set; }
+        public String criticidad { get; set; }
+        public ReporteBitacora(DateTime pDesde, DateTime pHasta, String pNombreUsuario, String pCriticidad)
         {
+            desde = pDesde;
+            hasta = pHasta;
+            usuario = pNombreUsuario;
+            criticidad = pCriticidad;
             this.KeyPreview = true;
             InitializeComponent();
         }
 
         private void ReporteBitacora_Load(object sender, EventArgs e)
         {
-            //List<Bitacora> bitacora = new List<Bitacora>();
-
-            List<Bitacora> bitacoras = new BitacoraBL().Listar();
-
+            List<Bitacora> bitacoras = new BitacoraBL().Listar(desde, hasta, usuario, criticidad);
             this.reportViewer1.LocalReport.ReportPath = "ReporteBitacora.rdlc";
             ReportDataSource source = new ReportDataSource("DataSetBitacora", bitacoras);
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(source);
-
-
-
             this.reportViewer1.RefreshReport();
         }
 

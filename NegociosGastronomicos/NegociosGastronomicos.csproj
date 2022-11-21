@@ -96,6 +96,12 @@
     <Compile Include="Ayuda.Designer.cs">
       <DependentUpon>Ayuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="BitacoraFiltros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BitacoraFiltros.Designer.cs">
+      <DependentUpon>BitacoraFiltros.cs</DependentUpon>
+    </Compile>
     <Compile Include="CambiarContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ayuda.resx">
       <DependentUpon>Ayuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BitacoraFiltros.resx">
+      <DependentUpon>BitacoraFiltros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CambiarContrasena.resx">
       <DependentUpon>CambiarContrasena.cs</DependentUpon>

@@ -187,3 +187,4 @@ C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomi
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.Ayuda.resources
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\bin\Debug\EnvDTE.xml
 C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.csproj.SuggestedBindingRedirects.cache
+C:\dev\negocios-gastronomicos\NegociosGastronomicos\obj\Debug\NegociosGastronomicos.BitacoraFiltros.resources

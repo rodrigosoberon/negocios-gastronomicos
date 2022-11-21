@@ -1,19 +1,35 @@
 ﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System;
 
 namespace DAL
 {
     public class BitacoraDAL
     {
-        public static List<Bitacora> Listar()
+        public static List<Bitacora> Listar(DateTime pDesde, DateTime pHasta, String pUsuario, String pCriticidad)
         {
-            string mCommandText = "SELECT * FROM Bitacora";
             DAO mDAO = new DAO();
+
+            string mCommandText = "SELECT * FROM Bitacora WHERE Fecha BETWEEN '" + pDesde + "' AND '" + pHasta + "'";
+
+            if (pCriticidad != "")
+            {
+                mCommandText += " AND Criticidad = '" + pCriticidad + "'";
+            }
+
+
+            if (pUsuario != "")
+            {
+                int mUsuario = UsuarioDAL.ObtenerId(pUsuario);
+                mCommandText += " AND Usuario = '" + mUsuario + "'";
+            }
+
+
+
             DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             List<Bitacora> mBitacoras = new List<Bitacora>();
-            foreach(DataRow mDataRow in mDataSet.Tables[0].Rows)
+            foreach (DataRow mDataRow in mDataSet.Tables[0].Rows)
             {
                 {
                     Bitacora mBitacora = new Bitacora();
@@ -62,7 +78,7 @@ namespace DAL
             //Consulto por un registro en particular para calculcar su DVH
             string mCommandText = "SELECT * FROM Bitacora WHERE IdBitacora = " + IdBitacora;
             DAO mDAO = new DAO();
-            DataSet mDataSet =  mDAO.ExecuteDataSet(mCommandText);
+            DataSet mDataSet = mDAO.ExecuteDataSet(mCommandText);
             return mDataSet;
         }
     }

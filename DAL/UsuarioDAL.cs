@@ -433,5 +433,14 @@ namespace DAL
             }
 
         }
+
+
+        public static int ObtenerId(string pNombreUsuario)
+        {
+            string usuarioEncriptado = Seguridad.Encriptar(pNombreUsuario, Key, IV);
+            DAO mDAO = new DAO();
+            string mCommandText = "SELECT * FROM Usuario WHERE NombreUsuario = '" + usuarioEncriptado + "'";
+            return int.Parse(mDAO.ExecuteDataSet(mCommandText).Tables[0].Rows[0]["IdUsuario"].ToString());
+        }
     }
 }

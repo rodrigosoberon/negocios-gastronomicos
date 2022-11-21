@@ -89,9 +89,9 @@ namespace NegociosGastronomicos
         private void reporteBitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panelContenedorPrincipal.Controls.Clear();
-            ReporteBitacora reporteBitacora = new ReporteBitacora() { TopLevel = false, Dock = DockStyle.Fill };
-            panelContenedorPrincipal.Controls.Add(reporteBitacora);
-            reporteBitacora.Show();
+            BitacoraFiltros bitacoraFiltros = new BitacoraFiltros() { TopLevel = false, Dock = DockStyle.Fill };
+            panelContenedorPrincipal.Controls.Add(bitacoraFiltros);
+            bitacoraFiltros.Show();
         }
 
         private void cambiarContrasenaToolStripMenuItem_Click(object sender, EventArgs e)
