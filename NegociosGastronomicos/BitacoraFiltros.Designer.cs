@@ -39,14 +39,14 @@
             this.cbUsuario = new System.Windows.Forms.ComboBox();
             this.cbCriticidad = new System.Windows.Forms.ComboBox();
             this.gbFecha = new System.Windows.Forms.GroupBox();
-            this.rbFechaAsc = new System.Windows.Forms.RadioButton();
             this.rbFechaDesc = new System.Windows.Forms.RadioButton();
+            this.rbFechaAsc = new System.Windows.Forms.RadioButton();
             this.gbUsuario = new System.Windows.Forms.GroupBox();
-            this.rbUsuarioAsc = new System.Windows.Forms.RadioButton();
             this.rbUsuarioDesc = new System.Windows.Forms.RadioButton();
+            this.rbUsuarioAsc = new System.Windows.Forms.RadioButton();
             this.gbCriticidad = new System.Windows.Forms.GroupBox();
-            this.rbCriticidadAsc = new System.Windows.Forms.RadioButton();
             this.rbCriticidadDesc = new System.Windows.Forms.RadioButton();
+            this.rbCriticidadAsc = new System.Windows.Forms.RadioButton();
             this.checkFecha = new System.Windows.Forms.CheckBox();
             this.checkUsuarios = new System.Windows.Forms.CheckBox();
             this.checkCriticidad = new System.Windows.Forms.CheckBox();
@@ -99,7 +99,7 @@
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpDesde.TabIndex = 17;
-            this.dtpDesde.Value = new System.DateTime(2021, 11, 1, 0, 0, 0, 0);
+            this.dtpDesde.Value = new System.DateTime(2022, 11, 1, 0, 0, 0, 0);
             // 
             // dtpHasta
             // 
@@ -160,6 +160,16 @@
             this.gbFecha.TabStop = false;
             this.gbFecha.Text = "Orden fecha";
             // 
+            // rbFechaDesc
+            // 
+            this.rbFechaDesc.AutoSize = true;
+            this.rbFechaDesc.Location = new System.Drawing.Point(105, 24);
+            this.rbFechaDesc.Name = "rbFechaDesc";
+            this.rbFechaDesc.Size = new System.Drawing.Size(89, 17);
+            this.rbFechaDesc.TabIndex = 1;
+            this.rbFechaDesc.Text = "Descendente";
+            this.rbFechaDesc.UseVisualStyleBackColor = true;
+            // 
             // rbFechaAsc
             // 
             this.rbFechaAsc.AutoSize = true;
@@ -171,16 +181,6 @@
             this.rbFechaAsc.TabStop = true;
             this.rbFechaAsc.Text = "Ascendente";
             this.rbFechaAsc.UseVisualStyleBackColor = true;
-            // 
-            // rbFechaDesc
-            // 
-            this.rbFechaDesc.AutoSize = true;
-            this.rbFechaDesc.Location = new System.Drawing.Point(105, 24);
-            this.rbFechaDesc.Name = "rbFechaDesc";
-            this.rbFechaDesc.Size = new System.Drawing.Size(89, 17);
-            this.rbFechaDesc.TabIndex = 1;
-            this.rbFechaDesc.Text = "Descendente";
-            this.rbFechaDesc.UseVisualStyleBackColor = true;
             // 
             // gbUsuario
             // 
@@ -194,6 +194,16 @@
             this.gbUsuario.TabStop = false;
             this.gbUsuario.Text = "Orden usuarios";
             // 
+            // rbUsuarioDesc
+            // 
+            this.rbUsuarioDesc.AutoSize = true;
+            this.rbUsuarioDesc.Location = new System.Drawing.Point(105, 19);
+            this.rbUsuarioDesc.Name = "rbUsuarioDesc";
+            this.rbUsuarioDesc.Size = new System.Drawing.Size(89, 17);
+            this.rbUsuarioDesc.TabIndex = 1;
+            this.rbUsuarioDesc.Text = "Descendente";
+            this.rbUsuarioDesc.UseVisualStyleBackColor = true;
+            // 
             // rbUsuarioAsc
             // 
             this.rbUsuarioAsc.AutoSize = true;
@@ -205,16 +215,6 @@
             this.rbUsuarioAsc.TabStop = true;
             this.rbUsuarioAsc.Text = "Ascendente";
             this.rbUsuarioAsc.UseVisualStyleBackColor = true;
-            // 
-            // rbUsuarioDesc
-            // 
-            this.rbUsuarioDesc.AutoSize = true;
-            this.rbUsuarioDesc.Location = new System.Drawing.Point(105, 19);
-            this.rbUsuarioDesc.Name = "rbUsuarioDesc";
-            this.rbUsuarioDesc.Size = new System.Drawing.Size(89, 17);
-            this.rbUsuarioDesc.TabIndex = 1;
-            this.rbUsuarioDesc.Text = "Descendente";
-            this.rbUsuarioDesc.UseVisualStyleBackColor = true;
             // 
             // gbCriticidad
             // 
@@ -228,6 +228,16 @@
             this.gbCriticidad.TabStop = false;
             this.gbCriticidad.Text = "Orden criticidad";
             // 
+            // rbCriticidadDesc
+            // 
+            this.rbCriticidadDesc.AutoSize = true;
+            this.rbCriticidadDesc.Location = new System.Drawing.Point(105, 19);
+            this.rbCriticidadDesc.Name = "rbCriticidadDesc";
+            this.rbCriticidadDesc.Size = new System.Drawing.Size(89, 17);
+            this.rbCriticidadDesc.TabIndex = 1;
+            this.rbCriticidadDesc.Text = "Descendente";
+            this.rbCriticidadDesc.UseVisualStyleBackColor = true;
+            // 
             // rbCriticidadAsc
             // 
             this.rbCriticidadAsc.AutoSize = true;
@@ -239,16 +249,6 @@
             this.rbCriticidadAsc.TabStop = true;
             this.rbCriticidadAsc.Text = "Ascendente";
             this.rbCriticidadAsc.UseVisualStyleBackColor = true;
-            // 
-            // rbCriticidadDesc
-            // 
-            this.rbCriticidadDesc.AutoSize = true;
-            this.rbCriticidadDesc.Location = new System.Drawing.Point(105, 19);
-            this.rbCriticidadDesc.Name = "rbCriticidadDesc";
-            this.rbCriticidadDesc.Size = new System.Drawing.Size(89, 17);
-            this.rbCriticidadDesc.TabIndex = 1;
-            this.rbCriticidadDesc.Text = "Descendente";
-            this.rbCriticidadDesc.UseVisualStyleBackColor = true;
             // 
             // checkFecha
             // 

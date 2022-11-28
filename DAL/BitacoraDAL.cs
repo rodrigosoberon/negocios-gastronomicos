@@ -11,7 +11,7 @@ namespace DAL
         {
             DAO mDAO = new DAO();
 
-            string mCommandText = "SELECT * FROM Bitacora WHERE Fecha BETWEEN '" + pDesde + "' AND '" + pHasta + "'";
+            string mCommandText = "SELECT * FROM Bitacora WHERE Fecha BETWEEN '" + pDesde.ToString("yyyy/MM/dd HH:mm:ss") + "' AND '" + pHasta.ToString("yyyy/MM/dd HH:mm:ss") + "'";
 
             if (pCriticidad != "")
             {

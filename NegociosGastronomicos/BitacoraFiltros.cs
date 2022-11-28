@@ -1,6 +1,7 @@
 ﻿using BE;
 using BL;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace NegociosGastronomicos
@@ -15,6 +16,7 @@ namespace NegociosGastronomicos
 
         private void BitacoraFiltros_Load(object sender, EventArgs e)
         {
+
             cbUsuario.Items.Add("");
             foreach (Usuario mUsuario in new UsuarioBL().Listar())
             {
